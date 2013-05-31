@@ -81,7 +81,7 @@ include 'header.php';
 				<div class="clearfix"></div>
 			</row>
 			<row class="five">
-				<key class="single shift left">Shift</key>
+				<key class="single shft left">Shift</key>
 				<key class="single z">z</key>
 				<key class="single x">x</key>
 				<key class="single c">c</key>
@@ -89,10 +89,10 @@ include 'header.php';
 				<key class="single b">b</key>
 				<key class="single n">n</key>
 				<key class="single m">m</key>
-				<key class="double less"><<span>,</span></key>
+				<key class="double comm"><<span>,</span></key>
 				<key class="double great">><span>.</span></key>
 				<key class="double quest">?<span>/</span></key>
-				<key class="single shift right">Shift</key>
+				<key class="single shft right">Shift</key>
 				<div class="clearfix"></div>
 			</row>
 			<row class="six">

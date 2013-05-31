@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 
 		$.Press = function() {
 
-			$(document).on('keydown', function(e){
+			$('body').on('keydown', function(e){
 
 				var p = e.which;
 
@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
 					$('.equ').addClass('active').siblings().removeClass('active');
 				} else if (p === 8) {
 					e.preventDefault();
-					$('.del').addClass('active').siblings().removeClass('active');
+					$('.delete').addClass('active').siblings().removeClass('active');
 				} else if (p === 9) {
 					e.preventDefault();
 					$('.tab').addClass('active').siblings().removeClass('active');
@@ -131,7 +131,7 @@ jQuery(document).ready(function($) {
 				} else if (p === 220) {
 					e.preventDefault();
 					$('.bs').addClass('active').siblings().removeClass('active');
-				} 
+				}
 
 
 
@@ -168,7 +168,7 @@ jQuery(document).ready(function($) {
 				} else if (p === 186) {
 					e.preventDefault();
 					$('.col').addClass('active').siblings().removeClass('active');
-				} else if (p === 188) {
+				} else if (p === 222) {
 					e.preventDefault();
 					$('.apos').addClass('active').siblings().removeClass('active');
 				} else if (p === 13) {
@@ -176,7 +176,7 @@ jQuery(document).ready(function($) {
 					$('.return').addClass('active').siblings().removeClass('active');
 				} else if (p === 16) {
 					e.preventDefault();
-					$('.shift').addClass('active').siblings().removeClass('active');
+					$('.shft').addClass('active').siblings().removeClass('active');
 				} else if (p === 90) {
 					e.preventDefault();
 					$('.z').addClass('active').siblings().removeClass('active');
@@ -200,7 +200,7 @@ jQuery(document).ready(function($) {
 					$('.m').addClass('active').siblings().removeClass('active');
 				} else if (p === 188) {
 					e.preventDefault();
-					$('.less').addClass('active').siblings().removeClass('active');
+					$('.comm').addClass('active').siblings().removeClass('active');
 				} else if (p === 190) {
 					e.preventDefault();
 					$('.great').addClass('active').siblings().removeClass('active');
@@ -209,8 +209,8 @@ jQuery(document).ready(function($) {
 					$('.quest').addClass('active').siblings().removeClass('active');
 				} else if (p === 16) {
 					e.preventDefault();
-					$('.shift').addClass('active').siblings().removeClass('active');
-				} 
+					$('.shft').addClass('active');
+				}
 
 
 				else if (p === 220) {
@@ -308,7 +308,7 @@ jQuery(document).ready(function($) {
 					$('.equ').removeClass('active');
 				} else if (p === 8) {
 					e.preventDefault();
-					$('.del').removeClass('active');
+					$('.delete').removeClass('active');
 				} else if (p === 9) {
 					e.preventDefault();
 					$('.tab').removeClass('active');
@@ -362,6 +362,15 @@ jQuery(document).ready(function($) {
 
 	};
 
+	$.keyCombos = function(){
+
+		$('.reload').on('click', function(){
+			location.reload();
+		});
+
+	};
+
+	$.keyCombos();
 	$.keyCodeKeyboardCodes();
 	
 });

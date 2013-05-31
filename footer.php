@@ -2,9 +2,10 @@
             <div class="copyright">
                 <p>Made with <span class="heart">love</span> in 2013, by <a href="#">@jayjo</a></p>
             </div>
+            <input type="text" value="" name="" id="textbox" >
         </footer>
 	
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		
         <script src="assets/js/plugins.min.js"></script>
         <script src="assets/js/global.min.js"></script>

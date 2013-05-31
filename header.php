@@ -31,5 +31,6 @@
 		<div id="wrapper">	
 			<h1 id="logo">KeyMap</h1>
 			<h2>The user friendly way to get keyboard ASCII and alskjdf codes.</h2>
+			<a href="#" class="reload">Reload</a>
 		</div>
 	</header>
