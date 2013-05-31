@@ -174,9 +174,6 @@ jQuery(document).ready(function($) {
 				} else if (p === 13) {
 					e.preventDefault();
 					$('.return').addClass('active').siblings().removeClass('active');
-				} else if (p === 16) {
-					e.preventDefault();
-					$('.shft').addClass('active').siblings().removeClass('active');
 				} else if (p === 90) {
 					e.preventDefault();
 					$('.z').addClass('active').siblings().removeClass('active');
@@ -210,6 +207,7 @@ jQuery(document).ready(function($) {
 				} else if (p === 16) {
 					e.preventDefault();
 					$('.shft').addClass('active');
+					$('key').not('.shft').removeClass('active');
 				}
 
 

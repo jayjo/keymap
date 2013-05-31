@@ -167,7 +167,7 @@ key:active, key.active {
   box-shadow: none;
 }
 
-key.tab, key.shift, key.caps, key.delete, key.return {
+key.tab, key.shft, key.caps, key.delete, key.return {
   font-size: 15px;
   padding: .5em 0;
 }
