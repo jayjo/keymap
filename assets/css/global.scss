@@ -250,6 +250,64 @@ key span {
     text-align: right;
 }
 
+#codebox {
+    font-size: 1200%;
+    line-height:0;
+    padding: 80px;
+    vertical-align: baseline;
+    position: fixed;
+    left: 50%;
+    height: 110px;
+    width: 300px;
+    outline: none;
+    top: 44%;
+    left: 50%;
+    margin-left: -230px;
+    margin-top: -155px;
+    border: none;
+    border-radius: 7px;
+    color: rgba(0,0,0,0);
+    background: rgba(255,255,255,.0);
+    text-align: center;
+    cursor-events: none;
+    -webkit-transform: scale(.25);
+    @include twosecs;
+}
+
+#codebox.active {
+    padding: 80px;
+    line-height:0;
+    color: rgba(0,0,0,.8);
+    background: rgba(255,255,255,.6);
+    top: 44%;
+    left: 50%;
+    margin-left: -230px;
+    margin-top: -155px;
+    border: none;
+    -webkit-transform: scale(1.25);
+    @include twosecs;
+}
+
+input[type=text] {
+    opacity: 0;
+    line-height: normal;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 0;
+    padding: 0;
+    position: relative;
+    color: rgba(0,0,0,.75);
+    top: -52px;
+}
+
+#codebox.active input[type=text] {
+    opacity: 1
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

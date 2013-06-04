@@ -6,6 +6,8 @@ jQuery(document).ready(function($) {
 
 			$('body').on('keydown', function(e){
 
+				$('#codebox').addClass('active');
+
 				var p = e.which;
 
 				if (p === 27) {
@@ -223,6 +225,8 @@ jQuery(document).ready(function($) {
 		$.Depress = function() {
 
 			$('body').on('keyup', function(e){
+
+				$('#codebox').removeClass('active');
 
 				var p = e.which;
 

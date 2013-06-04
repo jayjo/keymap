@@ -103,6 +103,9 @@ include 'header.php';
 		<div id="keypad">
 			
 		</div>
+		<display id="codebox">
+			<input type="text" value="44" name="codebox" />
+		</display>
 	</div>
 
 <?php include 'footer.php'; ?>
