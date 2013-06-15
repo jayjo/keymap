@@ -16,6 +16,7 @@
 @import "mixins.scss";
 @import "reset.css";
 @import "fonts.css";
+@import "animate.min.css";
 
 html,
 button,
@@ -27,7 +28,7 @@ textarea {
 
 body {
     margin: 0;
-    background: #F3F3F3;
+    /*background: #F3F3F3;*/
     -webkit-font-smoothing: antialiased;
 }
 
@@ -123,26 +124,26 @@ footer {
 /* @group Home */
 
 html {
-    background: #f06;
-    background: -webkit-linear-gradient(25deg, #f06, yellow);
-    background: -moz-linear-gradient(25deg, #f06, yellow);
-    background: -o-linear-gradient(25deg, #f06, yellow);
-    background: linear-gradient(25deg, #f06, yellow);
+    background: #4099FF;
+    background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
+    background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
+    background: -o-linear-gradient(25deg, #3B5998, #4099FF);
+    background: linear-gradient(25deg, #3B5998, #4099FF);
     height: 100%;
     width: 100%;
 }
 
 body {
-    background: #f06;
-    background: -webkit-linear-gradient(25deg, #f06, yellow);
-    background: -moz-linear-gradient(25deg, #f06, yellow);
-    background: -o-linear-gradient(25deg, #f06, yellow);
-    background: linear-gradient(25deg, #f06, yellow);
+    background: #4099FF;
+    background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
+    background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
+    background: -o-linear-gradient(25deg, #3B5998, #4099FF);
+    background: linear-gradient(25deg, #3B5998, #4099FF);
     height: 100%;
     width: 100%;
     margin: 0 auto;
     padding: 0;
-    font-family: Helvetica;
+    font-weight: 100;
 }
 
 .clearfix {
@@ -155,9 +156,14 @@ header, footer {
     margin: 20px 0;
 }
 
-#wrapper {
-    width: 1187px;
+.wrapper {
+    width: 100%;
+    max-width: 1187px;
     position: relative;
+    margin: 0 auto;
+}
+
+#keyboard {
     margin: 0 auto;
 }
 
@@ -171,16 +177,23 @@ row {
 key {
     border-radius: 3px;
     border: 2px solid rgba(255,255,255,.5);
+    color: rgba(255,255,255,1);
+    font-family: Helvetica;
+    font-weight: normal;
     font-size: 19px;
     line-height: 23px;
     text-align: center;
     margin: 0 2px;
     display: inline-block;
-    text-transform: lowercase;
+    text-transform: uppercase;
     position: relative;
     cursor: pointer;
     display: inline-block;
     @include keyshadow;
+}
+
+key.single, key.tab {
+    text-transform: lowercase;
 }
 
 key:active, key.active {
@@ -198,7 +211,6 @@ key.tab, key.shft, key.caps, key.delete, key.return {
 row.one key {
     padding: .3em 0;
     width: 73px;
-    text-transform: uppercase;
     font-size: 14px;
 }
 
@@ -219,7 +231,6 @@ row.three .tab {
 row.three key.single {
     height: 43px;
     padding: 22px 0 0 0;
-    text-transform: uppercase;
     top: -11px;
 }
 
@@ -228,7 +239,6 @@ row.three key.single:active, row.three key.single.active {
 }
 
 row.one key.single.esc {
-    text-transform: lowercase;
     font-size: 16px;
 }
 
@@ -251,6 +261,8 @@ key span {
 }
 
 #codebox {
+    font-family: "futura-pt";
+    font-weight: 300;
     font-size: 1200%;
     line-height:0;
     padding: 80px;
@@ -266,29 +278,31 @@ key span {
     margin-top: -155px;
     border: none;
     border-radius: 7px;
-    color: rgba(0,0,0,0);
+    color: rgba(255,255,255,0);
     background: rgba(255,255,255,.0);
     text-align: center;
-    cursor-events: none;
+    pointer-events: none;
     -webkit-transform: scale(.25);
     @include twosecs;
 }
 
 #codebox.active {
-    padding: 80px;
+    padding: 80px 80px 120px;
     line-height:0;
-    color: rgba(0,0,0,.8);
-    background: rgba(255,255,255,.6);
+    color: rgba(64,153,255,1);
+    background: rgba(255,255,255,.85);
     top: 44%;
     left: 50%;
     margin-left: -230px;
     margin-top: -155px;
-    border: none;
+    border: 5px solid rgba(64,153,255,1);
     -webkit-transform: scale(1.25);
     @include twosecs;
 }
 
 input[type=text] {
+    font-family: "futura-pt";
+    font-weight: 300;
     opacity: 0;
     line-height: normal;
     width: 100%;
@@ -300,8 +314,9 @@ input[type=text] {
     line-height: 0;
     padding: 0;
     position: relative;
-    color: rgba(0,0,0,.75);
+    color: rgba(64,153,255,1);
     top: -52px;
+    pointer-events: none;
 }
 
 #codebox.active input[type=text] {

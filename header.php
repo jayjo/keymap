@@ -28,9 +28,9 @@
 </head>
 <body class="<?php echo $body_class; ?>">
 	<header>
-		<div id="wrapper">	
-			<h1 id="logo">KeyMap</h1>
-			<h2>The user friendly way to get keyboard ASCII and alskjdf codes.</h2>
+		<div class="wrapper">	
+			<h1 id="logo">Keycodes</h1>
+			<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2>
 			<a href="#" class="reload">Reload</a>
 		</div>
 	</header>

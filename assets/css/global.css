@@ -1,5 +1,6 @@
 @import url(reset.css);
 @import url(fonts.css);
+@import url(animate.min.css);
 /*
  * HTML5 Boilerplate
  *
@@ -13,7 +14,7 @@
 /* @group Base */
 body {
   margin: 0;
-  background: #F3F3F3;
+  /*background: #F3F3F3;*/
   -webkit-font-smoothing: antialiased;
 }
 
@@ -90,26 +91,26 @@ textarea {
 /* @end */
 /* @group Home */
 html {
-  background: #f06;
-  background: -webkit-linear-gradient(25deg, #ff0066, yellow);
-  background: -moz-linear-gradient(25deg, #ff0066, yellow);
-  background: -o-linear-gradient(25deg, #ff0066, yellow);
-  background: linear-gradient(25deg, #ff0066, #ffff00);
+  background: #4099FF;
+  background: -webkit-linear-gradient(25deg, #3b5998, #4099ff);
+  background: -moz-linear-gradient(25deg, #3b5998, #4099ff);
+  background: -o-linear-gradient(25deg, #3b5998, #4099ff);
+  background: linear-gradient(25deg, #3b5998, #4099ff);
   height: 100%;
   width: 100%;
 }
 
 body {
-  background: #f06;
-  background: -webkit-linear-gradient(25deg, #ff0066, yellow);
-  background: -moz-linear-gradient(25deg, #ff0066, yellow);
-  background: -o-linear-gradient(25deg, #ff0066, yellow);
-  background: linear-gradient(25deg, #ff0066, #ffff00);
+  background: #4099FF;
+  background: -webkit-linear-gradient(25deg, #3b5998, #4099ff);
+  background: -moz-linear-gradient(25deg, #3b5998, #4099ff);
+  background: -o-linear-gradient(25deg, #3b5998, #4099ff);
+  background: linear-gradient(25deg, #3b5998, #4099ff);
   height: 100%;
   width: 100%;
   margin: 0 auto;
   padding: 0;
-  font-family: Helvetica;
+  font-weight: 100;
 }
 
 .clearfix {
@@ -122,9 +123,14 @@ header, footer {
   margin: 20px 0;
 }
 
-#wrapper {
-  width: 1187px;
+.wrapper {
+  width: 100%;
+  max-width: 1187px;
   position: relative;
+  margin: 0 auto;
+}
+
+#keyboard {
   margin: 0 auto;
 }
 
@@ -138,12 +144,15 @@ row {
 key {
   border-radius: 3px;
   border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  font-family: Helvetica;
+  font-weight: normal;
   font-size: 19px;
   line-height: 23px;
   text-align: center;
   margin: 0 2px;
   display: inline-block;
-  text-transform: lowercase;
+  text-transform: uppercase;
   position: relative;
   cursor: pointer;
   display: inline-block;
@@ -154,6 +163,10 @@ key {
   color: white;
   /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
   @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+}
+
+key.single, key.tab {
+  text-transform: lowercase;
 }
 
 key:active, key.active {
@@ -175,7 +188,6 @@ key.tab, key.shft, key.caps, key.delete, key.return {
 row.one key {
   padding: .3em 0;
   width: 73px;
-  text-transform: uppercase;
   font-size: 14px;
 }
 
@@ -196,7 +208,6 @@ row.three .tab {
 row.three key.single {
   height: 43px;
   padding: 22px 0 0 0;
-  text-transform: uppercase;
   top: -11px;
 }
 
@@ -205,7 +216,6 @@ row.three key.single:active, row.three key.single.active {
 }
 
 row.one key.single.esc {
-  text-transform: lowercase;
   font-size: 16px;
 }
 
@@ -228,6 +238,8 @@ key span {
 }
 
 #codebox {
+  font-family: "futura-pt";
+  font-weight: 300;
   font-size: 1200%;
   line-height: 0;
   padding: 80px;
@@ -243,10 +255,10 @@ key span {
   margin-top: -155px;
   border: none;
   border-radius: 7px;
-  color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0);
   background: rgba(255, 255, 255, 0);
   text-align: center;
-  cursor-events: none;
+  pointer-events: none;
   -webkit-transform: scale(0.25);
   transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -254,15 +266,15 @@ key span {
 }
 
 #codebox.active {
-  padding: 80px;
+  padding: 80px 80px 120px;
   line-height: 0;
-  color: rgba(0, 0, 0, 0.8);
-  background: rgba(255, 255, 255, 0.6);
+  color: #4099ff;
+  background: rgba(255, 255, 255, 0.85);
   top: 44%;
   left: 50%;
   margin-left: -230px;
   margin-top: -155px;
-  border: none;
+  border: 5px solid #4099ff;
   -webkit-transform: scale(1.25);
   transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -270,6 +282,8 @@ key span {
 }
 
 input[type=text] {
+  font-family: "futura-pt";
+  font-weight: 300;
   opacity: 0;
   line-height: normal;
   width: 100%;
@@ -281,8 +295,9 @@ input[type=text] {
   line-height: 0;
   padding: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.75);
+  color: #4099ff;
   top: -52px;
+  pointer-events: none;
 }
 
 #codebox.active input[type=text] {
