@@ -24,11 +24,11 @@
 		<!--[if lt IE 7]>
 	    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 		<![endif]-->
-		
+
 </head>
 <body class="<?php echo $body_class; ?>">
 	<header>
-		<div class="wrapper">	
+		<div class="wrapper">
 			<h1 id="logo">Keycodes</h1>
 			<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2>
 			<a href="#" class="reload">Reload</a>

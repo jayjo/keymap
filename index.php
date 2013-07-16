@@ -96,12 +96,12 @@ include 'header.php';
 				<div class="clearfix"></div>
 			</row>
 			<row class="six">
-				
+
 				<div class="clearfix"></div>
 			</row>
 		</div>
 		<div id="keypad">
-			
+
 		</div>
 		<display id="codebox">
 			<input type="text" value="44" name="codebox" />

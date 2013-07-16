@@ -107,7 +107,7 @@ textarea {
 
 /* ==========================================================================
    Author's custom styles
-   ========================================================================== */   
+   ========================================================================== */
 
 /* @group Global */
 
@@ -124,25 +124,29 @@ footer {
 /* @group Home */
 
 html {
-    background: #4099FF;
+    /*background: #4099FF;
     background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
     background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
     background: -o-linear-gradient(25deg, #3B5998, #4099FF);
-    background: linear-gradient(25deg, #3B5998, #4099FF);
+    background: linear-gradient(25deg, #3B5998, #4099FF);*/
+    background: $gray;
     height: 100%;
     width: 100%;
 }
 
 body {
-    background: #4099FF;
+    /*background: #4099FF;
     background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
     background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
     background: -o-linear-gradient(25deg, #3B5998, #4099FF);
-    background: linear-gradient(25deg, #3B5998, #4099FF);
+    background: linear-gradient(25deg, #3B5998, #4099FF);*/
+    background: $gray;
     height: 100%;
     width: 100%;
     margin: 0 auto;
     padding: 0;
+    background: $gray;
+    font-family: $omnes;
     font-weight: 100;
 }
 
@@ -153,7 +157,45 @@ body {
 header, footer {
     width: 100%;
     text-align: center;
-    margin: 20px 0;
+    margin: 0;
+}
+
+header {
+    padding: 20px 0 0;
+}
+
+header h1, header h2 {
+    color: $dblue;
+}
+
+header h1 {
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+header h2 {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.reload {
+    border-radius: 3px;
+    background: rgba(22,160,133,1);
+    padding: 7px 20px;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: -1px;
+    margin: 10px auto 30px;
+    display: inline-block;
+    @include twosecs;
+}
+
+.reload:hover {
+    background: rgba(22,160,133,.15);
+    @include twosecs;
 }
 
 .wrapper {
@@ -176,8 +218,8 @@ row {
 
 key {
     border-radius: 3px;
-    border: 2px solid rgba(255,255,255,.5);
-    color: rgba(255,255,255,1);
+    border: 2px solid rgba(255,255,255,.1);
+    background: $white;
     font-family: Helvetica;
     font-weight: normal;
     font-size: 19px;
@@ -192,15 +234,18 @@ key {
     @include keyshadow;
 }
 
+key:hover {
+    border: 2px solid rgba(255,255,255,.5);
+    @include keyshadowhover;
+}
+
 key.single, key.tab {
     text-transform: lowercase;
 }
 
 key:active, key.active {
     top: 4px;
-    border: 2px solid rgba(0,0,0,.075);
-    background: rgba(0,0,0,.04);
-    @include keyshadowhover;
+    @include keyshadowactive;
 }
 
 key.tab, key.shft, key.caps, key.delete, key.return {
@@ -261,7 +306,7 @@ key span {
 }
 
 #codebox {
-    font-family: "futura-pt";
+    font-family: $brandon;
     font-weight: 300;
     font-size: 1200%;
     line-height:0;
@@ -278,8 +323,8 @@ key span {
     margin-top: -155px;
     border: none;
     border-radius: 7px;
-    color: rgba(255,255,255,0);
-    background: rgba(255,255,255,.0);
+    color: rgba(252,205,67,0);
+    background: rgba(5,70,88,.0);
     text-align: center;
     pointer-events: none;
     -webkit-transform: scale(.25);
@@ -289,19 +334,19 @@ key span {
 #codebox.active {
     padding: 80px 80px 120px;
     line-height:0;
-    color: rgba(64,153,255,1);
-    background: rgba(255,255,255,.85);
+    color: rgba(252,205,67,1);
+    background: rgba(5,70,88,.85);
     top: 44%;
     left: 50%;
     margin-left: -230px;
     margin-top: -155px;
-    border: 5px solid rgba(64,153,255,1);
+    border: 5px solid rgba(22,160,133,1);
     -webkit-transform: scale(1.25);
     @include twosecs;
 }
 
 input[type=text] {
-    font-family: "futura-pt";
+    font-family: $brandon;
     font-weight: 300;
     opacity: 0;
     line-height: normal;
@@ -314,8 +359,8 @@ input[type=text] {
     line-height: 0;
     padding: 0;
     position: relative;
-    color: rgba(64,153,255,1);
-    top: -52px;
+    color: rgba(252,205,67,1);
+    top: -62px;
     pointer-events: none;
 }
 
@@ -432,7 +477,7 @@ input[type=text] {
 
 /* @end */
 
-/* @group Main Nav */    
+/* @group Main Nav */
 
 /* @end */
 

@@ -91,25 +91,29 @@ textarea {
 /* @end */
 /* @group Home */
 html {
-  background: #4099FF;
-  background: -webkit-linear-gradient(25deg, #3b5998, #4099ff);
-  background: -moz-linear-gradient(25deg, #3b5998, #4099ff);
-  background: -o-linear-gradient(25deg, #3b5998, #4099ff);
-  background: linear-gradient(25deg, #3b5998, #4099ff);
+  /*background: #4099FF;
+  background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
+  background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
+  background: -o-linear-gradient(25deg, #3B5998, #4099FF);
+  background: linear-gradient(25deg, #3B5998, #4099FF);*/
+  background: rgba(118, 118, 118, 0.1);
   height: 100%;
   width: 100%;
 }
 
 body {
-  background: #4099FF;
-  background: -webkit-linear-gradient(25deg, #3b5998, #4099ff);
-  background: -moz-linear-gradient(25deg, #3b5998, #4099ff);
-  background: -o-linear-gradient(25deg, #3b5998, #4099ff);
-  background: linear-gradient(25deg, #3b5998, #4099ff);
+  /*background: #4099FF;
+  background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
+  background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
+  background: -o-linear-gradient(25deg, #3B5998, #4099FF);
+  background: linear-gradient(25deg, #3B5998, #4099FF);*/
+  background: rgba(118, 118, 118, 0.1);
   height: 100%;
   width: 100%;
   margin: 0 auto;
   padding: 0;
+  background: rgba(118, 118, 118, 0.1);
+  font-family: omnes-pro;
   font-weight: 100;
 }
 
@@ -120,7 +124,49 @@ body {
 header, footer {
   width: 100%;
   text-align: center;
-  margin: 20px 0;
+  margin: 0;
+}
+
+header {
+  padding: 20px 0 0;
+}
+
+header h1, header h2 {
+  color: rgba(3, 49, 65, 0.6);
+}
+
+header h1 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+header h2 {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.reload {
+  border-radius: 3px;
+  background: #16a085;
+  padding: 7px 20px;
+  color: #FFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: -1px;
+  margin: 10px auto 30px;
+  display: inline-block;
+  transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+.reload:hover {
+  background: rgba(22, 160, 133, 0.15);
+  transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
 }
 
 .wrapper {
@@ -143,8 +189,8 @@ row {
 
 key {
   border-radius: 3px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: white;
   font-family: Helvetica;
   font-weight: normal;
   font-size: 19px;
@@ -156,11 +202,22 @@ key {
   position: relative;
   cursor: pointer;
   display: inline-block;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.3);
+  /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+}
+
+key:hover {
+  border: 2px solid rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.05);
-  -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
-  color: white;
+  -webkit-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.75);
   /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
   @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
 }
@@ -171,10 +228,9 @@ key.single, key.tab {
 
 key:active, key.active {
   top: 4px;
-  border: 2px solid rgba(0, 0, 0, 0.075);
-  background: rgba(0, 0, 0, 0.04);
   color: rgba(0, 0, 0, 0.25);
-  border: 2px solid rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.75);
+  border: 2px solid rgba(110, 110, 110, 0.25);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -238,7 +294,7 @@ key span {
 }
 
 #codebox {
-  font-family: "futura-pt";
+  font-family: brandon-grotesque;
   font-weight: 300;
   font-size: 1200%;
   line-height: 0;
@@ -255,8 +311,8 @@ key span {
   margin-top: -155px;
   border: none;
   border-radius: 7px;
-  color: rgba(255, 255, 255, 0);
-  background: rgba(255, 255, 255, 0);
+  color: rgba(252, 205, 67, 0);
+  background: rgba(5, 70, 88, 0);
   text-align: center;
   pointer-events: none;
   -webkit-transform: scale(0.25);
@@ -268,13 +324,13 @@ key span {
 #codebox.active {
   padding: 80px 80px 120px;
   line-height: 0;
-  color: #4099ff;
-  background: rgba(255, 255, 255, 0.85);
+  color: #fccd43;
+  background: rgba(5, 70, 88, 0.85);
   top: 44%;
   left: 50%;
   margin-left: -230px;
   margin-top: -155px;
-  border: 5px solid #4099ff;
+  border: 5px solid #16a085;
   -webkit-transform: scale(1.25);
   transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -282,7 +338,7 @@ key span {
 }
 
 input[type=text] {
-  font-family: "futura-pt";
+  font-family: brandon-grotesque;
   font-weight: 300;
   opacity: 0;
   line-height: normal;
@@ -295,8 +351,8 @@ input[type=text] {
   line-height: 0;
   padding: 0;
   position: relative;
-  color: #4099ff;
-  top: -52px;
+  color: #fccd43;
+  top: -62px;
   pointer-events: none;
 }
 

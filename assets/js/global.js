@@ -457,5 +457,5 @@ jQuery(document).ready(function($) {
 
 	$.keyCombos();
 	$.keyCodeKeyboardCodes();
-	
+
 });
