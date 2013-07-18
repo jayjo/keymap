@@ -162,6 +162,7 @@ header, footer {
 
 header {
     padding: 20px 0 0;
+    position: fixed;
 }
 
 header h1, header h2 {
@@ -178,6 +179,16 @@ header h2 {
     margin-top: 0;
 }
 
+aside {
+    width: 210px;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: $dblue;
+}
+
 .reload {
     border-radius: 3px;
     background: rgba(22,160,133,1);
@@ -189,7 +200,8 @@ header h2 {
     font-size: 15px;
     letter-spacing: -1px;
     margin: 10px auto 30px;
-    display: inline-block;
+    text-align: center;
+    display: block;
     @include twosecs;
 }
 
@@ -206,7 +218,9 @@ header h2 {
 }
 
 #keyboard {
-    margin: 0 auto;
+    margin: 0 0 0 275px;
+    padding: 20px;
+    position: relative;
 }
 
 row {

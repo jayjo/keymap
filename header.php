@@ -27,10 +27,10 @@
 
 </head>
 <body class="<?php echo $body_class; ?>">
-	<header>
+	<aside>
 		<div class="wrapper">
-			<h1 id="logo">Keycodes</h1>
-			<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2>
 			<a href="#" class="reload">Reload</a>
 		</div>
-	</header>
+	</aside>
+	<!-- <h1 id="logo">Keycodes</h1>
+	<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->
