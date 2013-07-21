@@ -31,20 +31,20 @@ include 'header.php';
 				<div class="clearfix"></div>
 			</row>
 			<row class="two">
-				<key class="double til">~<span>`</span></key>
-				<key class="double 1">!<span>1</span></key>
-				<key class="double 2">@<span>2</span></key>
-				<key class="double 3">#<span>3</span></key>
-				<key class="double 4">$<span>4</span></key>
-				<key class="double 5">%<span>5</span></key>
-				<key class="double 6">^<span>6</span></key>
-				<key class="double 7">&<span>7</span></key>
-				<key class="double 8">*<span>8</span></key>
-				<key class="double 9">(<span>9</span></key>
-				<key class="double 0">)<span>0</span></key>
-				<key class="double hyp">_<span>-</span></key>
-				<key class="double equ">+<span>=</span></key>
-				<key class="single delete right">Delete</key>
+				<key class="double til" data-key="49">~<span>`</span></key>
+				<key class="double 1" data-key="50">!<span>1</span></key>
+				<key class="double 2" data-key="51">@<span>2</span></key>
+				<key class="double 3" data-key="52">#<span>3</span></key>
+				<key class="double 4" data-key="53">$<span>4</span></key>
+				<key class="double 5" data-key="54">%<span>5</span></key>
+				<key class="double 6" data-key="55">^<span>6</span></key>
+				<key class="double 7" data-key="56">&<span>7</span></key>
+				<key class="double 8" data-key="57">*<span>8</span></key>
+				<key class="double 9" data-key="48">(<span>9</span></key>
+				<key class="double 0" data-key="189">)<span>0</span></key>
+				<key class="double hyp" data-key="187">_<span>-</span></key>
+				<key class="double equ" data-key="8">+<span>=</span></key>
+				<key class="single delete right" data-key="9">Delete</key>
 				<div class="clearfix"></div>
 			</row>
 			<row class="three">
