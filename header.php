@@ -27,10 +27,9 @@
 
 </head>
 <body class="<?php echo $body_class; ?>">
-	<aside>
-		<div class="wrapper">
+	<section class="wrap">
+		<aside>
 			<a href="#" class="reload">Reload</a>
-		</div>
-	</aside>
-	<!-- <h1 id="logo">Keycodes</h1>
-	<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->
+		</aside>
+		<!-- <h1 id="logo">Keycodes</h1>
+		<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->

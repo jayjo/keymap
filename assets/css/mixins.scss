@@ -10,22 +10,48 @@
 }
 
 @mixin keyshadowhover {
-	background: rgba(255,255,255,.05);
+	background: rgba(255,255,255,.75);
 	-webkit-box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
     -moz-box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
     box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
-    color: rgba(255,255,255,.75);
 	/*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
 	@include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
 }
 
 @mixin keyshadowactive {
 	color: rgba(0,0,0,.25);
-	background: rgba(255,255,255,.75);
+	background: rgba(255,255,255,.45);
 	border: 2px solid rgba(110,110,110,.25);
 	-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+
+@mixin btn {
+	@include filter-gradient(#000000, #260000, vertical);
+	$experimental-support-for-svg: true;
+	@include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 100%));
+	-webkit-box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, .25);
+	box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, .25);
+}
+
+@mixin btnhover {
+	@include filter-gradient(#000000, #260000, vertical);
+	$experimental-support-for-svg: true;
+	@include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 100%));
+	-webkit-box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, .10);
+	box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, .10);
+}
+
+@mixin btnactive {
+	-webkit-box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, .45);
+	box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, .45);
+}
+
+@mixin key {
+	@include filter-gradient(#000000, #0d0000, vertical);
+	$experimental-support-for-svg: true;
+	@include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.55) 51%,rgba(0,0,0,0.05) 100%));
 }
 
 @mixin twosecs {
@@ -38,6 +64,7 @@ $omnes: omnes-pro;
 $brandon: brandon-grotesque;
 $green: rgb(22,160,133);
 $white: rgb(255,255,255);
-$dblue: rgba(3,49,65,.6);
-$gray: rgba(118,118,118,.1);
+$dblue: rgb(3,49,65);
+$dbluetwo: rgb(49,63,81);
+$gray: rgb(118,118,118);
 
