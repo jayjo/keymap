@@ -451,8 +451,22 @@ jQuery(document).ready(function($) {
 
 		};
 
+		// $.ClipBoard = function() {
+
+		// 	var dataVal = $(this).attr('data-key');
+
+		// 	$('key').on('click', function(){
+		// 		$(this).zclip({
+		// 			path: 'assets/js/ZeroClipboard.swf',
+		// 			copy: dataVal
+		// 		});
+		// 	});
+
+		// };
+
 		$.Press();
 		$.Depress();
+		// $.ClipBoard();
 
 	};
 

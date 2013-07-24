@@ -146,9 +146,9 @@ header h2 {
   margin-top: 0;
 }
 
-aside {
+menu {
   width: 100%;
-  padding: 10px;
+  padding: 10px 10px 10px 5px;
   position: fixed;
   height: 41px;
   /*min-height: 100%;*/
@@ -156,6 +156,15 @@ aside {
   top: 0;
   z-index: 1;
   background: #033141;
+}
+
+menu a {
+  display: inline-block;
+  margin: 3px 0 0 5px;
+}
+
+h1#logo {
+  margin: -7px 0 0 5px;
 }
 
 .reload {
@@ -169,7 +178,6 @@ aside {
   font-weight: 900;
   font-size: 15px;
   letter-spacing: -1px;
-  margin: 3px auto 0;
   text-align: center;
   display: inline-block;
   *zoom: 1;
@@ -409,9 +417,8 @@ key span {
   height: 330px;
   vertical-align: baseline;
   position: fixed;
-  left: 50%;
   outline: none;
-  top: 35%;
+  top: -25%;
   left: 50%;
   margin-left: -220px;
   margin-top: -155px;
@@ -421,9 +428,9 @@ key span {
   text-align: center;
   pointer-events: none;
   z-index: 5;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -ms-transform: scale(0);
+  -webkit-transform: scale(1.25);
+  transform: scale(1.25);
+  -ms-transform: scale(1.25);
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -441,9 +448,9 @@ key span {
   -webkit-box-shadow: 0 0 5px 1px rgba(49, 63, 81, 0.3);
   box-shadow: 0 0 5px 1px rgba(49, 63, 81, 0.3);
   z-index: 5;
-  -webkit-transform: scale(1.25);
+  /*-webkit-transform: scale(1.25);
   transform: scale(1.25);
-  -ms-transform: scale(1.25);
+  -ms-transform: scale(1.25);*/
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;

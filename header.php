@@ -28,8 +28,10 @@
 </head>
 <body class="<?php echo $body_class; ?>">
 	<section class="wrap">
-		<aside>
-			<a href="#" class="reload">Reload</a>
-		</aside>
+		<menu>
+			<a href="#" class="reload">Charcode</a>
+			<a href="#" class="reload">Unicode</a>
+			<a href="#" class="reload">HTML</a>
+		</menu>
 		<!-- <h1 id="logo">Keycodes</h1>
 		<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->
