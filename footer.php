@@ -1,6 +1,5 @@
     		<footer>
                 <div class="copyright">
-                    <h1 id="logo"><a href="/"><img src="assets/images/logo.svg" alt="Keycodes" /></a></h1>
                     <p>Made with <span class="heart">love</span> in 2013, by <a href="#">@jayjo</a></p>
                 </div>
                 <input type="text" value="" name="" id="textbox" >

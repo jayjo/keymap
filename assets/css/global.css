@@ -96,7 +96,7 @@ html {
   background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
   background: -o-linear-gradient(25deg, #3B5998, #4099FF);
   background: linear-gradient(25deg, #3B5998, #4099FF);*/
-  background: rgba(118, 118, 118, 0.1);
+  background: #033141;
   height: 100%;
   width: 100%;
 }
@@ -107,12 +107,11 @@ body {
   background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
   background: -o-linear-gradient(25deg, #3B5998, #4099FF);
   background: linear-gradient(25deg, #3B5998, #4099FF);*/
-  background: #767676;
+  background: #033141;
   height: 100%;
   width: 100%;
   margin: 0 auto;
-  padding: 90px 0 0 0;
-  background: rgba(118, 118, 118, 0.1);
+  padding: 0;
   font-family: omnes-pro;
   font-weight: 100;
 }
@@ -128,8 +127,8 @@ header, footer {
 }
 
 header {
-  padding: 20px 0 0;
-  position: fixed;
+  padding: 40px 0 0;
+  margin-bottom: 30px;
 }
 
 header h1, header h2 {
@@ -146,32 +145,61 @@ header h2 {
   margin-top: 0;
 }
 
-menu {
-  width: 100%;
-  padding: 10px 10px 10px 5px;
+.wrapper {
+  background: #f7f7f7;
   position: fixed;
-  height: 41px;
-  /*min-height: 100%;*/
+  top: 20px;
+  right: 20px;
+  left: 20px;
+  bottom: 20px;
+  border-radius: 0 3px 3px 0;
+}
+
+.wrapper.active {
+  left: 165px;
+  border-radius: 3px;
+}
+
+aside {
+  padding: 20px;
+  width: 125px;
+  position: fixed;
+  min-height: 100%;
   left: 0;
   top: 0;
   z-index: 1;
   background: #033141;
 }
 
+aside.inacactive {
+  left: 0;
+}
+
+menu {
+  position: relative;
+  margin: 85px 0 0 0;
+}
+
 menu a {
   display: inline-block;
-  margin: 3px 0 0 5px;
+  margin: 0 0 8px 0;
+  width: 100%;
 }
 
 h1#logo {
-  margin: -7px 0 0 5px;
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 126px;
+  margin: -8px 0 0 19px;
+  z-index: 3;
 }
 
 .reload {
-  width: 86px;
+  /*width: 86px;*/
   border-radius: 3px;
   background: #16a085;
-  padding: 7px 13px;
+  padding: 7px 0;
   color: #FFF;
   text-decoration: none;
   text-transform: uppercase;
@@ -225,17 +253,12 @@ h1#logo {
   background: rgba(13, 109, 104, 0.85);
 }
 
-.wrapper {
-  width: 100%;
-  max-width: 1074px;
-  position: relative;
-  margin: 0 auto;
-}
-
 #keyboard {
-  margin: 0;
-  padding: 20px 20px 0 20px;
-  position: relative;
+  margin: 0 0 0 -517px;
+  width: 1034px;
+  position: absolute;
+  top: 64px;
+  left: 50%;
 }
 
 row {
@@ -451,9 +474,9 @@ key span {
   /*-webkit-transform: scale(1.25);
   transform: scale(1.25);
   -ms-transform: scale(1.25);*/
-  transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
+  transition: all 0.05s;
+  -moz-transition: all 0.05s;
+  -webkit-transition: all 0.05s;
 }
 
 #codebox .code-inner {

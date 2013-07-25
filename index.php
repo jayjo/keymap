@@ -11,7 +11,7 @@ include 'header.php';
 
 ?>
 
-		<div class="wrapper">
+		<div class="wrapper active">
 			<div id="keyboard">
 				<row class="one">
 					<key class="single esc" data-key="27">esc</key>

@@ -60,6 +60,12 @@
 	-webkit-transition: all 0.2s;
 }
 
+@mixin onesec {
+	transition: all 0.05s;
+	-moz-transition: all 0.05s;
+	-webkit-transition: all 0.05s;
+}
+
 $omnes: omnes-pro;
 $brandon: brandon-grotesque;
 $green: rgb(22,160,133);

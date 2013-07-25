@@ -27,11 +27,16 @@
 
 </head>
 <body class="<?php echo $body_class; ?>">
-	<section class="wrap">
+	<header>
+		<h1 id="logo"><a href="/"><img src="assets/images/logo.svg" width="125" alt="Keycodes" /></a></h1>
+	</header>
+	<aside>
 		<menu>
 			<a href="#" class="reload">Charcode</a>
 			<a href="#" class="reload">Unicode</a>
 			<a href="#" class="reload">HTML</a>
 		</menu>
+	</aside>
+	<section class="wrap">
 		<!-- <h1 id="logo">Keycodes</h1>
 		<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->
