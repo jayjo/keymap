@@ -27,9 +27,16 @@
 
 </head>
 <body class="<?php echo $body_class; ?>">
+	<header>
+		<a class="settings close"><span>Settings</span></a>
+	</header>
+	<aside>
+		<menu>
+			<a href="#" class="reload">Charcode</a>
+			<a href="#" class="reload">Unicode</a>
+			<a href="#" class="reload">HTML</a>
+		</menu>
+	</aside>
 	<section class="wrap">
-		<aside>
-			<a href="#" class="reload">Reload</a>
-		</aside>
 		<!-- <h1 id="logo">Keycodes</h1>
 		<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->
