@@ -1,8 +1,5 @@
     		<footer>
-                <div class="copyright">
-                    <p>Made with <span class="heart">love</span> in 2013, by <a href="#">@jayjo</a></p>
-                </div>
-                <input type="text" value="" name="" id="textbox" >
+
             </footer>
 
         </section>

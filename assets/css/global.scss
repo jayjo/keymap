@@ -15,7 +15,7 @@
 @import "compass";
 @import "mixins.scss";
 @import "reset.css";
-@import "fonts.css";
+@import "../fonts/style.css";
 @import "animate.min.css";
 
 html,
@@ -164,8 +164,7 @@ header, footer {
 }
 
 header {
-    padding: 40px 0 0;
-    margin-bottom: 30px;
+    padding: 30px 0 0;
 }
 
 header h1, header h2 {
@@ -182,6 +181,17 @@ header h2 {
     margin-top: 0;
 }
 
+footer {
+    position: fixed;
+    bottom: 80px;
+    width: 100%;
+}
+
+.copyright p {
+    margin: 0;
+    text-align: center;
+}
+
 .wrapper {
     background: #f7f7f7;
     position: fixed;
@@ -189,32 +199,77 @@ header h2 {
     right: 20px;
     left: 20px;
     bottom: 20px;
-    border-radius: 0 3px 3px 0;
+    border-radius: 3px;
+    @include twosecs;
 }
 
 .wrapper.active {
-    left: 165px;
-    border-radius: 3px;
+    left: 145px;
+    border-radius: 0 3px 3px 0;
+    @include twosecs;
 }
 
 aside {
     padding: 20px;
-    width: 125px;
+    width: 105px;
     position: fixed;
     min-height: 100%;
     left: 0;
     top: 0;
     z-index: 1;
     background: rgba($dblue,1);
+    @include twosecs;
 }
 
-aside.inacactive {
-    left: 0;
+aside.inactive {
+    left: -145px;
+    @include twosecs;
+}
+
+.settings {
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 20px;
+    top: -10px;
+    z-index: 4;
+    background: rgba($dblue, 1);
+    border-radius: 0 0 3px 0;
+    cursor: pointer;
+}
+
+.settings.close {
+    border-radius: 3px;
+    background: rgba(0,0,0,.35);
+}
+
+.settings.close:hover {
+    background: rgba($dblue,1);
+}
+
+.settings span {
+    display: block;
+    text-indent: -9999em;
+    height: 0;
+}
+
+.settings:before {
+    color: $green;
+    font: 39px $icons;
+    position: relative;
+    top: 3px;
+    content: $settings;
+}
+
+.settings.close:before {
+    color: rgba(197,30,50, 1);
+    content: $settings-close;
 }
 
 menu {
     position: relative;
-    margin: 85px 0 0 0;
+    margin: 70px 0 0 0;
 }
 
 menu a {
@@ -224,24 +279,30 @@ menu a {
 }
 
 h1#logo {
+    background: url(../images/logo.svg) no-repeat;
+    text-indent: -9999em;
     position: relative;
     display: block;
     text-align: center;
-    width: 126px;
-    margin: -8px 0 0 19px;
-    z-index: 3;
+    width: 184px;
+    margin: 26px auto 0;
+}
+
+h1#logo.blue {
+    z-index: 5;
+    background: url(../images/blue-logo.svg) no-repeat;
 }
 
 .reload {
     /*width: 86px;*/
     border-radius: 3px;
-    background: rgba(22,160,133,1);
+    background: rgba($green,.38);
     padding: 7px 0;
     color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: -1px;
     text-align: center;
     display: inline-block;
@@ -249,22 +310,31 @@ h1#logo {
 }
 
 .reload:hover {
-    background: rgba(22,160,133,.65);
+    background: rgba($green, 1);
     @include btn;
     @include btnhover;
 }
 
 .reload:active {
     @include btnactive;
-    background: rgba(13,109,104,.85);
+    background: rgba(13,109,104,.27);
 }
 
 #keyboard {
-    margin: 0 0 0 -517px;
+    margin: -193px 0 0 -517px;
     width: 1034px;
+    height: 386px;
     position: absolute;
-    top: 64px;
+    top: 39%;
     left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    @include twosecs;
+}
+
+#keyboard.showing {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 row {
@@ -301,7 +371,7 @@ key:hover {
 }
 
 key.single,
-key.tab {
+key.tab, {
     text-transform: lowercase;
 }
 
@@ -315,7 +385,10 @@ key.tab,
 key.shft,
 key.caps,
 key.delete,
-key.return {
+key.return,
+key.ctrl,
+key.opt,
+key.cmd {
     font-size: 15px;
     padding: .5em 0;
 }
@@ -335,9 +408,27 @@ row.two .delete {
     height: 27px;
 }
 
-row.three .tab {
+row.three .tab,
+row.six .ctrl,
+row.six .cmd {
     padding: 28px 14px 0 14px;
     height: 30px;
+}
+
+row.six .opt {
+    padding: 28px 6px 0 6px;
+    height: 30px;
+}
+
+row.six .space {
+    padding: 28px 6px 0 6px;
+    height: 30px;
+    top: 14px;
+    width: 445px;
+}
+
+row.six .space.active {
+    top: 18px;
 }
 
 row.three .lbrack,
@@ -372,7 +463,8 @@ row.one key.single.esc {
 row.two key,
 row.three key,
 row.four key,
-row.five key, {
+row.five key,
+row.six key {
     width: 61px;
     height: 55px;
     padding: 3px 0 0 0;
@@ -384,6 +476,10 @@ row.four {
 
 row.five {
     top: -22px;
+}
+
+row.six {
+    top: -47px;
 }
 
 row.four key.caps,
@@ -423,7 +519,7 @@ key span {
     vertical-align: baseline;
     position: fixed;
     outline: none;
-    top: -25%;
+    top: -40%;
     left: 50%;
     margin-left: -220px;
     margin-top: -155px;
@@ -444,7 +540,7 @@ key span {
     height: 300px;
     line-height:0;
     background: rgba(255,255,255,.35);
-    top: 35%;
+    top: 41%;
     left: 50%;
     margin-left: -240px;
     margin-top: -150px;
@@ -492,6 +588,55 @@ input[type=text] {
 footer a {
     color: $green;
     text-decoration: none;
+}
+
+/* ==========================================================================
+   LMTH classes
+   ========================================================================== */
+
+#codebox.lmth {
+    font-size: 720%;
+}
+
+#codebox.lmth .code-inner {
+    padding: 50px 0 63px 0;
+}
+
+#codebox.lmth input[type=text] {
+    letter-spacing: -5px
+}
+
+/* ==========================================================================
+   LARGE MONITOR classes
+   ========================================================================== */
+
+@media screen and (min-width: 2560px) {
+
+#keyboard {
+    width: 2319px;
+    height: 386px;
+    position: absolute;
+    top: 34%;
+    left: 555px;
+}
+
+row {
+    margin-bottom: 30px;
+}
+
+key {
+    font-size: 39px;
+}
+
+row.two key, row.three key, row.four key, row.five key {
+    width: 152px;
+}
+
+row.three key.single, row.four key.single, row.five key.single {
+    height: 99px;
+    padding: 57px 0 0 0;
+}
+
 }
 
 /* ==========================================================================

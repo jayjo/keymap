@@ -28,7 +28,7 @@
 </head>
 <body class="<?php echo $body_class; ?>">
 	<header>
-		<h1 id="logo"><a href="/"><img src="assets/images/logo.svg" width="125" alt="Keycodes" /></a></h1>
+		<a class="settings close"><span>Settings</span></a>
 	</header>
 	<aside>
 		<menu>

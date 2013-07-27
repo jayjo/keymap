@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
 
+	$.loadingStuff = function(){
+		setTimeout(function(){
+			$('#keyboard').addClass('showing');
+		}, 450);
+	};
+
 	$.keyCodeKeyboardCodes = function() {
 
 		$.Press = function() {
@@ -8,10 +14,11 @@ jQuery(document).ready(function($) {
 
 				$('#codebox').addClass('active');
 
-				var dataVal = $(this).attr('data-key');
+				var dataKey = $(this).attr('data-key');
+				var dataLMTH = $(this).attr('data-lmth');
 				var press = e.which;
 
-				$('#codebox input').addClass('active').val(dataVal);
+				$('#codebox input').addClass('active').val(dataLMTH);
 				$(this).addClass('active');
 
 				// });
@@ -453,12 +460,12 @@ jQuery(document).ready(function($) {
 
 		// $.ClipBoard = function() {
 
-		// 	var dataVal = $(this).attr('data-key');
+		// 	var dataKey = $(this).attr('data-key');
 
 		// 	$('key').on('click', function(){
 		// 		$(this).zclip({
 		// 			path: 'assets/js/ZeroClipboard.swf',
-		// 			copy: dataVal
+		// 			copy: dataKey
 		// 		});
 		// 	});
 
@@ -478,7 +485,17 @@ jQuery(document).ready(function($) {
 
 	};
 
+	$.menuOpener = function(){
+		$('.settings').on('click', function(){
+			$(this).toggleClass('close');
+			$('.wrapper').toggleClass('active');
+			$('aside').toggleClass('inactive');
+		});
+	};
+
+	$.loadingStuff();
 	$.keyCombos();
 	$.keyCodeKeyboardCodes();
+	$.menuOpener();
 
 });
