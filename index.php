@@ -11,7 +11,7 @@ include 'header.php';
 
 ?>
 
-		<div class="wrapper">
+		<div class="wrapper active">
 			<div id="keyboard">
 				<row class="one">
 					<key class="single esc" data-key="27">esc</key>
@@ -48,11 +48,11 @@ include 'header.php';
 					<div class="clearfix"></div>
 				</row>
 				<row class="three">
-					<key class="tab left" data-key="9">Tab</key>
-					<key class="single q" data-key="81">q</key>
-					<key class="single w" data-key="87">w</key>
-					<key class="single e" data-key="69">e</key>
-					<key class="single r" data-key="82">r</key>
+					<key class="tab left" data-key="9" data-lmth="">Tab</key>
+					<key class="single q" data-key="81" data-lmth="">q</key>
+					<key class="single w" data-key="87" data-lmth="">w</key>
+					<key class="single e" data-key="69" data-lmth="">e</key>
+					<key class="single r" data-key="82" data-lmth="">r</key>
 					<key class="single t" data-key="84">t</key>
 					<key class="single y" data-key="89">y</key>
 					<key class="single u" data-key="85">u</key>
@@ -76,7 +76,7 @@ include 'header.php';
 					<key class="single k" data-key="75">k</key>
 					<key class="single l" data-key="76">l</key>
 					<key class="double col" data-key="186">:<span>;</span></key>
-					<key class="double apos" data-key="222">"<span>'</span></key>
+					<key class="double apos" data-key="222" data-lmth="U+0022">"<span>'</span></key>
 					<key class="return right" data-key="13">Enter</key>
 					<div class="clearfix"></div>
 				</row>
@@ -96,14 +96,24 @@ include 'header.php';
 					<div class="clearfix"></div>
 				</row>
 				<row class="six">
-
+					<key class="single ctrl left">control</key>
+					<key class="single opt left">option</key>
+					<key class="single cmd left">command</key>
+					<key class="single space left"></key>
+					<key class="single cmd right">command</key>
+					<key class="single opt right">option</key>
+					<key class="single ctrl right">control</key>
 					<div class="clearfix"></div>
 				</row>
+				<h1 id="logo" class="blue"><a href="/">KeyCodes</a></h1>
+                <div class="copyright">
+                    <p>Made with <span class="heart">love</span> in 2013, by <a href="#">@jayjo</a></p>
+                </div>
 			</div>
 			<div id="keypad">
 
 			</div>
-			<display id="codebox">
+			<display id="codebox" class="lmth">
 				<div class="code-inner">
 					<input type="text" value="" name="codebox" />
 				</div>

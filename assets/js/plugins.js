@@ -10,33 +10,33 @@
  * to offer multiple easing options
  *
  * TERMS OF USE - jQuery Easing
- * 
- * Open source under the BSD License. 
- * 
+ *
+ * Open source under the BSD License.
+ *
  * Copyright Â© 2008 George McGinley Smith
  * All rights reserved.
- * 
- * Redistribution and use in source and binary forms, with or without modification, 
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- * 
- * Redistributions of source code must retain the above copyright notice, this list of 
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of
  * conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list 
- * of conditions and the following disclaimer in the documentation and/or other materials 
+ * Redistributions in binary form must reproduce the above copyright notice, this list
+ * of conditions and the following disclaimer in the documentation and/or other materials
  * provided with the distribution.
- * 
- * Neither the name of the author nor the names of contributors may be used to endorse 
+ *
+ * Neither the name of the author nor the names of contributors may be used to endorse
  * or promote products derived from this software without specific prior written permission.
- * 
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
  *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
  *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
- * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
  *
 */
 
@@ -152,7 +152,7 @@ jQuery.extend( jQuery.easing,
 		return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
 	},
 	easeInOutBack: function (x, t, b, c, d, s) {
-		if (s == undefined) s = 1.70158; 
+		if (s == undefined) s = 1.70158;
 		if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
 		return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
 	},
@@ -179,560 +179,34 @@ jQuery.extend( jQuery.easing,
 /*
  *
  * TERMS OF USE - EASING EQUATIONS
- * 
- * Open source under the BSD License. 
- * 
+ *
+ * Open source under the BSD License.
+ *
  * Copyright Â© 2001 Robert Penner
  * All rights reserved.
- * 
- * Redistribution and use in source and binary forms, with or without modification, 
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- * 
- * Redistributions of source code must retain the above copyright notice, this list of 
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of
  * conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list 
- * of conditions and the following disclaimer in the documentation and/or other materials 
+ * Redistributions in binary form must reproduce the above copyright notice, this list
+ * of conditions and the following disclaimer in the documentation and/or other materials
  * provided with the distribution.
- * 
- * Neither the name of the author nor the names of contributors may be used to endorse 
+ *
+ * Neither the name of the author nor the names of contributors may be used to endorse
  * or promote products derived from this software without specific prior written permission.
- * 
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
  *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
  *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
- * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
 
-/********************* JWERTY KEYBOARD *************************/
-
-/*
- * jwerty - Awesome handling of keyboard events
- *
- * jwerty is a JS lib which allows you to bind, fire and assert key combination
- * strings against elements and events. It normalises the poor std api into
- * something easy to use and clear.
- *
- * This code is licensed under the MIT
- * For the full license see: http://keithamus.mit-license.org/
- * For more information see: http://keithamus.github.com/jwerty
- *
- * @author Keith Cirkel ('keithamus') <jwerty@keithcirkel.co.uk>
- * @license http://keithamus.mit-license.org/
- * @copyright Copyright © 2011, Keith Cirkel
- *
- */
-(function (global, exports) {
-
-    // Helper methods & vars:
-    var $d = global.document,
-        $ = (global.jQuery || global.Zepto || global.ender || $d),
-        $$, // Element selector function
-        $b, // Event binding function
-        $f, // Event firing function
-        ke = 'keydown';
-
-    function realTypeOf(v, s) {
-        return (v === null) ? s === 'null'
-        : (v === undefined) ? s === 'undefined'
-        : (v.is && v instanceof $) ? s === 'element'
-        : Object.prototype.toString.call(v).toLowerCase().indexOf(s) > 7;
-    }
-
-    if ($ === $d) {
-        $$ = function (selector, context) {
-            return selector ? $.querySelector(selector, context || $) : $;
-        };
-        $b = function (e, fn) { e.addEventListener(ke, fn, false); };
-        $f = function (e, jwertyEv) {
-            var ret = $d.createEvent('Event'),
-            i;
-
-            ret.initEvent(ke, true, true);
-
-            for (i in jwertyEv) ret[i] = jwertyEv[i];
-
-            return (e || $).dispatchEvent(ret);
-        };
-    } else {
-        $$ = function (selector, context) { return $(selector || $d, context); };
-        $b = function (e, fn) { $(e).bind(ke + '.jwerty', fn); };
-        $f = function (e, ob) { $(e || $d).trigger($.Event(ke, ob)); };
-    }
-
-    // Private
-    var _modProps = { 16: 'shiftKey', 17: 'ctrlKey', 18: 'altKey', 91: 'metaKey' };
-
-    // Generate key mappings for common keys that are not printable.
-    var _keys = {
-
-        // MOD aka toggleable keys
-        mods: {
-            // Shift key, ⇧
-            '⇧': 16,
-            shift: 16,
-            // CTRL key, on Mac: ⌃
-            '⌃': 17,
-            ctrl: 17,
-            // ALT key, on Mac: ⌥ (Alt)
-            '⌥': 18,
-            alt: 18,
-            option: 18,
-            // META, on Mac: ⌘ (CMD), on Windows (Win), on Linux (Super)
-            '⌘': 91,
-            meta: 91,
-            cmd: 91,
-            'super': 91,
-            win: 91
-        },
-
-        // Normal keys
-        keys: {
-            // Backspace key, on Mac: ⌫ (Backspace)
-            '⌫': 8,
-            backspace: 8,
-            // Tab Key, on Mac: ⇥ (Tab), on Windows ⇥⇥
-            '⇥': 9,
-            '⇆': 9,
-            tab: 9,
-            // Return key, ↩
-            '↩': 13,
-            'return': 13,
-            enter: 13,
-            '⌅': 13,
-            // Pause/Break key
-            'pause': 19,
-            'pause-break': 19,
-            // Caps Lock key, ⇪
-            '⇪': 20,
-            caps: 20,
-            'caps-lock': 20,
-            // Escape key, on Mac: ⎋, on Windows: Esc
-            '⎋': 27,
-            escape: 27,
-            esc: 27,
-            // Space key
-            space: 32,
-            // Page-Up key, or pgup, on Mac: ↖
-            '↖': 33,
-            pgup: 33,
-            'page-up': 33,
-            // Page-Down key, or pgdown, on Mac: ↘
-            '↘': 34,
-            pgdown: 34,
-            'page-down': 34,
-            // END key, on Mac: ⇟
-            '⇟': 35,
-            end: 35,
-            // HOME key, on Mac: ⇞
-            '⇞': 36,
-            home: 36,
-            // Insert key, or ins
-            ins: 45,
-            insert: 45,
-            // Delete key, on Mac: ⌫ (Delete)
-            del: 46,
-            'delete': 46,
-
-            // Left Arrow Key, or ←
-            '←': 37,
-            left: 37,
-            'arrow-left': 37,
-            // Up Arrow Key, or ↑
-            '↑': 38,
-            up: 38,
-            'arrow-up': 38,
-            // Right Arrow Key, or →
-            '→': 39,
-            right: 39,
-            'arrow-right': 39,
-            // Up Arrow Key, or ↓
-            '↓': 40,
-            down: 40,
-            'arrow-down': 40,
-
-            // odities, printing characters that come out wrong:
-            // Num-Multiply, or *
-            '*': 106,
-            star: 106,
-            asterisk: 106,
-            multiply: 106,
-            // Num-Plus or +
-            '+': 107,
-            'plus': 107,
-            // Num-Subtract, or -
-            '-': 109,
-            subtract: 109,
-            'num-.': 110,
-            'num-period': 110,
-            'num-dot': 110,
-            'num-full-stop': 110,
-            'num-delete': 110,
-            // Semicolon
-            ';': 186,
-            semicolon: 186,
-            // = or equals
-            '=': 187,
-            'equals': 187,
-            // Comma, or ,
-            ',': 188,
-            comma: 188,
-            //'-': 189, //???
-            // Period, or ., or full-stop
-            '.': 190,
-            period: 190,
-            'full-stop': 190,
-            // Slash, or /, or forward-slash
-            '/': 191,
-            slash: 191,
-            'forward-slash': 191,
-            // Tick, or `, or back-quote
-            '`': 192,
-            tick: 192,
-            'back-quote': 192,
-            // Open bracket, or [
-            '[': 219,
-            'open-bracket': 219,
-            // Back slash, or \
-            '\\': 220,
-            'back-slash': 220,
-            // Close backet, or ]
-            ']': 221,
-            'close-bracket': 221,
-            // Apostraphe, or Quote, or '
-            '\'': 222,
-            quote: 222,
-            apostraphe: 222
-        }
-
-    };
-
-    // To minimise code bloat, add all of the 0-9 and NUMPAD 0-9 keys in a loop
-    var i = 47,
-        n = 0;
-    while (++i < 106) {
-        _keys.keys[n] = i;
-        _keys.keys['num-' + n] = i + 48;
-        ++n;
-    }
-
-    // To minimise code bloat, add all of the F1-F25 keys in a loop
-    i = 111,
-    n = 1;
-    while (++i < 136) {
-        _keys.keys['f' + n] = i;
-        ++n;
-    }
-
-    // To minimise code bloat, add all of the letters of the alphabet in a loop
-    i = 64;
-    while (++i < 91) {
-        _keys.keys[String.fromCharCode(i).toLowerCase()] = i;
-    }
-
-    function JwertyCode(jwertyCode) {
-        var i,
-            c,
-            n,
-            z,
-            keyCombo,
-            optionals,
-            jwertyCodeFragment,
-            rangeMatches,
-            rangeI;
-
-        // In-case we get called with an instance of ourselves, just return that.
-        if (jwertyCode instanceof JwertyCode) return jwertyCode;
-
-        // If jwertyCode isn't an array, cast it as a string and split into array.
-        if (!realTypeOf(jwertyCode, 'array')) {
-            jwertyCode = (String(jwertyCode)).replace(/\s/g, '').toLowerCase()
-                .match(/(?:\+,|[^,])+/g);
-        }
-
-        // Loop through each key sequence in jwertyCode
-        for (i = 0, c = jwertyCode.length; i < c; ++i) {
-
-            // If the key combo at this part of the sequence isn't an array,
-            // cast as a string and split into an array.
-            if (!realTypeOf(jwertyCode[i], 'array')) {
-                jwertyCode[i] = String(jwertyCode[i])
-                    .match(/(?:\+\/|[^\/])+/g);
-            }
-
-            // Parse the key optionals in this sequence
-            optionals = [],
-            n = jwertyCode[i].length;
-            while (n--) {
-
-                // Begin creating the object for this key combo
-                jwertyCodeFragment = jwertyCode[i][n];
-
-                keyCombo = {
-                    jwertyCombo: String(jwertyCodeFragment),
-                    shiftKey: false,
-                    ctrlKey: false,
-                    altKey: false,
-                    metaKey: false
-                };
-
-                // If jwertyCodeFragment isn't an array then cast as a string
-                // and split it into one.
-                if (!realTypeOf(jwertyCodeFragment, 'array')) {
-                    jwertyCodeFragment = String(jwertyCodeFragment).toLowerCase()
-                        .match(/(?:(?:[^\+])+|\+\+|^\+$)/g);
-                }
-
-                z = jwertyCodeFragment.length;
-                while (z--) {
-
-                    // Normalise matching errors
-                    if (jwertyCodeFragment[z] === '++') jwertyCodeFragment[z] = '+';
-
-                    // Inject either keyCode or ctrl/meta/shift/altKey into keyCombo
-                    if (jwertyCodeFragment[z] in _keys.mods) {
-                        keyCombo[_modProps[_keys.mods[jwertyCodeFragment[z]]]] = true;
-                    } else if (jwertyCodeFragment[z] in _keys.keys) {
-                        keyCombo.keyCode = _keys.keys[jwertyCodeFragment[z]];
-                    } else {
-                        rangeMatches = jwertyCodeFragment[z].match(/^\[([^-]+\-?[^-]*)-([^-]+\-?[^-]*)\]$/);
-                    }
-                }
-                if (realTypeOf(keyCombo.keyCode, 'undefined')) {
-                    // If we picked up a range match earlier...
-                    if (rangeMatches && (rangeMatches[1] in _keys.keys) && (rangeMatches[2] in _keys.keys)) {
-                        rangeMatches[2] = _keys.keys[rangeMatches[2]];
-                        rangeMatches[1] = _keys.keys[rangeMatches[1]];
-
-                        // Go from match 1 and capture all key-comobs up to match 2
-                        for (rangeI = rangeMatches[1]; rangeI < rangeMatches[2]; ++rangeI) {
-                            optionals.push({
-                                altKey: keyCombo.altKey,
-                                shiftKey: keyCombo.shiftKey,
-                                metaKey: keyCombo.metaKey,
-                                ctrlKey: keyCombo.ctrlKey,
-                                keyCode: rangeI,
-                                jwertyCombo: String(jwertyCodeFragment)
-                            });
-
-                        }
-                        keyCombo.keyCode = rangeI;
-                    // Inject either keyCode or ctrl/meta/shift/altKey into keyCombo
-                    } else {
-                        keyCombo.keyCode = 0;
-                    }
-                }
-                optionals.push(keyCombo);
-
-            }
-            this[i] = optionals;
-        }
-        this.length = i;
-        return this;
-    }
-
-    var jwerty = exports.jwerty = {
-        /**
-         * jwerty.event
-         *
-         * `jwerty.event` will return a function, which expects the first
-         *  argument to be a key event. When the key event matches `jwertyCode`,
-         *  `callbackFunction` is fired. `jwerty.event` is used by `jwerty.key`
-         *  to bind the function it returns. `jwerty.event` is useful for
-         *  attaching to your own event listeners. It can be used as a decorator
-         *  method to encapsulate functionality that you only want to fire after
-         *  a specific key combo. If `callbackContext` is specified then it will
-         *  be supplied as `callbackFunction`'s context - in other words, the
-         *  keyword `this` will be set to `callbackContext` inside the
-         *  `callbackFunction` function.
-         *
-         *   @param {Mixed} jwertyCode can be an array, or string of key
-         *      combinations, which includes optinals and or sequences
-         *   @param {Function} callbackFucntion is a function (or boolean) which
-         *      is fired when jwertyCode is matched. Return false to
-         *      preventDefault()
-         *   @param {Object} callbackContext (Optional) The context to call
-         *      `callback` with (i.e this)
-         *
-         */
-        event: function (jwertyCode, callbackFunction, callbackContext /*? this */) {
-
-            // Construct a function out of callbackFunction, if it is a boolean.
-            if (realTypeOf(callbackFunction, 'boolean')) {
-                var bool = callbackFunction;
-                callbackFunction = function () { return bool; };
-            }
-
-            jwertyCode = new JwertyCode(jwertyCode);
-
-            // Initialise in-scope vars.
-            var i = 0,
-                c = jwertyCode.length - 1,
-                returnValue,
-                jwertyCodeIs;
-
-            // This is the event listener function that gets returned...
-            return function (event) {
-
-                // if jwertyCodeIs returns truthy (string)...
-                if ((jwertyCodeIs = jwerty.is(jwertyCode, event, i))) {
-                    // ... and this isn't the last key in the sequence,
-                    // incriment the key in sequence to check.
-                    if (i < c) {
-                        ++i;
-                        return;
-                    // ... and this is the last in the sequence (or the only
-                    // one in sequence), then fire the callback
-                    } else {
-                        returnValue = callbackFunction.call(
-                            callbackContext || this, event, jwertyCodeIs);
-
-                        // If the callback returned false, then we should run
-                        // preventDefault();
-                        if (returnValue === false) event.preventDefault();
-
-                        // Reset i for the next sequence to fire.
-                        i = 0;
-                        return;
-                    }
-                }
-
-                // If the event didn't hit this time, we should reset i to 0,
-                // that is, unless this combo was the first in the sequence,
-                // in which case we should reset i to 1.
-                i = jwerty.is(jwertyCode, event) ? 1 : 0;
-            };
-        },
-
-        /**
-         * jwerty.is
-         *
-         * `jwerty.is` will return a boolean value, based on if `event` matches
-         *  `jwertyCode`. `jwerty.is` is called by `jwerty.event` to check
-         *  whether or not to fire the callback. `event` can be a DOM event, or
-         *  a jQuery/Zepto/Ender manufactured event. The properties of
-         *  `jwertyCode` (speficially ctrlKey, altKey, metaKey, shiftKey and
-         *  keyCode) should match `jwertyCode`'s properties - if they do, then
-         *  `jwerty.is` will return `true`. If they don't, `jwerty.is` will
-         *  return `false`.
-         *
-         *   @param {Mixed} jwertyCode can be an array, or string of key
-         *      combinations, which includes optinals and or sequences
-         *   @param {KeyboardEvent} event is the KeyboardEvent to assert against
-         *   @param {Integer} i (Optional) checks the `i` key in jwertyCode
-         *      sequence
-         *
-         */
-        is: function (jwertyCode, event, i /*? 0*/) {
-            jwertyCode = new JwertyCode(jwertyCode);
-            // Default `i` to 0
-            i = i || 0;
-            // We are only interested in `i` of jwertyCode;
-            jwertyCode = jwertyCode[i];
-            // jQuery stores the *real* event in `originalEvent`, which we use
-            // because it does annoything stuff to `metaKey`
-            event = event.originalEvent || event;
-
-            // We'll look at each optional in this jwertyCode sequence...
-            var n = jwertyCode.length,
-                returnValue = false;
-
-            // Loop through each fragment of jwertyCode
-            while (n--) {
-                returnValue = jwertyCode[n].jwertyCombo;
-                // For each property in the jwertyCode object, compare to `event`
-                for (var p in jwertyCode[n]) {
-                    // ...except for jwertyCode.jwertyCombo...
-                    if (p !== 'jwertyCombo' && event[p] != jwertyCode[n][p]) returnValue = false;
-                }
-                // If this jwertyCode optional wasn't falsey, then we can return early.
-                if (returnValue !== false) return returnValue;
-            }
-            return returnValue;
-        },
-
-        /**
-         * jwerty.key
-         *
-         *  `jwerty.key` will attach an event listener and fire
-         *   `callbackFunction` when `jwertyCode` matches. The event listener is
-         *   attached to `document`, meaning it will listen for any key events
-         *   on the page (a global shortcut listener). If `callbackContext` is
-         *   specified then it will be supplied as `callbackFunction`'s context
-         *   - in other words, the keyword `this` will be set to
-         *   `callbackContext` inside the `callbackFunction` function.
-         *
-         *   @param {Mixed} jwertyCode can be an array, or string of key
-         *      combinations, which includes optinals and or sequences
-         *   @param {Function} callbackFunction is a function (or boolean) which
-         *      is fired when jwertyCode is matched. Return false to
-         *      preventDefault()
-         *   @param {Object} callbackContext (Optional) The context to call
-         *      `callback` with (i.e this)
-         *   @param {Mixed} selector can be a string, jQuery/Zepto/Ender object,
-         *      or an HTML*Element on which to bind the eventListener
-         *   @param {Mixed} selectorContext can be a string, jQuery/Zepto/Ender
-         *      object, or an HTML*Element on which to scope the selector
-         *
-         */
-        key: function (jwertyCode, callbackFunction, callbackContext /*? this */, selector /*? document */, selectorContext /*? body */) {
-            // Because callbackContext is optional, we should check if the
-            // `callbackContext` is a string or element, and if it is, then the
-            // function was called without a context, and `callbackContext` is
-            // actually `selector`
-            var realSelector = realTypeOf(callbackContext, 'element') || realTypeOf(callbackContext, 'string') ? callbackContext : selector,
-            // If `callbackContext` is undefined, or if we skipped it (and
-            // therefore it is `realSelector`), set context to `global`.
-                realcallbackContext = realSelector === callbackContext ? global : callbackContext,
-            // Finally if we did skip `callbackContext`, then shift
-            // `selectorContext` to the left (take it from `selector`)
-                realSelectorContext = realSelector === callbackContext ? selector : selectorContext;
-
-            // If `realSelector` is already a jQuery/Zepto/Ender/DOM element,
-            // then just use it neat, otherwise find it in DOM using $$()
-            $b(
-                realTypeOf(realSelector, 'element') ? realSelector : $$(realSelector, realSelectorContext),
-                jwerty.event(jwertyCode, callbackFunction, realcallbackContext)
-            );
-        },
-
-        /**
-         * jwerty.fire
-         *
-         * `jwerty.fire` will construct a keyup event to fire, based on
-         *  `jwertyCode`. The event will be fired against `selector`.
-         *  `selectorContext` is used to search for `selector` within
-         *  `selectorContext`, similar to jQuery's
-         *  `$('selector', 'context')`.
-         *
-         *   @param {Mixed} jwertyCode can be an array, or string of key
-         *      combinations, which includes optinals and or sequences
-         *   @param {Mixed} selector can be a string, jQuery/Zepto/Ender object,
-         *      or an HTML*Element on which to bind the eventListener
-         *   @param {Mixed} selectorContext can be a string, jQuery/Zepto/Ender
-         *      object, or an HTML*Element on which to scope the selector
-         *
-         */
-        fire: function (jwertyCode, selector /*? document */, selectorContext /*? body */, i) {
-            jwertyCode = new JwertyCode(jwertyCode);
-            var realI = realTypeOf(selectorContext, 'number') ? selectorContext : i;
-
-            // If `realSelector` is already a jQuery/Zepto/Ender/DOM element,
-            // then just use it neat, otherwise find it in DOM using $$()
-            $f(
-                realTypeOf(selector, 'element') ? selector : $$(selector, selectorContext),
-                jwertyCode[realI || 0][0]
-            );
-        },
-
-        KEYS: _keys
-    };
-
-}(this, (typeof module !== 'undefined' && module.exports ? module.exports : this)));
-
-/********************* JWERTY KEYBOARD *************************/
+ (function(a){a.fn.zclip=function(c){if(typeof c=="object"&&!c.length){var b=a.extend({path:"ZeroClipboard.swf",copy:null,beforeCopy:null,afterCopy:null,clickAfter:true,setHandCursor:true,setCSSEffects:true},c);return this.each(function(){var e=a(this);if(e.is(":visible")&&(typeof b.copy=="string"||a.isFunction(b.copy))){ZeroClipboard.setMoviePath(b.path);var d=new ZeroClipboard.Client();if(a.isFunction(b.copy)){e.bind("zClip_copy",b.copy)}if(a.isFunction(b.beforeCopy)){e.bind("zClip_beforeCopy",b.beforeCopy)}if(a.isFunction(b.afterCopy)){e.bind("zClip_afterCopy",b.afterCopy)}d.setHandCursor(b.setHandCursor);d.setCSSEffects(b.setCSSEffects);d.addEventListener("mouseOver",function(f){e.trigger("mouseenter")});d.addEventListener("mouseOut",function(f){e.trigger("mouseleave")});d.addEventListener("mouseDown",function(f){e.trigger("mousedown");if(!a.isFunction(b.copy)){d.setText(b.copy)}else{d.setText(e.triggerHandler("zClip_copy"))}if(a.isFunction(b.beforeCopy)){e.trigger("zClip_beforeCopy")}});d.addEventListener("complete",function(f,g){if(a.isFunction(b.afterCopy)){e.trigger("zClip_afterCopy")}else{if(g.length>500){g=g.substr(0,500)+"...\n\n("+(g.length-500)+" characters not shown)"}e.removeClass("hover");}if(b.clickAfter){e.trigger("click")}});d.glue(e[0],e.parent()[0]);a(window).bind("load resize",function(){d.reposition()})}})}else{if(typeof c=="string"){return this.each(function(){var f=a(this);c=c.toLowerCase();var e=f.data("zclipId");var d=a("#"+e+".zclip");if(c=="remove"){d.remove();f.removeClass("active hover")}else{if(c=="hide"){d.hide();f.removeClass("active hover")}else{if(c=="show"){d.show()}}}})}}}})(jQuery);var ZeroClipboard={version:"1.0.7",clients:{},moviePath:"ZeroClipboard.swf",nextId:1,$:function(a){if(typeof(a)=="string"){a=document.getElementById(a)}if(!a.addClass){a.hide=function(){this.style.display="none"};a.show=function(){this.style.display=""};a.addClass=function(b){this.removeClass(b);this.className+=" "+b};a.removeClass=function(d){var e=this.className.split(/\s+/);var b=-1;for(var c=0;c<e.length;c++){if(e[c]==d){b=c;c=e.length}}if(b>-1){e.splice(b,1);this.className=e.join(" ")}return this};a.hasClass=function(b){return !!this.className.match(new RegExp("\\s*"+b+"\\s*"))}}return a},setMoviePath:function(a){this.moviePath=a},dispatch:function(d,b,c){var a=this.clients[d];if(a){a.receiveEvent(b,c)}},register:function(b,a){this.clients[b]=a},getDOMObjectPosition:function(c,a){var b={left:0,top:0,width:c.width?c.width:c.offsetWidth,height:c.height?c.height:c.offsetHeight};if(c&&(c!=a)){b.left+=c.offsetLeft;b.top+=c.offsetTop}return b},Client:function(a){this.handlers={};this.id=ZeroClipboard.nextId++;this.movieId="ZeroClipboardMovie_"+this.id;ZeroClipboard.register(this.id,this);if(a){this.glue(a)}}};ZeroClipboard.Client.prototype={id:0,ready:false,movie:null,clipText:"",handCursorEnabled:true,cssEffects:true,handlers:null,glue:function(d,b,e){this.domElement=ZeroClipboard.$(d);var f=99;if(this.domElement.style.zIndex){f=parseInt(this.domElement.style.zIndex,10)+1}if(typeof(b)=="string"){b=ZeroClipboard.$(b)}else{if(typeof(b)=="undefined"){b=document.getElementsByTagName("body")[0]}}var c=ZeroClipboard.getDOMObjectPosition(this.domElement,b);this.div=document.createElement("div");this.div.className="zclip";this.div.id="zclip-"+this.movieId;$(this.domElement).data("zclipId","zclip-"+this.movieId);var a=this.div.style;a.position="absolute";a.left=""+c.left+"px";a.top=""+c.top+"px";a.width=""+c.width+"px";a.height=""+c.height+"px";a.zIndex=f;if(typeof(e)=="object"){for(addedStyle in e){a[addedStyle]=e[addedStyle]}}b.appendChild(this.div);this.div.innerHTML=this.getHTML(c.width,c.height)},getHTML:function(d,a){var c="";var b="id="+this.id+"&width="+d+"&height="+a;if(navigator.userAgent.match(/MSIE/)){var e=location.href.match(/^https/i)?"https://":"http://";c+='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="'+e+'download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="'+d+'" height="'+a+'" id="'+this.movieId+'" align="middle"><param name="allowScriptAccess" value="always" /><param name="allowFullScreen" value="false" /><param name="movie" value="'+ZeroClipboard.moviePath+'" /><param name="loop" value="false" /><param name="menu" value="false" /><param name="quality" value="best" /><param name="bgcolor" value="#ffffff" /><param name="flashvars" value="'+b+'"/><param name="wmode" value="transparent"/></object>'}else{c+='<embed id="'+this.movieId+'" src="'+ZeroClipboard.moviePath+'" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="'+d+'" height="'+a+'" name="'+this.movieId+'" align="middle" allowScriptAccess="always" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="'+b+'" wmode="transparent" />'}return c},hide:function(){if(this.div){this.div.style.left="-2000px"}},show:function(){this.reposition()},destroy:function(){if(this.domElement&&this.div){this.hide();this.div.innerHTML="";var a=document.getElementsByTagName("body")[0];try{a.removeChild(this.div)}catch(b){}this.domElement=null;this.div=null}},reposition:function(c){if(c){this.domElement=ZeroClipboard.$(c);if(!this.domElement){this.hide()}}if(this.domElement&&this.div){var b=ZeroClipboard.getDOMObjectPosition(this.domElement);var a=this.div.style;a.left=""+b.left+"px";a.top=""+b.top+"px"}},setText:function(a){this.clipText=a;if(this.ready){this.movie.setText(a)}},addEventListener:function(a,b){a=a.toString().toLowerCase().replace(/^on/,"");if(!this.handlers[a]){this.handlers[a]=[]}this.handlers[a].push(b)},setHandCursor:function(a){this.handCursorEnabled=a;if(this.ready){this.movie.setHandCursor(a)}},setCSSEffects:function(a){this.cssEffects=!!a},receiveEvent:function(d,f){d=d.toString().toLowerCase().replace(/^on/,"");switch(d){case"load":this.movie=document.getElementById(this.movieId);if(!this.movie){var c=this;setTimeout(function(){c.receiveEvent("load",null)},1);return}if(!this.ready&&navigator.userAgent.match(/Firefox/)&&navigator.userAgent.match(/Windows/)){var c=this;setTimeout(function(){c.receiveEvent("load",null)},100);this.ready=true;return}this.ready=true;try{this.movie.setText(this.clipText)}catch(h){}try{this.movie.setHandCursor(this.handCursorEnabled)}catch(h){}break;case"mouseover":if(this.domElement&&this.cssEffects){this.domElement.addClass("hover");if(this.recoverActive){this.domElement.addClass("active")}}break;case"mouseout":if(this.domElement&&this.cssEffects){this.recoverActive=false;if(this.domElement.hasClass("active")){this.domElement.removeClass("active");this.recoverActive=true}this.domElement.removeClass("hover")}break;case"mousedown":if(this.domElement&&this.cssEffects){this.domElement.addClass("active")}break;case"mouseup":if(this.domElement&&this.cssEffects){this.domElement.removeClass("active");this.recoverActive=false}break}if(this.handlers[d]){for(var b=0,a=this.handlers[d].length;b<a;b++){var g=this.handlers[d][b];if(typeof(g)=="function"){g(this,f)}else{if((typeof(g)=="object")&&(g.length==2)){g[0][g[1]](this,f)}else{if(typeof(g)=="string"){window[g](this,f)}}}}}}};
