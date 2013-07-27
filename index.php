@@ -11,7 +11,7 @@ include 'header.php';
 
 ?>
 
-		<div class="wrapper active">
+		<div class="wrapper">
 			<div id="keyboard">
 				<row class="one">
 					<key class="single esc" data-key="27">esc</key>
@@ -113,7 +113,7 @@ include 'header.php';
 			<div id="keypad">
 
 			</div>
-			<display id="codebox" class="lmth">
+			<display id="codebox">
 				<div class="code-inner">
 					<input type="text" value="" name="codebox" />
 				</div>

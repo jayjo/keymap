@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
 				var dataLMTH = $(this).attr('data-lmth');
 				var press = e.which;
 
-				$('#codebox input').addClass('active').val(dataLMTH);
+				$('#codebox input').addClass('active').val(dataKey);
 				$(this).addClass('active');
 
 				// });

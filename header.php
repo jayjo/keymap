@@ -28,9 +28,9 @@
 </head>
 <body class="<?php echo $body_class; ?>">
 	<header>
-		<a class="settings close"><span>Settings</span></a>
+		<a class="settings"><span>Settings</span></a>
 	</header>
-	<aside>
+	<aside class="inactive">
 		<menu>
 			<a href="#" class="reload">Charcode</a>
 			<a href="#" class="reload">Unicode</a>
