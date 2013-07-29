@@ -34,7 +34,8 @@
 		<menu>
 			<a href="#" class="reload">Charcode</a>
 			<a href="#" class="reload">Unicode</a>
-			<a href="#" class="reload">HTML</a>
+			<a href="#" class="reload">Entities</a>
+			<a href="#" class="reload">ASCII</a>
 		</menu>
 	</aside>
 	<section class="wrap">
