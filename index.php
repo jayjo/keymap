@@ -12,7 +12,7 @@ include 'header.php';
 ?>
 
 		<div class="wrapper">
-			<div id="keyboard">
+			<div id="keyboard" class="charcode">
 				<row class="one">
 					<key class="single esc" data-key="27" data-uni="">esc</key>
 					<key class="single f1" data-key="112">F1</key>
@@ -37,7 +37,7 @@ include 'header.php';
 					<key class="double 3" data-key="51" data-uni="U+0033">#<span>3</span></key>
 					<key class="double 4" data-key="52" data-uni="U+0034">$<span>4</span></key>
 					<key class="double 5" data-key="53" data-uni="U+0035">%<span>5</span></key>
-					<key class="double 6" data-key="54" data-uni="U+0036">^<span>6</span></key>
+					<key class="double 6 deactivated" data-key="54" data-uni="U+0036">^<span>6</span></key>
 					<key class="double 7" data-key="55" data-uni="U+0037">&<span>7</span></key>
 					<key class="double 8" data-key="56" data-uni="U+0038">*<span>8</span></key>
 					<key class="double 9" data-key="57" data-uni="U+0039">(<span>9</span></key>
