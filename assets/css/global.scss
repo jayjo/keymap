@@ -194,7 +194,7 @@ footer {
 }
 
 .wrapper {
-    background: #f7f7f7;
+    background: rgba(0,0,0,.25);
     position: fixed;
     top: 20px;
     right: 20px;
@@ -218,6 +218,7 @@ aside {
     left: 0;
     top: 0;
     z-index: 1;
+    opacity: 0;
     background: rgba($dblue,1);
     /*box-sizing: border-box;
     -moz-box-sizing: border-box;*/
@@ -285,6 +286,11 @@ h1#logo.blue {
     background: url(../images/blue-logo.svg) no-repeat;
 }
 
+h1#logo.green {
+    z-index: 5;
+    background: url(../images/green-logo.svg) no-repeat;
+}
+
 aside.inactive menu {
     position: relative;
     margin: 70px 0 0 0;
@@ -350,6 +356,13 @@ menu a.active {
 }
 
 #keyboard.showing {
+    opacity: .28;
+}
+
+#keyboard.unicode,
+#keyboard.charcode,
+#keyboard.entities,
+#keyboard.ascii {
     opacity: 1;
     pointer-events: auto;
 }
@@ -364,8 +377,8 @@ row {
 
 key {
     border-radius: 3px;
-    border: 2px solid rgba(255,255,255,.1);
-    background: $white;
+    border: 2px solid rgba($green, .35);
+    background: transparent;
     font-family: Helvetica;
     font-weight: normal;
     font-size: 19px;
@@ -377,19 +390,21 @@ key {
     position: relative;
     cursor: pointer;
     display: inline-block;
-    @include key;
-    @include keyshadow;
+    color: $yellow;
+    /*@include key;*/
+    /*@include keyshadow;*/
 }
 
 key.deactivated {
-    background: rgba($gray, .092);
+    top: 4px;
+    @include keyshadowactive;
     pointer-events: none;
 }
 
 key:hover {
-    border: 2px solid rgba(255,255,255,.5);
-    color: rgba($green,1);
-    @include keyshadowhover;
+    border: 2px solid rgba($green, 1);
+    color: rgba(255,255,255,1);
+    /*@include keyshadowhover;*/
 }
 
 key.single,
@@ -536,15 +551,15 @@ key span {
     font-weight: 300;
     font-size: 1200%;
     line-height:0;
-    width: 480px;
-    height: 330px;
+    width: 560px;
+    height: 390px;
     vertical-align: baseline;
     position: fixed;
     outline: none;
-    top: 41%;
+    top: -41%;
     left: 50%;
-    margin-left: -240px;
-    margin-top: -168px;
+    margin-left: -280px;
+    margin-top: -204px;
     border: none;
     border-radius: 7px;
     background: rgba($gray,.0);
@@ -552,23 +567,23 @@ key span {
     pointer-events: none;
     z-index: 5;
     opacity: 0;
-    -webkit-transform: scale(.75);
+    /*-webkit-transform: scale(.75);
     transform: scale(.75);
-    -ms-transform: scale(.75);
+    -ms-transform: scale(.75);*/
     @include twosecs;
 }
 
 #codebox.active {
-    width: 480px;
-    height: 330px;
+    width: 560px;
+    height: 390px;
     line-height:0;
-    background: rgba(255,255,255,.35);
-    top: 41%;
+    background: rgba($dblue,.05);
+    top: 42%;
     left: 50%;
-    margin-left: -240px;
-    margin-top: -168px;
-    -webkit-box-shadow: 0 0 5px 1px rgba($dbluetwo,.3);
-    box-shadow: 0 0 5px 1px rgba($dbluetwo,.3);
+    margin-left: -280px;
+    margin-top: -204px;
+    -webkit-box-shadow: 0 0 0px 2px rgba($green,1);
+    box-shadow: 0 0 0px 2px rgba($green,1);
     z-index: 5;
     opacity: 1;
     -webkit-transform: scale(1.25);
@@ -578,12 +593,12 @@ key span {
 }
 
 #codebox .code-inner {
-    background: rgba($dblue,1);
+    background: rgba(0,0,0,.45);
     margin: 10px;
     border-radius: 5px;
     position: relative;
     display: block;
-    padding: 15px 0;
+    padding: 45px 0;
 }
 
 input[type=text] {
@@ -610,17 +625,22 @@ input[type=text] {
     pointer-events: none;
 }
 
-footer a {
-    color: $green;
-    text-decoration: none;
-}
-
 #codebox.unicode {
     font-size: 740%;
 }
 
 #codebox.unicode .code-inner {
-    padding: 69px 0;
+    padding: 99px 0;
+}
+
+.copyright p {
+    color: rgba(255,255,255,.38);
+    font-weight: 500;
+}
+
+.copyright p a {
+    color: $yellow;
+    text-decoration: none;
 }
 
 /* ==========================================================================

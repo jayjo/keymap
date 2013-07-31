@@ -1,5 +1,36 @@
 jQuery(document).ready(function($) {
 
+	$.loadingStuff = function(){
+
+		setTimeout(function(){
+			$('aside').animate({opacity: 1});
+		}, 75);
+
+		setTimeout(function(){
+			$('#keyboard').addClass('showing');
+		}, 550);
+
+	};
+
+	$.loadingStuff();
+
+	$.bodyLoad = function(){
+
+		$(document).ready(function(){
+
+			if ($('aside').hasClass('inactive')) {
+				$('.wrapper').removeClass('active');
+				$('.settings').removeClass('close');
+			}
+			else if (!$('aside').hasClass('inactive')) {
+				$('.wrapper').addClass('active');
+				$('.settings').addClass('close');
+			}
+
+		});
+
+	};
+
 	$.keyBoard = function(){
 
 		$('menu a').on('click', function(e){
@@ -16,13 +47,7 @@ jQuery(document).ready(function($) {
 
 	};
 
-	$.loadingStuff = function(){
-
-		setTimeout(function(){
-			$('#keyboard').addClass('showing');
-		}, 450);
-
-	};
+	$.keyBoard();
 
 	$.keyCodeKeyboardCodes = function() {
 
@@ -97,6 +122,8 @@ jQuery(document).ready(function($) {
 
 	};
 
+	$.keyCodeKeyboardCodes();
+
 	$.keyCombos = function(){
 
 		$('.reload').on('click', function(){
@@ -105,22 +132,9 @@ jQuery(document).ready(function($) {
 
 	};
 
-	$.bodyLoad = function(){
+	// $.keyCombos();
 
-		$(document).ready(function(){
-
-			if ($('aside').hasClass('inactive')) {
-				$('.wrapper').removeClass('active');
-				$('.settings').removeClass('close');
-			}
-			else if (!$('aside').hasClass('inactive')) {
-				$('.wrapper').addClass('active');
-				$('.settings').addClass('close');
-			}
-
-		});
-
-	};
+	$.bodyLoad();
 
 	$.menuOpener = function(){
 		$('.settings').on('click', function(){
@@ -130,14 +144,17 @@ jQuery(document).ready(function($) {
 		});
 	};
 
+	$.menuOpener();
+
 	$.cookieMonster = function(){
 
 		var typeCookie = 'type',
-			viewCookie = 'view',
 			menuCookie = 'menu',
 			cookieOptions = 'expires: 365, {path: '/'}';
 
 			$('#' + $.cookie(typeCookie)).addClass('active');
+			$('#keyboard').addClass($.cookie(typeCookie));
+			$('#codebox').addClass($.cookie(typeCookie));
 
 		$('menu a').on('click', function(e){
 			e.preventDefault();
@@ -157,12 +174,6 @@ jQuery(document).ready(function($) {
 
 	};
 
-	$.keyBoard();
-	$.loadingStuff();
-	// $.keyCombos();
-	$.keyCodeKeyboardCodes();
-	$.bodyLoad();
-	$.menuOpener();
 	$.cookieMonster();
 
 });

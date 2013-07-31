@@ -19,9 +19,9 @@
 }
 
 @mixin keyshadowactive {
-	color: rgba(0,0,0,.25);
-	background: rgba(255,255,255,.45);
-	border: 2px solid rgba(110,110,110,.25);
+	color: rgba(255,255,255,.25);
+	background: rgba(0,0,0,.15);
+	border: 2px solid rgba($green,.25);
 	-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;

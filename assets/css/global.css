@@ -160,7 +160,7 @@ footer {
 }
 
 .wrapper {
-  background: #f7f7f7;
+  background: rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 20px;
   right: 20px;
@@ -188,6 +188,7 @@ aside {
   left: 0;
   top: 0;
   z-index: 1;
+  opacity: 0;
   background: #033141;
   /*box-sizing: border-box;
   -moz-box-sizing: border-box;*/
@@ -257,6 +258,11 @@ h1#logo {
 h1#logo.blue {
   z-index: 5;
   background: url(../images/blue-logo.svg) no-repeat;
+}
+
+h1#logo.green {
+  z-index: 5;
+  background: url(../images/green-logo.svg) no-repeat;
 }
 
 aside.inactive menu {
@@ -351,6 +357,13 @@ menu a.active {
 }
 
 #keyboard.showing {
+  opacity: .28;
+}
+
+#keyboard.unicode,
+#keyboard.charcode,
+#keyboard.entities,
+#keyboard.ascii {
   opacity: 1;
   pointer-events: auto;
 }
@@ -365,8 +378,8 @@ row {
 
 key {
   border-radius: 3px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  background: white;
+  border: 2px solid rgba(22, 160, 133, 0.35);
+  background: transparent;
   font-family: Helvetica;
   font-weight: normal;
   font-size: 19px;
@@ -378,38 +391,26 @@ key {
   position: relative;
   cursor: pointer;
   display: inline-block;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FF0D0000');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLCAwLCAwLCAwKSIvPjxzdG9wIG9mZnNldD0iNTElIiBzdG9wLWNvbG9yPSJyZ2JhKDAsIDAsIDAsIDAuNTUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsIDAsIDAsIDAuMDUpIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(51%, rgba(0, 0, 0, 0.55)), color-stop(100%, rgba(0, 0, 0, 0.05)));
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 51%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 51%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 51%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 51%, rgba(0, 0, 0, 0.05) 100%);
-  background: rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.3);
-  /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
-  @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+  color: #fccd43;
+  /*@include key;*/
+  /*@include keyshadow;*/
 }
 
 key.deactivated {
-  background: rgba(118, 118, 118, 0.092);
+  top: 4px;
+  color: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(22, 160, 133, 0.25);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   pointer-events: none;
 }
 
 key:hover {
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: #16a085;
-  background: rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
-  /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
-  @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+  border: 2px solid #16a085;
+  color: white;
+  /*@include keyshadowhover;*/
 }
 
 key.single,
@@ -420,9 +421,9 @@ key.tab {
 key:active,
 key.active {
   top: 4px;
-  color: rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.45);
-  border: 2px solid rgba(110, 110, 110, 0.25);
+  color: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(22, 160, 133, 0.25);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -561,15 +562,15 @@ key span {
   font-weight: 300;
   font-size: 1200%;
   line-height: 0;
-  width: 480px;
-  height: 330px;
+  width: 560px;
+  height: 390px;
   vertical-align: baseline;
   position: fixed;
   outline: none;
-  top: 41%;
+  top: -41%;
   left: 50%;
-  margin-left: -240px;
-  margin-top: -168px;
+  margin-left: -280px;
+  margin-top: -204px;
   border: none;
   border-radius: 7px;
   background: rgba(118, 118, 118, 0);
@@ -577,25 +578,25 @@ key span {
   pointer-events: none;
   z-index: 5;
   opacity: 0;
-  -webkit-transform: scale(0.75);
-  transform: scale(0.75);
-  -ms-transform: scale(0.75);
+  /*-webkit-transform: scale(.75);
+  transform: scale(.75);
+  -ms-transform: scale(.75);*/
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
 }
 
 #codebox.active {
-  width: 480px;
-  height: 330px;
+  width: 560px;
+  height: 390px;
   line-height: 0;
-  background: rgba(255, 255, 255, 0.35);
-  top: 41%;
+  background: rgba(3, 49, 65, 0.05);
+  top: 42%;
   left: 50%;
-  margin-left: -240px;
-  margin-top: -168px;
-  -webkit-box-shadow: 0 0 5px 1px rgba(49, 63, 81, 0.3);
-  box-shadow: 0 0 5px 1px rgba(49, 63, 81, 0.3);
+  margin-left: -280px;
+  margin-top: -204px;
+  -webkit-box-shadow: 0 0 0px 2px #16a085;
+  box-shadow: 0 0 0px 2px #16a085;
   z-index: 5;
   opacity: 1;
   -webkit-transform: scale(1.25);
@@ -607,12 +608,12 @@ key span {
 }
 
 #codebox .code-inner {
-  background: #033141;
+  background: rgba(0, 0, 0, 0.45);
   margin: 10px;
   border-radius: 5px;
   position: relative;
   display: block;
-  padding: 15px 0;
+  padding: 45px 0;
 }
 
 input[type=text] {
@@ -639,17 +640,22 @@ input[type=text] {
   pointer-events: none;
 }
 
-footer a {
-  color: #16a085;
-  text-decoration: none;
-}
-
 #codebox.unicode {
   font-size: 740%;
 }
 
 #codebox.unicode .code-inner {
-  padding: 69px 0;
+  padding: 99px 0;
+}
+
+.copyright p {
+  color: rgba(255, 255, 255, 0.38);
+  font-weight: 500;
+}
+
+.copyright p a {
+  color: #fccd43;
+  text-decoration: none;
 }
 
 /* ==========================================================================

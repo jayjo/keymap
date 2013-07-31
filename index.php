@@ -105,7 +105,7 @@ include 'header.php';
 					<key class="single ctrl right">control</key>
 					<div class="clearfix"></div>
 				</row>
-				<h1 id="logo" class="blue"><a href="/">KeyCodes</a></h1>
+				<h1 id="logo" class="green"><a href="/">KeyCodes</a></h1>
                 <div class="copyright">
                     <p>Made with <span class="heart">love</span> in 2013, by <a href="#">@jayjo</a></p>
                 </div>
