@@ -30,12 +30,12 @@
 	<header>
 		<a class="settings"><span>Settings</span></a>
 	</header>
-	<aside class="inactive">
+	<aside>
 		<menu>
-			<a id="charcode" class="active">Charcode</a>
-			<a id="unicode">Unicode</a>
-			<a id="entities">Entities</a>
-			<a id="ascii">ASCII</a>
+			<a href="#charcode" id="charcode">Charcode</a>
+			<a href="#unicode" id="unicode">Unicode</a>
+			<a href="#entities" id="entities">Entities</a>
+			<a href="#ascii" id="ascii">ASCII</a>
 		</menu>
 	</aside>
 	<section class="wrap">

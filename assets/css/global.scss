@@ -285,9 +285,18 @@ h1#logo.blue {
     background: url(../images/blue-logo.svg) no-repeat;
 }
 
-menu {
+aside.inactive menu {
     position: relative;
     margin: 70px 0 0 0;
+    left: -380px;
+    @include twosecs;
+}
+
+aside menu {
+    position: relative;
+    margin: 70px 0 0 0;
+    left: 0;
+    @include twosecs;
 }
 
 menu a {
@@ -527,51 +536,54 @@ key span {
     font-weight: 300;
     font-size: 1200%;
     line-height:0;
-    width: 440px;
+    width: 480px;
     height: 330px;
     vertical-align: baseline;
     position: fixed;
     outline: none;
-    top: -40%;
+    top: 41%;
     left: 50%;
-    margin-left: -220px;
-    margin-top: -155px;
+    margin-left: -240px;
+    margin-top: -168px;
     border: none;
     border-radius: 7px;
     background: rgba($gray,.0);
     text-align: center;
     pointer-events: none;
     z-index: 5;
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
-    -ms-transform: scale(1.25);
+    opacity: 0;
+    -webkit-transform: scale(.75);
+    transform: scale(.75);
+    -ms-transform: scale(.75);
     @include twosecs;
 }
 
 #codebox.active {
     width: 480px;
-    height: 300px;
+    height: 330px;
     line-height:0;
     background: rgba(255,255,255,.35);
     top: 41%;
     left: 50%;
     margin-left: -240px;
-    margin-top: -150px;
+    margin-top: -168px;
     -webkit-box-shadow: 0 0 5px 1px rgba($dbluetwo,.3);
     box-shadow: 0 0 5px 1px rgba($dbluetwo,.3);
     z-index: 5;
-    /*-webkit-transform: scale(1.25);
+    opacity: 1;
+    -webkit-transform: scale(1.25);
     transform: scale(1.25);
-    -ms-transform: scale(1.25);*/
+    -ms-transform: scale(1.25);
     @include onesec;
 }
 
 #codebox .code-inner {
-    background: rgba(255,255,255,.8);
+    background: rgba($dblue,1);
     margin: 10px;
     border-radius: 5px;
     position: relative;
     display: block;
+    padding: 15px 0;
 }
 
 input[type=text] {
@@ -588,7 +600,7 @@ input[type=text] {
     line-height: 0;
     padding: 0;
     position: relative;
-    color: rgba($dblue,1);
+    color: rgba(255,255,255,1);
     top: 0;
     pointer-events: none;
 }
@@ -608,7 +620,7 @@ footer a {
 }
 
 #codebox.unicode .code-inner {
-    padding: 54px 0;
+    padding: 69px 0;
 }
 
 /* ==========================================================================

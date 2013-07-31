@@ -12,7 +12,7 @@ include 'header.php';
 ?>
 
 		<div class="wrapper">
-			<div id="keyboard" class="charcode">
+			<div id="keyboard">
 				<row class="one">
 					<key class="single esc" data-key="27" data-uni="">esc</key>
 					<key class="single f1" data-key="112">F1</key>

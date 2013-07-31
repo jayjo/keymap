@@ -105,6 +105,23 @@ jQuery(document).ready(function($) {
 
 	};
 
+	$.bodyLoad = function(){
+
+		$(document).ready(function(){
+
+			if ($('aside').hasClass('inactive')) {
+				$('.wrapper').removeClass('active');
+				$('.settings').removeClass('close');
+			}
+			else if (!$('aside').hasClass('inactive')) {
+				$('.wrapper').addClass('active');
+				$('.settings').addClass('close');
+			}
+
+		});
+
+	};
+
 	$.menuOpener = function(){
 		$('.settings').on('click', function(){
 			$(this).toggleClass('close');
@@ -113,10 +130,39 @@ jQuery(document).ready(function($) {
 		});
 	};
 
+	$.cookieMonster = function(){
+
+		var typeCookie = 'type',
+			viewCookie = 'view',
+			menuCookie = 'menu',
+			cookieOptions = 'expires: 365, {path: '/'}';
+
+			$('#' + $.cookie(typeCookie)).addClass('active');
+
+		$('menu a').on('click', function(e){
+			e.preventDefault();
+			$('#' + $.cookie(typeCookie)).removeClass('active');
+			$.cookie(typeCookie, $(this).attr('id'), cookieOptions);
+			$('#' + $.cookie(typeCookie)).addClass('active');
+		});
+
+		$('.settings').on('click', function(e){
+
+			e.preventDefault();
+			$.cookie(menuCookie, $('aside').attr('class'), cookieOptions);
+
+		});
+
+		$('aside').addClass($.cookie(menuCookie));
+
+	};
+
 	$.keyBoard();
 	$.loadingStuff();
 	// $.keyCombos();
 	$.keyCodeKeyboardCodes();
+	$.bodyLoad();
 	$.menuOpener();
+	$.cookieMonster();
 
 });
