@@ -347,7 +347,7 @@ menu a.active {
   width: 1034px;
   height: 386px;
   position: absolute;
-  top: 39%;
+  top: 42%;
   left: 50%;
   opacity: 0;
   pointer-events: none;
@@ -372,7 +372,7 @@ row {
   display: block;
   margin: 0 auto;
   list-style: none;
-  margin-bottom: 13px;
+  margin-bottom: 6px;
   position: relative;
 }
 
@@ -420,13 +420,17 @@ key.tab {
 
 key:active,
 key.active {
-  top: 4px;
+  top: 3px;
   color: rgba(255, 255, 255, 0.25);
   background: rgba(0, 0, 0, 0.15);
   border: 2px solid rgba(22, 160, 133, 0.25);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+
+key.uppercase {
+  text-transform: uppercase;
 }
 
 key.tab,
@@ -483,7 +487,6 @@ row.three .lbrack,
 row.three .rbrack,
 row.three .bs,
 row.four .col,
-row.four .apos,
 row.five .comm,
 row.five .great,
 row.five .quest {
@@ -518,16 +521,20 @@ row.six key {
   padding: 3px 0 0 0;
 }
 
+row.three {
+  top: 1px;
+}
+
 row.four {
-  top: -11px;
+  top: -15px;
 }
 
 row.five {
-  top: -22px;
+  top: -25px;
 }
 
 row.six {
-  top: -47px;
+  top: -49px;
 }
 
 row.four key.caps,
@@ -555,6 +562,87 @@ key span {
 
 .right {
   text-align: right;
+}
+
+row.four key.apos {
+  line-height: 22px;
+  padding-top: 12px;
+  height: 46px;
+  top: 6px;
+}
+
+#keyboard key.double span {
+  color: #fccd43;
+}
+
+#keyboard key.double:hover span {
+  color: #fff;
+}
+
+#keyboard key.double:active span {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+#keyboard.capslock key.double span {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+#keyboard key.double {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+#keyboard.capslock key.double {
+  color: #fccd43;
+}
+
+#keyboard.capslock key.double:hover {
+  color: #fff;
+}
+
+#keyboard.capslock key.double:active {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.cap {
+  position: absolute;
+  top: 16px;
+  left: 11px;
+  text-indent: -9999em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 2px solid rgba(22, 160, 133, 0.45);
+  cursor: pointer;
+  transition: all 0.05s;
+  -moz-transition: all 0.05s;
+  -webkit-transition: all 0.05s;
+}
+
+.cap:hover,
+.cap.capsOn {
+  background: #16a085;
+  transition: all 0.05s;
+  -moz-transition: all 0.05s;
+  -webkit-transition: all 0.05s;
+}
+
+.cap.capsOn {
+  top: 18px;
+}
+
+.caps.activated {
+  top: 4px;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(22, 160, 133, 0.25);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.caps.activated span {
+  pointer-events: auto;
 }
 
 #codebox {
@@ -656,6 +744,30 @@ input[type=text] {
 .copyright p a {
   color: #fccd43;
   text-decoration: none;
+}
+
+/* ==========================================================================
+   DEACTIVATED KEYS BY CODE TYPE
+   ========================================================================== */
+#keyboard.unicode row.one key,
+#keyboard.unicode row.six key,
+#keyboard.unicode key.shft,
+#keyboard.unicode .caps,
+#keyboard.unicode.capslock .tab,
+#keyboard.unicode.capslock .return,
+#keyboard.unicode.capslock .delete {
+  top: 2px;
+  color: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(22, 160, 133, 0.25);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+#keyboard.unicode row.six key.space {
+  top: 16px;
 }
 
 /* ==========================================================================
