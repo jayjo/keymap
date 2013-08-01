@@ -141,7 +141,7 @@ body {
     background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
     background: -o-linear-gradient(25deg, #3B5998, #4099FF);
     background: linear-gradient(25deg, #3B5998, #4099FF);*/
-    background: $dblue;
+    background: $dpurplish;
     height: 100%;
     width: 100%;
     margin: 0 auto;
@@ -194,7 +194,7 @@ footer {
 }
 
 .wrapper {
-    background: rgba(0,0,0,.25);
+    background: rgba($purplish,1);
     position: fixed;
     top: 20px;
     right: 20px;
@@ -219,7 +219,7 @@ aside {
     top: 0;
     z-index: 1;
     opacity: 0;
-    background: rgba($dblue,1);
+    background: rgba($dpurplish,1);
     /*box-sizing: border-box;
     -moz-box-sizing: border-box;*/
     @include twosecs;
@@ -238,18 +238,18 @@ aside.inactive {
     left: 20px;
     top: -10px;
     z-index: 4;
-    background: rgba($dblue, 1);
+    background: rgba($dpurplish, 1);
     border-radius: 0 0 3px 0;
     cursor: pointer;
 }
 
 .settings.close {
     border-radius: 3px;
-    background: #02202A;
+    background: $purplish;
 }
 
 .settings.close:hover {
-    background: #02202A;
+    background: $dpurplish;
 }
 
 .settings span {
