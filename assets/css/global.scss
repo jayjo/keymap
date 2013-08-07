@@ -646,29 +646,29 @@ row.four key.apos {
     pointer-events: none;
     z-index: 5;
     opacity: 0;
-    /*-webkit-transform: scale(.75);
-    transform: scale(.75);
-    -ms-transform: scale(.75);*/
-    @include twosecs;
-}
-
-#codebox.active {
-    width: 560px;
-    height: 390px;
-    line-height:0;
-    background: rgba($dblue,.05);
-    top: 42%;
-    left: 50%;
-    margin-left: -280px;
-    margin-top: -204px;
-    -webkit-box-shadow: 0 0 0px 2px rgba($green,1);
-    box-shadow: 0 0 0px 2px rgba($green,1);
-    z-index: 5;
-    opacity: 1;
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
     -ms-transform: scale(1.25);
-    @include onesec;
+    @include twosecs;
+
+    &.active {
+        width: 560px;
+        height: 390px;
+        line-height:0;
+        background: rgba($dblue,.05);
+        top: 44%;
+        left: 50%;
+        margin-left: -280px;
+        margin-top: -204px;
+        -webkit-box-shadow: 0 0 0px 2px rgba($green,1);
+        box-shadow: 0 0 0px 2px rgba($green,1);
+        z-index: 5;
+        opacity: 1;
+        -webkit-transform: scale(1.25);
+        transform: scale(1.25);
+        -ms-transform: scale(1.25);
+        @include onesec;
+    }
 }
 
 #codebox .code-inner {
