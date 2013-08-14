@@ -31,7 +31,7 @@ include 'header.php';
 					<div class="clearfix"></div>
 				</row>
 				<row class="two">
-					<key class="double til" data-key="192" data-encode="" data-uni="U+0060" data-unicaps="U+007E">~<span>`</span></key>
+					<key class="double til" data-key="192" data-encode="%" data-uni="U+0060" data-unicaps="U+007E">~<span>`</span></key>
 					<key class="double 1" data-key="49" data-encode="" data-uni="U+0031" data-unicaps="U+0021">!<span>1</span></key>
 					<key class="double 2" data-key="50" data-encode="" data-uni="U+0032" data-unicaps="U+0040">@<span>2</span></key>
 					<key class="double 3" data-key="51" data-encode="" data-uni="U+0033" data-unicaps="U+0023">#<span>3</span></key>
