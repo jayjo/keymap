@@ -29,6 +29,22 @@ jQuery(document).ready(function($) {
 
 		});
 
+		$(document).ready(function(){
+
+			var letterKeys = $('.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m,.n,.o,.p,.q,.r,.s,.t,.u,.v,.w,.x,.y,.z');
+
+			if ($('.cap').hasClass('capsOn')) {
+
+				letterKeys.addClass('uppercase');
+				$('#keyboard').addClass('capslock');
+				$('.caps').addClass('activated');
+
+			} else {
+
+			}
+
+		});
+
 	};
 
 	$.bodyLoad();
@@ -167,6 +183,7 @@ jQuery(document).ready(function($) {
 
 		var typeCookie = 'type',
 			menuCookie = 'menu',
+			capsCookie = 'cap',
 			cookieOptions = 'expires: 365, {path: '/'}';
 
 			$('#' + $.cookie(typeCookie)).addClass('active');
@@ -187,7 +204,15 @@ jQuery(document).ready(function($) {
 
 		});
 
+		$('.cap').on('click', function(e){
+
+			e.preventDefault();
+			$.cookie(capsCookie, $(this).attr('class'), cookieOptions);
+
+		});
+
 		$('aside').addClass($.cookie(menuCookie));
+		$('.cap').addClass($.cookie(capsCookie));
 
 	};
 

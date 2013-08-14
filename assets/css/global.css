@@ -288,7 +288,7 @@ menu a {
   width: 100%;
   margin: 0 0 8px 0;
   border-radius: 3px;
-  background: rgba(22, 160, 133, 0.38);
+  background: rgba(22, 160, 133, 0.24);
   padding: 7px 0;
   color: #FFF;
   text-decoration: none;
@@ -400,7 +400,7 @@ key.deactivated {
   top: 4px;
   color: rgba(255, 255, 255, 0.25);
   background: rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(22, 160, 133, 0.25);
+  border: 2px solid rgba(21, 29, 38, 0.43);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -423,7 +423,7 @@ key.active {
   top: 3px;
   color: rgba(255, 255, 255, 0.25);
   background: rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(22, 160, 133, 0.25);
+  border: 2px solid rgba(21, 29, 38, 0.43);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -631,11 +631,11 @@ row.four key.apos {
 }
 
 .caps.activated {
-  top: 4px;
+  top: 2px;
   pointer-events: none;
   color: rgba(255, 255, 255, 0.25);
   background: rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(22, 160, 133, 0.25);
+  border: 2px solid rgba(21, 29, 38, 0.43);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -655,7 +655,7 @@ row.four key.apos {
   vertical-align: baseline;
   position: fixed;
   outline: none;
-  top: -41%;
+  top: 41%;
   left: 50%;
   margin-left: -280px;
   margin-top: -204px;
@@ -738,11 +738,21 @@ input[type=text] {
 .copyright p {
   color: rgba(255, 255, 255, 0.38);
   font-weight: 500;
+  position: fixed;
+  right: 30px;
+  bottom: 28px;
 }
 
 .copyright p a {
   color: #fccd43;
   text-decoration: none;
+}
+
+.twitter-share {
+  position: fixed;
+  bottom: 25px;
+  left: 29px;
+  z-index: 1;
 }
 
 /* ==========================================================================
@@ -758,7 +768,7 @@ input[type=text] {
   top: 2px;
   color: rgba(255, 255, 255, 0.25);
   background: rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(22, 160, 133, 0.25);
+  border: 2px solid rgba(21, 29, 38, 0.43);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

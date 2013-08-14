@@ -310,7 +310,7 @@ menu a {
     width: 100%;
     margin: 0 0 8px 0;
     border-radius: 3px;
-    background: rgba($green,.38);
+    background: rgba($green,.24);
     padding: 7px 0;
     color: #FFF;
     text-decoration: none;
@@ -377,7 +377,7 @@ row {
 
 key {
     border-radius: 3px;
-    border: 2px solid rgba($green, .35);
+    border: 2px solid rgba($green,.35);
     background: transparent;
     font-family: Helvetica;
     font-weight: normal;
@@ -616,7 +616,7 @@ row.four key.apos {
 }
 
 .caps.activated {
-    top: 4px;
+    top: 2px;
     pointer-events: none;
     @include keyshadowactive;
 }
@@ -635,7 +635,7 @@ row.four key.apos {
     vertical-align: baseline;
     position: fixed;
     outline: none;
-    top: -41%;
+    top: 41%;
     left: 50%;
     margin-left: -280px;
     margin-top: -204px;
@@ -715,11 +715,21 @@ input[type=text] {
 .copyright p {
     color: rgba(255,255,255,.38);
     font-weight: 500;
+    position: fixed;
+    right: 30px;
+    bottom: 28px;
 }
 
 .copyright p a {
     color: $yellow;
     text-decoration: none;
+}
+
+.twitter-share {
+    position: fixed;
+    bottom: 25px;
+    left: 29px;
+    z-index: 1;
 }
 
 /* ==========================================================================

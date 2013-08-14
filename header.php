@@ -7,9 +7,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><?php echo $page_title; ?></title>
-        <meta content="" property="og:description">
-		<meta content="" property="og:site_name">
-		<link href="/assets/images/favicon.png" rel="shortcut icon">
+		<meta name="description" content="Your guide to keyboard codes, unicodes, keycodes, javascript character codes, charcodes - by JayJo" />
+  		<meta name="keywords" content="javascript, keycodes, character codes, characters, unicode" />
+		<link href="/assets/images/favicon.ico" rel="shortcut icon">
 		<link href="apple-touch-icon.png" rel="apple-touch-icon">
         <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable:no;"> -->
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -34,9 +34,12 @@
 		<menu>
 			<a href="#charcode" id="charcode">Charcode</a>
 			<a href="#unicode" id="unicode">Unicode</a>
-			<a href="#entities" id="entities">Entities</a>
 			<a href="#ascii" id="ascii">ASCII</a>
 		</menu>
+		<div class="twitter-share">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://keycodes.atjayjo.com" data-text="Tired of hunting through lists of character codes - checkout Keycodes" data-via="jayjo">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div>
 	</aside>
 	<section class="wrap">
 		<!-- <h1 id="logo">Keycodes</h1>

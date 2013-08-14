@@ -1,7 +1,7 @@
 <?php
 
 $body_class = 'home';
-$page_title = 'Keymap.io - Your Guide to Keyboard and ASCII Values';
+$page_title = 'Keycodes - Javascript Keyboard Codes, Character Codes, Unicode, HTML Entities';
 
 $jquery_plugins = array(
 	'something.js'
@@ -48,7 +48,7 @@ include 'header.php';
 					<div class="clearfix"></div>
 				</row>
 				<row class="three">
-					<key class="tab left" data-key="9" data-uni="U+0009">Tab</key>
+					<key class="tab left" data-key="8" data-uni="U+0009">Tab</key>
 					<key class="single q" data-key="81" data-uni="U+0071" data-unicaps="U+0051">q</key>
 					<key class="single w" data-key="87" data-uni="U+0077" data-unicaps="U+0057">w</key>
 					<key class="single e" data-key="69" data-uni="U+0065" data-unicaps="U+0045">e</key>
@@ -97,19 +97,16 @@ include 'header.php';
 					<div class="clearfix"></div>
 				</row>
 				<row class="six">
-					<key class="single ctrl left">control</key>
-					<key class="single opt left">option</key>
-					<key class="single cmd left">command</key>
-					<key class="single space left"></key>
-					<key class="single cmd right">command</key>
-					<key class="single opt right">option</key>
-					<key class="single ctrl right">control</key>
+					<key class="single ctrl left" data-key="17">control</key>
+					<key class="single opt left" data-key="18">option</key>
+					<key class="single cmd left" data-key="91">command</key>
+					<key class="single space left" data-key="32"></key>
+					<key class="single cmd right" data-key="91">command</key>
+					<key class="single opt right" data-key="18">option</key>
+					<key class="single ctrl right" data-key="17">control</key>
 					<div class="clearfix"></div>
 				</row>
 				<h1 id="logo" class="green"><a href="/">KeyCodes</a></h1>
-                <div class="copyright">
-                    <p>Made with <span class="heart">love</span> in 2013, by <a href="#">@jayjo</a></p>
-                </div>
 			</div>
 			<div id="keypad">
 
