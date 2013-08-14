@@ -1,0 +1,99 @@
+ASCII
+HTML ENTITIES
+
+
+
+
+Unicode characters
+
+U+0021	!	Exclamation mark
+U+0022	"	Quotation mark
+U+0023	#	Number sign, Hash tag
+U+0024	$	Dollar sign
+U+0025	%	Percent sign
+U+0026	&	Ampersand
+
+U+0028	(	Left parenthesis
+U+0029	)	Right parenthesis
+U+002A	*	Asterisk
+U+002B	+	Plus sign
+
+
+
+
+
+
+
+
+
+
+
+
+
+U+003A	:	Colon
+
+U+003C	<	Less-than sign
+
+U+003E	>	Greater-than sign
+U+003F	?	Question mark
+U+0040	@	At sign
+U+0041	A	Latin Capital letter A
+U+0042	B	Latin Capital letter B
+U+0043	C	Latin Capital letter C
+U+0044	D	Latin Capital letter D
+U+0045	E	Latin Capital letter E
+U+0046	F	Latin Capital letter F
+U+0047	G	Latin Capital letter G
+U+0048	H	Latin Capital letter H
+U+0049	I	Latin Capital letter I
+U+004A	J	Latin Capital letter J
+U+004B	K	Latin Capital letter K
+U+004C	L	Latin Capital letter L
+U+004D	M	Latin Capital letter M
+U+004E	N	Latin Capital letter N
+U+004F	O	Latin Capital letter O
+U+0050	P	Latin Capital letter P
+U+0051	Q	Latin Capital letter Q
+U+0052	R	Latin Capital letter R
+U+0053	S	Latin Capital letter S
+U+0054	T	Latin Capital letter T
+U+0055	U	Latin Capital letter U
+U+0056	V	Latin Capital letter V
+U+0057	W	Latin Capital letter W
+U+0058	X	Latin Capital letter X
+U+0059	Y	Latin Capital letter Y
+U+005A	Z	Latin Capital letter Z
+
+U+005E	^	Circumflex accent
+U+005F	_	Low line
+
+
+U+0062	b	Latin Small Letter B
+U+0063	c	Latin Small Letter C
+
+
+
+
+
+
+
+
+
+U+006D	m	Latin Small Letter M
+U+006E	n	Latin Small Letter N
+
+
+
+
+
+
+
+U+0076	v	Latin Small Letter V
+
+U+0078	x	Latin Small Letter X
+
+U+007A	z	Latin Small Letter Z
+U+007B	{	Left Curly Bracket
+U+007C	|	Vertical bar
+U+007D	}	Right Curly Bracket
+U+007E	~	Tilde

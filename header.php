@@ -32,9 +32,10 @@
 	</header>
 	<aside class="inactive">
 		<menu>
-			<a href="#" class="reload">Charcode</a>
-			<a href="#" class="reload">Unicode</a>
-			<a href="#" class="reload">HTML</a>
+			<a id="charcode" class="active">Charcode</a>
+			<a id="unicode">Unicode</a>
+			<a id="entities">Entities</a>
+			<a id="ascii">ASCII</a>
 		</menu>
 	</aside>
 	<section class="wrap">
