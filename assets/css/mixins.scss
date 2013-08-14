@@ -21,7 +21,7 @@
 @mixin keyshadowactive {
 	color: rgba(255,255,255,.25);
 	background: rgba(0,0,0,.15);
-	border: 2px solid rgba(21,29,38,.43);
+	border: 2px solid rgba(0,0,0,.25);
 	-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -83,8 +83,8 @@ $green: rgb(22,160,133);
 $white: rgb(255,255,255);
 $dblue: rgb(3,49,65);
 $dbluetwo: rgb(49,63,81);
-$dpurplish: rgb(21,29,38);
-$purplish: rgb(39,49,62);
+$purplish: rgb(21,29,38);
+$dpurplish: rgb(39,49,62);
 $gray: rgb(118,118,118);
 $yellow: rgb(252,205,67);
 

@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
 					dataLMTH = $(this).attr('data-lmth'),
 					dataUni = $(this).attr('data-uni'),
 					dataUniCaps = $(this).attr('data-unicaps'),
-					dataAscii = $(this).attr('data-ascii');
+					dataEncoded = $(this).attr('data-encoded');
 
 				$('#codebox input').addClass('active');
 
@@ -103,13 +103,9 @@ jQuery(document).ready(function($) {
 
 					$('#codebox input').val(dataUni);
 
-				} else if ($('#keyboard').hasClass('entities')) {
+				}  else if ($('#keyboard').hasClass('encoded')) {
 
-					$('#codebox input').val(dataLMTH);
-
-				} else if ($('#keyboard').hasClass('ascii')) {
-
-					$('#codebox input').val(dataLMTH);
+					$('#codebox input').val(dataEncoded);
 
 				} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
 

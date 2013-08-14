@@ -102,6 +102,32 @@ textarea {
 }
 
 /* ==========================================================================
+   Remove the dotted link in Firefox
+   ========================================================================== */
+
+a:active,
+a.active {
+  outline: 0;
+  -moz-outline-style: none;
+}
+
+:focus,
+a.active {
+  -moz-outline-style: none;
+  outline: 0;
+}
+
+a,
+a.active {
+  -moz-outline-style: none;
+  outline: 0;
+}
+
+/* ==========================================================================
+   Remove the dotted link in Firefox
+   ========================================================================== */
+
+/* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
@@ -291,6 +317,11 @@ h1#logo.green {
     background: url(../images/green-logo.svg) no-repeat;
 }
 
+h1#logo.gray {
+    z-index: 5;
+    background: url(../images/gray-logo.svg) no-repeat;
+}
+
 aside.inactive menu {
     position: relative;
     margin: 70px 0 0 0;
@@ -310,18 +341,24 @@ menu a {
     width: 100%;
     margin: 0 0 8px 0;
     border-radius: 3px;
-    background: rgba($green,.24);
-    padding: 7px 0;
+    background: rgba($green,.20);
+    padding: 7px 0 7px;
     color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: -1px;
     text-align: center;
     display: inline-block;
     cursor: pointer;
     /*@include btn;*/
+}
+
+@-moz-document url-prefix() {
+    menu a {
+        letter-spacing: 0;
+    }
 }
 
 menu a:hover {
@@ -362,6 +399,7 @@ menu a.active {
 #keyboard.unicode,
 #keyboard.charcode,
 #keyboard.entities,
+#keyboard.encoded,
 #keyboard.ascii {
     opacity: 1;
     pointer-events: auto;
@@ -560,6 +598,15 @@ row.four key.apos {
     top: 6px;
 }
 
+row.four key.single:active,
+row.five key.single:active {
+    top: -8px;
+}
+
+row.four key.apos:active {
+    top: 9px;
+}
+
 #keyboard key.double span {
     color: $yellow;
 }
@@ -713,16 +760,22 @@ input[type=text] {
 }
 
 .copyright p {
-    color: rgba(255,255,255,.38);
+    background: rgba($dpurplish, 1);
+    border-radius: 3px 0 0 0;
+    padding: 3px 9px 5px;
     font-weight: 500;
     position: fixed;
-    right: 30px;
-    bottom: 28px;
+    right: 20px;
+    bottom: 20px;
 }
 
 .copyright p a {
-    color: $yellow;
+    color: $green;
     text-decoration: none;
+}
+
+.copyright p a:hover {
+    color: $yellow;
 }
 
 .twitter-share {

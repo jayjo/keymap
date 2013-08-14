@@ -32,9 +32,9 @@
 	</header>
 	<aside>
 		<menu>
-			<a href="#charcode" id="charcode">Charcode</a>
+			<a href="#charcode" id="charcode">Keycode</a>
 			<a href="#unicode" id="unicode">Unicode</a>
-			<a href="#ascii" id="ascii">ASCII</a>
+			<a href="#encoded" id="encoded">URL Encoded</a>
 		</menu>
 		<div class="twitter-share">
 			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://keycodes.atjayjo.com" data-text="Tired of hunting through lists of character codes - checkout Keycodes" data-via="jayjo">Tweet</a>
