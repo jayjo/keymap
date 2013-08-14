@@ -102,6 +102,32 @@ textarea {
 }
 
 /* ==========================================================================
+   Remove the dotted link in Firefox
+   ========================================================================== */
+
+a:active,
+a.active {
+  outline: 0;
+  -moz-outline-style: none;
+}
+
+:focus,
+a.active {
+  -moz-outline-style: none;
+  outline: 0;
+}
+
+a,
+a.active {
+  -moz-outline-style: none;
+  outline: 0;
+}
+
+/* ==========================================================================
+   Remove the dotted link in Firefox
+   ========================================================================== */
+
+/* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
@@ -141,7 +167,7 @@ body {
     background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
     background: -o-linear-gradient(25deg, #3B5998, #4099FF);
     background: linear-gradient(25deg, #3B5998, #4099FF);*/
-    background: $dblue;
+    background: $dpurplish;
     height: 100%;
     width: 100%;
     margin: 0 auto;
@@ -194,7 +220,7 @@ footer {
 }
 
 .wrapper {
-    background: #f7f7f7;
+    background: rgba($purplish,1);
     position: fixed;
     top: 20px;
     right: 20px;
@@ -218,7 +244,8 @@ aside {
     left: 0;
     top: 0;
     z-index: 1;
-    background: rgba($dblue,1);
+    opacity: 0;
+    background: rgba($dpurplish,1);
     /*box-sizing: border-box;
     -moz-box-sizing: border-box;*/
     @include twosecs;
@@ -237,18 +264,18 @@ aside.inactive {
     left: 20px;
     top: -10px;
     z-index: 4;
-    background: rgba($dblue, 1);
+    background: rgba($dpurplish, 1);
     border-radius: 0 0 3px 0;
     cursor: pointer;
 }
 
 .settings.close {
     border-radius: 3px;
-    background: #02202A;
+    background: $purplish;
 }
 
 .settings.close:hover {
-    background: #02202A;
+    background: $dpurplish;
 }
 
 .settings span {
@@ -285,9 +312,28 @@ h1#logo.blue {
     background: url(../images/blue-logo.svg) no-repeat;
 }
 
-menu {
+h1#logo.green {
+    z-index: 5;
+    background: url(../images/green-logo.svg) no-repeat;
+}
+
+h1#logo.gray {
+    z-index: 5;
+    background: url(../images/gray-logo.svg) no-repeat;
+}
+
+aside.inactive menu {
     position: relative;
     margin: 70px 0 0 0;
+    left: -380px;
+    @include twosecs;
+}
+
+aside menu {
+    position: relative;
+    margin: 70px 0 0 0;
+    left: 0;
+    @include twosecs;
 }
 
 menu a {
@@ -295,18 +341,24 @@ menu a {
     width: 100%;
     margin: 0 0 8px 0;
     border-radius: 3px;
-    background: rgba($green,.38);
-    padding: 7px 0;
+    background: rgba($green,.20);
+    padding: 7px 0 7px;
     color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: -1px;
     text-align: center;
     display: inline-block;
     cursor: pointer;
     /*@include btn;*/
+}
+
+@-moz-document url-prefix() {
+    menu a {
+        letter-spacing: 0;
+    }
 }
 
 menu a:hover {
@@ -333,7 +385,7 @@ menu a.active {
     width: 1034px;
     height: 386px;
     position: absolute;
-    top: 39%;
+    top: 42%;
     left: 50%;
     opacity: 0;
     pointer-events: none;
@@ -341,6 +393,14 @@ menu a.active {
 }
 
 #keyboard.showing {
+    opacity: .28;
+}
+
+#keyboard.unicode,
+#keyboard.charcode,
+#keyboard.entities,
+#keyboard.encoded,
+#keyboard.ascii {
     opacity: 1;
     pointer-events: auto;
 }
@@ -349,14 +409,14 @@ row {
     display: block;
     margin: 0 auto;
     list-style: none;
-    margin-bottom: 13px;
+    margin-bottom: 6px;
     position: relative;
 }
 
 key {
     border-radius: 3px;
-    border: 2px solid rgba(255,255,255,.1);
-    background: $white;
+    border: 2px solid rgba($green,.35);
+    background: transparent;
     font-family: Helvetica;
     font-weight: normal;
     font-size: 19px;
@@ -368,19 +428,21 @@ key {
     position: relative;
     cursor: pointer;
     display: inline-block;
-    @include key;
-    @include keyshadow;
+    color: $yellow;
+    /*@include key;*/
+    /*@include keyshadow;*/
 }
 
 key.deactivated {
-    background: rgba($gray, .092);
+    top: 4px;
+    @include keyshadowactive;
     pointer-events: none;
 }
 
 key:hover {
-    border: 2px solid rgba(255,255,255,.5);
-    color: rgba($green,1);
-    @include keyshadowhover;
+    border: 2px solid rgba($green, 1);
+    color: rgba(255,255,255,1);
+    /*@include keyshadowhover;*/
 }
 
 key.single,
@@ -390,8 +452,12 @@ key.tab, {
 
 key:active,
 key.active {
-    top: 4px;
+    top: 3px;
     @include keyshadowactive;
+}
+
+key.uppercase {
+    text-transform: uppercase;
 }
 
 key.tab,
@@ -448,7 +514,6 @@ row.three .lbrack,
 row.three .rbrack,
 row.three .bs,
 row.four .col,
-row.four .apos,
 row.five .comm,
 row.five .great,
 row.five .quest {
@@ -483,16 +548,20 @@ row.six key {
     padding: 3px 0 0 0;
 }
 
+row.three {
+    top: 1px;
+}
+
 row.four {
-    top: -11px;
+    top: -15px;
 }
 
 row.five {
-    top: -22px;
+    top: -25px;
 }
 
 row.six {
-    top: -47px;
+    top: -49px;
 }
 
 row.four key.caps,
@@ -522,56 +591,140 @@ key span {
     text-align: right;
 }
 
+row.four key.apos {
+    line-height: 22px;
+    padding-top: 12px;
+    height: 46px;
+    top: 6px;
+}
+
+row.four key.single:active,
+row.five key.single:active {
+    top: -8px;
+}
+
+row.four key.apos:active {
+    top: 9px;
+}
+
+#keyboard key.double span {
+    color: $yellow;
+}
+
+#keyboard key.double:hover span {
+    color: #fff;
+}
+
+#keyboard key.double:active span {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+#keyboard.capslock key.double span {
+    color: rgba(255,255,255,.12);
+}
+
+#keyboard key.double {
+    color: rgba(255,255,255,.12);
+}
+
+#keyboard.capslock key.double {
+    color: $yellow;
+}
+
+#keyboard.capslock key.double:hover {
+    color: #fff;
+}
+
+#keyboard.capslock key.double:active {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.cap {
+    position: absolute;
+    top: 16px;
+    left: 11px;
+    text-indent: -9999em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 2px solid rgba($green,.45);
+    cursor: pointer;
+    @include onesec;
+}
+
+.cap:hover,
+.cap.capsOn {
+    background: $green;
+    @include onesec;
+}
+
+.cap.capsOn {
+    top: 18px;
+}
+
+.caps.activated {
+    top: 2px;
+    pointer-events: none;
+    @include keyshadowactive;
+}
+
+.caps.activated span {
+    pointer-events: auto;
+}
+
 #codebox {
     font-family: $brandon;
     font-weight: 300;
     font-size: 1200%;
     line-height:0;
-    width: 440px;
-    height: 330px;
+    width: 560px;
+    height: 390px;
     vertical-align: baseline;
     position: fixed;
     outline: none;
-    top: -40%;
+    top: 41%;
     left: 50%;
-    margin-left: -220px;
-    margin-top: -155px;
+    margin-left: -280px;
+    margin-top: -204px;
     border: none;
     border-radius: 7px;
     background: rgba($gray,.0);
     text-align: center;
     pointer-events: none;
     z-index: 5;
+    opacity: 0;
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
     -ms-transform: scale(1.25);
     @include twosecs;
-}
 
-#codebox.active {
-    width: 480px;
-    height: 300px;
-    line-height:0;
-    background: rgba(255,255,255,.35);
-    top: 41%;
-    left: 50%;
-    margin-left: -240px;
-    margin-top: -150px;
-    -webkit-box-shadow: 0 0 5px 1px rgba($dbluetwo,.3);
-    box-shadow: 0 0 5px 1px rgba($dbluetwo,.3);
-    z-index: 5;
-    /*-webkit-transform: scale(1.25);
-    transform: scale(1.25);
-    -ms-transform: scale(1.25);*/
-    @include onesec;
+    &.active {
+        width: 560px;
+        height: 390px;
+        line-height:0;
+        background: rgba($dblue,.05);
+        top: 44%;
+        left: 50%;
+        margin-left: -280px;
+        margin-top: -204px;
+        -webkit-box-shadow: 0 0 0px 2px rgba($green,1);
+        box-shadow: 0 0 0px 2px rgba($green,1);
+        z-index: 5;
+        opacity: 1;
+        -webkit-transform: scale(1.25);
+        transform: scale(1.25);
+        -ms-transform: scale(1.25);
+        @include onesec;
+    }
 }
 
 #codebox .code-inner {
-    background: rgba(255,255,255,.8);
+    background: rgba(0,0,0,.45);
     margin: 10px;
     border-radius: 5px;
     position: relative;
     display: block;
+    padding: 45px 0;
 }
 
 input[type=text] {
@@ -588,7 +741,7 @@ input[type=text] {
     line-height: 0;
     padding: 0;
     position: relative;
-    color: rgba($dblue,1);
+    color: rgba(255,255,255,1);
     top: 0;
     pointer-events: none;
 }
@@ -598,17 +751,58 @@ input[type=text] {
     pointer-events: none;
 }
 
-footer a {
-    color: $green;
-    text-decoration: none;
-}
-
 #codebox.unicode {
     font-size: 740%;
 }
 
 #codebox.unicode .code-inner {
-    padding: 54px 0;
+    padding: 99px 0;
+}
+
+.copyright p {
+    background: rgba($dpurplish, 1);
+    border-radius: 3px 0 0 0;
+    padding: 3px 9px 5px;
+    font-weight: 500;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.copyright p a {
+    color: $green;
+    text-decoration: none;
+}
+
+.copyright p a:hover {
+    color: $yellow;
+}
+
+.twitter-share {
+    position: fixed;
+    bottom: 25px;
+    left: 29px;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   DEACTIVATED KEYS BY CODE TYPE
+   ========================================================================== */
+
+#keyboard.unicode row.one key,
+#keyboard.unicode row.six key,
+#keyboard.unicode key.shft,
+#keyboard.unicode .caps,
+#keyboard.unicode.capslock .tab,
+#keyboard.unicode.capslock .return,
+#keyboard.unicode.capslock .delete {
+    top: 2px;
+    @include keyshadowactive;
+    pointer-events: none;
+}
+
+#keyboard.unicode row.six key.space {
+    top: 16px;
 }
 
 /* ==========================================================================
