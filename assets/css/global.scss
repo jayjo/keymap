@@ -132,6 +132,7 @@ html {
     background: rgba($dblue, 1);
     height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 body {
@@ -218,6 +219,8 @@ aside {
     top: 0;
     z-index: 1;
     background: rgba($dblue,1);
+    /*box-sizing: border-box;
+    -moz-box-sizing: border-box;*/
     @include twosecs;
 }
 
@@ -241,11 +244,11 @@ aside.inactive {
 
 .settings.close {
     border-radius: 3px;
-    background: rgba(0,0,0,.35);
+    background: #02202A;
 }
 
 .settings.close:hover {
-    background: rgba($dblue,1);
+    background: #02202A;
 }
 
 .settings span {
@@ -267,17 +270,6 @@ aside.inactive {
     content: $settings-close;
 }
 
-menu {
-    position: relative;
-    margin: 70px 0 0 0;
-}
-
-menu a {
-    display: inline-block;
-    margin: 0 0 8px 0;
-    width: 100%;
-}
-
 h1#logo {
     background: url(../images/logo.svg) no-repeat;
     text-indent: -9999em;
@@ -293,8 +285,15 @@ h1#logo.blue {
     background: url(../images/blue-logo.svg) no-repeat;
 }
 
-.reload {
+menu {
+    position: relative;
+    margin: 70px 0 0 0;
+}
+
+menu a {
     /*width: 86px;*/
+    width: 100%;
+    margin: 0 0 8px 0;
     border-radius: 3px;
     background: rgba($green,.38);
     padding: 7px 0;
@@ -306,18 +305,27 @@ h1#logo.blue {
     letter-spacing: -1px;
     text-align: center;
     display: inline-block;
-    @include btn;
+    cursor: pointer;
+    /*@include btn;*/
 }
 
-.reload:hover {
+menu a:hover {
     background: rgba($green, 1);
     @include btn;
     @include btnhover;
 }
 
-.reload:active {
+menu a:active {
     @include btnactive;
-    background: rgba(13,109,104,.27);
+    cursor: auto;
+    color: rgba(255,255,255,.16);
+    background: rgba(0,0,0,.08);
+}
+
+menu a.active {
+    color: rgba(255,255,255,1);
+    background: rgba($green, 1);
+    cursor: auto;
 }
 
 #keyboard {
@@ -362,6 +370,11 @@ key {
     display: inline-block;
     @include key;
     @include keyshadow;
+}
+
+key.deactivated {
+    background: rgba($gray, .092);
+    pointer-events: none;
 }
 
 key:hover {
@@ -588,6 +601,14 @@ input[type=text] {
 footer a {
     color: $green;
     text-decoration: none;
+}
+
+#codebox.unicode {
+    font-size: 740%;
+}
+
+#codebox.unicode .code-inner {
+    padding: 54px 0;
 }
 
 /* ==========================================================================

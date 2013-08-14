@@ -102,6 +102,7 @@ html {
   background: #033141;
   height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 body {
@@ -188,6 +189,8 @@ aside {
   top: 0;
   z-index: 1;
   background: #033141;
+  /*box-sizing: border-box;
+  -moz-box-sizing: border-box;*/
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -215,11 +218,11 @@ aside.inactive {
 
 .settings.close {
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.35);
+  background: #02202A;
 }
 
 .settings.close:hover {
-  background: #033141;
+  background: #02202A;
 }
 
 .settings span {
@@ -241,17 +244,6 @@ aside.inactive {
   content: "\e001";
 }
 
-menu {
-  position: relative;
-  margin: 70px 0 0 0;
-}
-
-menu a {
-  display: inline-block;
-  margin: 0 0 8px 0;
-  width: 100%;
-}
-
 h1#logo {
   background: url(../images/logo.svg) no-repeat;
   text-indent: -9999em;
@@ -267,8 +259,15 @@ h1#logo.blue {
   background: url(../images/blue-logo.svg) no-repeat;
 }
 
-.reload {
+menu {
+  position: relative;
+  margin: 70px 0 0 0;
+}
+
+menu a {
   /*width: 86px;*/
+  width: 100%;
+  margin: 0 0 8px 0;
   border-radius: 3px;
   background: rgba(22, 160, 133, 0.38);
   padding: 7px 0;
@@ -280,20 +279,11 @@ h1#logo.blue {
   letter-spacing: -1px;
   text-align: center;
   display: inline-block;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FF260000');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgwLCAwLCAwLCAwKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0icmdiYSgwLCAwLCAwLCAwLjA4KSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.08)));
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%);
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%);
-  -webkit-box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  /*@include btn;*/
 }
 
-.reload:hover {
+menu a:hover {
   background: #16a085;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FF260000');
@@ -319,10 +309,18 @@ h1#logo.blue {
   box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.1);
 }
 
-.reload:active {
+menu a:active {
   -webkit-box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.45);
   box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.45);
-  background: rgba(13, 109, 104, 0.27);
+  cursor: auto;
+  color: rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+menu a.active {
+  color: white;
+  background: #16a085;
+  cursor: auto;
 }
 
 #keyboard {
@@ -383,6 +381,11 @@ key {
   color: rgba(0, 0, 0, 0.3);
   /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
   @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+}
+
+key.deactivated {
+  background: rgba(118, 118, 118, 0.092);
+  pointer-events: none;
 }
 
 key:hover {
@@ -623,6 +626,14 @@ input[type=text] {
 footer a {
   color: #16a085;
   text-decoration: none;
+}
+
+#codebox.unicode {
+  font-size: 740%;
+}
+
+#codebox.unicode .code-inner {
+  padding: 54px 0;
 }
 
 /* ==========================================================================
