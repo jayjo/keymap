@@ -503,8 +503,13 @@ row.six .cmd {
   height: 30px;
 }
 
-row.six .opt {
-  padding: 28px 6px 0 6px;
+row.six .opt.left {
+  padding: 28px 0px 0 12px;
+  height: 30px;
+}
+
+row.six .opt.right {
+  padding: 28px 12px 0 0px;
   height: 30px;
 }
 
@@ -788,6 +793,7 @@ input[type=text] {
   position: fixed;
   right: 20px;
   bottom: 20px;
+  color: #16a085;
 }
 
 .copyright p a {
