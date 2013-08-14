@@ -1,5 +1,54 @@
 jQuery(document).ready(function($) {
 
+	$.loadingStuff = function(){
+
+		setTimeout(function(){
+			$('aside').animate({opacity: 1});
+		}, 75);
+
+		setTimeout(function(){
+			$('#keyboard').addClass('showing');
+		}, 550);
+
+	};
+
+	$.loadingStuff();
+
+	$.bodyLoad = function(){
+
+		$(document).ready(function(){
+
+			if ($('aside').hasClass('inactive')) {
+				$('.wrapper').removeClass('active');
+				$('.settings').removeClass('close');
+			}
+			else if (!$('aside').hasClass('inactive')) {
+				$('.wrapper').addClass('active');
+				$('.settings').addClass('close');
+			}
+
+		});
+
+		$(document).ready(function(){
+
+			var letterKeys = $('.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m,.n,.o,.p,.q,.r,.s,.t,.u,.v,.w,.x,.y,.z');
+
+			if ($('.cap').hasClass('capsOn')) {
+
+				letterKeys.addClass('uppercase');
+				$('#keyboard').addClass('capslock');
+				$('.caps').addClass('activated');
+
+			} else {
+
+			}
+
+		});
+
+	};
+
+	$.bodyLoad();
+
 	$.keyBoard = function(){
 
 		$('menu a').on('click', function(e){
@@ -12,30 +61,37 @@ jQuery(document).ready(function($) {
 
 		});
 
+		$('.cap').on('click', function(){
+
+			var letterKeys = $('.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m,.n,.o,.p,.q,.r,.s,.t,.u,.v,.w,.x,.y,.z');
+
+			letterKeys.toggleClass('uppercase');
+			$(this).toggleClass('capsOn');
+			$('.caps').toggleClass('activated');
+			$('#keyboard').toggleClass('capslock');
+
+		});
+
 		return false;
 
 	};
 
-	$.loadingStuff = function(){
-
-		setTimeout(function(){
-			$('#keyboard').addClass('showing');
-		}, 450);
-
-	};
+	$.keyBoard();
 
 	$.keyCodeKeyboardCodes = function() {
 
 		$.Press = function() {
 
-			$('key').on('mousedown', function(e){
+			$('key').on('mousedown', function(){
 
 				$('#codebox').addClass('active');
+				$('key:not(this)').removeClass('active');
 
-				var dataKey = $(this).attr('data-key');
-				var dataLMTH = $(this).attr('data-lmth');
-				var dataUni = $(this).attr('data-uni');
-				var press = e.which;
+				var dataKey = $(this).attr('data-key'),
+					dataLMTH = $(this).attr('data-lmth'),
+					dataUni = $(this).attr('data-uni'),
+					dataUniCaps = $(this).attr('data-unicaps'),
+					dataEncoded = $(this).attr('data-encoded');
 
 				$('#codebox input').addClass('active');
 
@@ -43,17 +99,17 @@ jQuery(document).ready(function($) {
 
 					$('#codebox input').val(dataKey);
 
-				} else if ($('#keyboard').hasClass('unicode')) {
+				} else if (!$('#keyboard').hasClass('capslock') && $('#keyboard').hasClass('unicode')) {
 
 					$('#codebox input').val(dataUni);
 
-				} else if ($('#keyboard').hasClass('entities')) {
+				}  else if ($('#keyboard').hasClass('encoded')) {
 
-					$('#codebox input').val(dataLMTH);
+					$('#codebox input').val(dataEncoded);
 
-				}	else if ($('#keyboard').hasClass('ascii')) {
+				} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
 
-					$('#codebox input').val(dataLMTH);
+					$('#codebox input').val(dataUniCaps);
 
 				}
 
@@ -97,6 +153,8 @@ jQuery(document).ready(function($) {
 
 	};
 
+	$.keyCodeKeyboardCodes();
+
 	$.keyCombos = function(){
 
 		$('.reload').on('click', function(){
@@ -104,6 +162,8 @@ jQuery(document).ready(function($) {
 		});
 
 	};
+
+	// $.keyCombos();
 
 	$.menuOpener = function(){
 		$('.settings').on('click', function(){
@@ -113,10 +173,45 @@ jQuery(document).ready(function($) {
 		});
 	};
 
-	$.keyBoard();
-	$.loadingStuff();
-	// $.keyCombos();
-	$.keyCodeKeyboardCodes();
 	$.menuOpener();
+
+	$.cookieMonster = function(){
+
+		var typeCookie = 'type',
+			menuCookie = 'menu',
+			capsCookie = 'cap',
+			cookieOptions = 'expires: 365, {path: '/'}';
+
+			$('#' + $.cookie(typeCookie)).addClass('active');
+			$('#keyboard').addClass($.cookie(typeCookie));
+			$('#codebox').addClass($.cookie(typeCookie));
+
+		$('menu a').on('click', function(e){
+			e.preventDefault();
+			$('#' + $.cookie(typeCookie)).removeClass('active');
+			$.cookie(typeCookie, $(this).attr('id'), cookieOptions);
+			$('#' + $.cookie(typeCookie)).addClass('active');
+		});
+
+		$('.settings').on('click', function(e){
+
+			e.preventDefault();
+			$.cookie(menuCookie, $('aside').attr('class'), cookieOptions);
+
+		});
+
+		$('.cap').on('click', function(e){
+
+			e.preventDefault();
+			$.cookie(capsCookie, $(this).attr('class'), cookieOptions);
+
+		});
+
+		$('aside').addClass($.cookie(menuCookie));
+		$('.cap').addClass($.cookie(capsCookie));
+
+	};
+
+	$.cookieMonster();
 
 });

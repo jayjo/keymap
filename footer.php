@@ -1,5 +1,7 @@
     		<footer>
-
+                <div class="copyright">
+                    <p><a href="http://twitter.com/jayjo" target="_blank">@jayjo</a></p>
+                </div>
             </footer>
 
         </section>
