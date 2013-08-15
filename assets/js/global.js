@@ -11,8 +11,8 @@ jQuery(document).ready(function($) {
 		}, 75);
 
 		setTimeout(function(){
-			$('#keyboard').animate({opacity: 1});
-		}, 550);
+			$('.wrapper').animate({opacity: 1});
+		}, 150);
 
 	};
 

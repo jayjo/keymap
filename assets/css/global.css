@@ -191,6 +191,7 @@ footer {
   left: 20px;
   bottom: 20px;
   border-radius: 3px;
+  opacity: 0;
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -437,8 +438,25 @@ key.double {
   color: rgba(255, 255, 255, 0.25);
 }
 
+key.double:hover {
+  color: rgba(255, 255, 255, 0.25);
+}
+
 key.double.uppercase {
   color: #fccd43;
+}
+
+key.double.uppercase:hover {
+  color: #fff;
+}
+
+key.double.uppercase:active,
+key.double.uppercase.active {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+key.double.uppercase:hover span {
+  color: rgba(255, 255, 255, 0.25);
 }
 
 key.double.uppercase span {
@@ -447,6 +465,15 @@ key.double.uppercase span {
 
 key.double span {
   color: #fccd43;
+}
+
+key.double:hover span {
+  color: #fff;
+}
+
+key.double.active span,
+key.double:active span {
+  color: rgba(255, 255, 255, 0.25);
 }
 
 key.deactivated {
