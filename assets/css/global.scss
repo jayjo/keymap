@@ -305,6 +305,7 @@ h1#logo {
     text-align: center;
     width: 184px;
     margin: 26px auto 0;
+    cursor: pointer;
 }
 
 h1#logo.blue {
@@ -431,6 +432,22 @@ key {
     color: $yellow;
     /*@include key;*/
     /*@include keyshadow;*/
+}
+
+key.double {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+key.double.uppercase {
+    color: $yellow;
+}
+
+key.double.uppercase span {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+key.double span {
+    color: $yellow;
 }
 
 key.deactivated {
@@ -612,38 +629,6 @@ row.four key.apos:active {
     top: 9px;
 }
 
-#keyboard key.double span {
-    color: $yellow;
-}
-
-#keyboard key.double:hover span {
-    color: #fff;
-}
-
-#keyboard key.double:active span {
-    color: rgba(255, 255, 255, 0.25);
-}
-
-#keyboard.capslock key.double span {
-    color: rgba(255,255,255,.12);
-}
-
-#keyboard key.double {
-    color: rgba(255,255,255,.12);
-}
-
-#keyboard.capslock key.double {
-    color: $yellow;
-}
-
-#keyboard.capslock key.double:hover {
-    color: #fff;
-}
-
-#keyboard.capslock key.double:active {
-    color: rgba(255, 255, 255, 0.25);
-}
-
 .cap {
     position: absolute;
     top: 16px;
@@ -680,7 +665,6 @@ row.four key.apos:active {
 #codebox {
     font-family: $brandon;
     font-weight: 300;
-    font-size: 1200%;
     line-height:0;
     width: 560px;
     height: 390px;
@@ -725,11 +709,12 @@ row.four key.apos:active {
 
 #codebox .code-inner {
     background: rgba(0,0,0,.45);
-    margin: 10px;
+    font-size: 1200%;
+    margin: 0;
     border-radius: 5px;
     position: relative;
     display: block;
-    padding: 45px 0;
+    padding: 55px 0;
 }
 
 input[type=text] {
@@ -756,12 +741,35 @@ input[type=text] {
     pointer-events: none;
 }
 
-#codebox.unicode {
+#codebox.unicode .code-inner {
     font-size: 740%;
 }
 
 #codebox.unicode .code-inner {
     padding: 99px 0;
+}
+
+#codebox .code-inner.dark {
+    background: rgba(0,0,0,.75);
+}
+
+#codebox .code-inner.dark {
+    font-size: 28px;
+}
+
+#codebox.unicode .code-inner.dark {
+    padding: 45px 0;
+}
+
+#codebox .code-inner.dark p {
+    color: #fff;
+    line-height: 38px;
+    padding: 26px 48px;
+    margin: 0;
+}
+
+#codebox .code-inner p span {
+    color: $yellow;
 }
 
 .copyright p {
@@ -801,13 +809,38 @@ input[type=text] {
 #keyboard.unicode .caps,
 #keyboard.unicode.capslock .tab,
 #keyboard.unicode.capslock .return,
-#keyboard.unicode.capslock .delete {
+#keyboard.unicode.capslock .delete,
+#keyboard.encoded key.f1,
+#keyboard.encoded key.f2,
+#keyboard.encoded key.f3,
+#keyboard.encoded key.f4,
+#keyboard.encoded key.f5,
+#keyboard.encoded key.f6,
+#keyboard.encoded key.f7,
+#keyboard.encoded key.f8,
+#keyboard.encoded key.f9,
+#keyboard.encoded key.f10,
+#keyboard.encoded key.f11,
+#keyboard.encoded key.f12,
+#keyboard.encoded key.f13,
+#keyboard.encoded .caps,
+#keyboard.encoded .shft,
+#keyboard.encoded .ctrl,
+#keyboard.encoded .opt,
+#keyboard.encoded .cmd {
     top: 2px;
     @include keyshadowactive;
     pointer-events: none;
 }
 
-#keyboard.unicode row.six key.space {
+#keyboard.encoded row.six key.space {
+    top: 16px;
+    @include keyshadowactive;
+    pointer-events: none;
+}
+
+#keyboard.unicode row.six key.space,
+ {
     top: 16px;
 }
 
