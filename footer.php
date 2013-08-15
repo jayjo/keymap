@@ -1,6 +1,6 @@
     		<footer>
                 <div class="copyright">
-                    <p><a href="http://twitter.com/jayjo" target="_blank">@jayjo</a> | <a href="http://github.com">github</a></p>
+                    <p><a href="http://twitter.com/jayjo" target="_blank">@jayjo</a> | <a href="https://github.com/jayjo/keymap/fork">github</a></p>
                 </div>
             </footer>
 
