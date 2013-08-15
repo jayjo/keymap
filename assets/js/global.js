@@ -14,6 +14,8 @@ jQuery(document).ready(function($) {
 			$('.wrapper').animate({opacity: 1});
 		}, 150);
 
+		$('#keyboard').addClass('showing');
+
 	};
 
 	$.loadingStuff();
