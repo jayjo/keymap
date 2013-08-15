@@ -1,5 +1,9 @@
 jQuery(document).ready(function($) {
 
+	$('.code-inner.dark').hide();
+
+	var letterKeys = $('.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m,.n,.o,.p,.q,.r,.s,.t,.u,.v,.w,.x,.y,.z,.1,.2,.3,.4,.5,.6,.7,.8,.9,.0,.til,.hyp,.equ,.lbrack,.rbrack,.bs,.col,.apos,.comm,.great,.quest');
+
 	$.loadingStuff = function(){
 
 		setTimeout(function(){
@@ -7,8 +11,8 @@ jQuery(document).ready(function($) {
 		}, 75);
 
 		setTimeout(function(){
-			$('#keyboard').addClass('showing');
-		}, 550);
+			$('.wrapper').animate({opacity: 1});
+		}, 150);
 
 	};
 
@@ -30,8 +34,6 @@ jQuery(document).ready(function($) {
 		});
 
 		$(document).ready(function(){
-
-			var letterKeys = $('.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m,.n,.o,.p,.q,.r,.s,.t,.u,.v,.w,.x,.y,.z');
 
 			if ($('.cap').hasClass('capsOn')) {
 
@@ -59,11 +61,13 @@ jQuery(document).ready(function($) {
 			$('#codebox').removeClass().addClass(keyClass);
 			$(this).addClass('active').siblings().removeClass();
 
+			if ($('.cap').hasClass('capsOn')) {
+				$('#keyboard').addClass('capslock');
+			}
+
 		});
 
 		$('.cap').on('click', function(){
-
-			var letterKeys = $('.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m,.n,.o,.p,.q,.r,.s,.t,.u,.v,.w,.x,.y,.z');
 
 			letterKeys.toggleClass('uppercase');
 			$(this).toggleClass('capsOn');
@@ -91,9 +95,8 @@ jQuery(document).ready(function($) {
 					dataLMTH = $(this).attr('data-lmth'),
 					dataUni = $(this).attr('data-uni'),
 					dataUniCaps = $(this).attr('data-unicaps'),
-					dataEncoded = $(this).attr('data-encoded');
-
-				$('#codebox input').addClass('active');
+					dataEncoded = $(this).attr('data-encode'),
+					dataEncodedCaps = $(this).attr('data-encodecaps');
 
 				if ($('#keyboard').hasClass('charcode')) {
 
@@ -103,13 +106,17 @@ jQuery(document).ready(function($) {
 
 					$('#codebox input').val(dataUni);
 
-				}  else if ($('#keyboard').hasClass('encoded')) {
+				}  else if ($('#keyboard').hasClass('encoded') && !$('#keyboard').hasClass('capslock')) {
 
 					$('#codebox input').val(dataEncoded);
 
 				} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
 
 					$('#codebox input').val(dataUniCaps);
+
+				} else if ($('#keyboard').hasClass('encoded') && $('#keyboard').hasClass('capslock')) {
+
+					$('#codebox input').val(dataEncodedCaps);
 
 				}
 
@@ -127,7 +134,6 @@ jQuery(document).ready(function($) {
 
 				var depress = e.which;
 
-				$('#codebox input').removeClass('active');
 				$(this).removeClass('active');
 
 			});
@@ -174,6 +180,21 @@ jQuery(document).ready(function($) {
 	};
 
 	$.menuOpener();
+
+	$.logoClicker = function(){
+		$('#logo').on('mousedown', function(){
+			$('#codebox').addClass('active');
+			$('.code-inner').hide();
+			$('.code-inner.dark').show();
+		});
+		$('#logo').on('mouseup', function(){
+			$('#codebox').removeClass('active');
+			$('.code-inner').show();
+			$('.code-inner.dark').hide();
+		});
+	};
+
+	$.logoClicker();
 
 	$.cookieMonster = function(){
 
