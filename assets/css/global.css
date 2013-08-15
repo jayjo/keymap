@@ -918,32 +918,34 @@ input[type=text] {
 /* ==========================================================================
    LARGE MONITOR classes
    ========================================================================== */
-@media screen and (min-width: 2560px) {
-  #keyboard {
+/*@media screen and (min-width: 2560px) {
+
+#keyboard {
     width: 2319px;
     height: 386px;
     position: absolute;
     top: 34%;
     left: 555px;
-  }
+}
 
-  row {
+row {
     margin-bottom: 30px;
-  }
+}
 
-  key {
+key {
     font-size: 39px;
-  }
+}
 
-  row.two key, row.three key, row.four key, row.five key {
+row.two key, row.three key, row.four key, row.five key {
     width: 152px;
-  }
+}
 
-  row.three key.single, row.four key.single, row.five key.single {
+row.three key.single, row.four key.single, row.five key.single {
     height: 99px;
     padding: 57px 0 0 0;
-  }
 }
+
+}*/
 /* ==========================================================================
    Helper classes
    ========================================================================== */
