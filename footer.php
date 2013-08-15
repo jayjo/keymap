@@ -11,8 +11,8 @@
         <script type="text/javascript" src="//use.typekit.net/ffl8wgu.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/global.js"></script>
+        <script src="assets/js/plugins.min.js"></script>
+        <script src="assets/js/global.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
