@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
 		}, 75);
 
 		setTimeout(function(){
-			$('#keyboard').addClass('showing');
+			$('#keyboard').animate({opacity: 1});
 		}, 550);
 
 	};
