@@ -393,7 +393,7 @@ menu a.active {
   -webkit-transition: all 0.2s;
 }
 
-#keyboard * {
+#keyboard *, #codebox * {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
