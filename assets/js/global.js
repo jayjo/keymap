@@ -128,6 +128,49 @@ jQuery(document).ready(function($) {
 
 		};
 
+		$.KeyPress = function() {
+
+			$(document).on('keydown', function(ev) {
+				var key = $("[data-key=" + ev.keyCode + "]");
+
+				key.addClass("active");
+				$('#codebox').addClass('active');
+
+				var dataKey = key.attr('data-key'),
+					dataLMTH = key.attr('data-lmth'),
+					dataUni = key.attr('data-uni'),
+					dataUniCaps = key.attr('data-unicaps'),
+					dataEncoded = key.attr('data-encode'),
+					dataEncodedCaps = key.attr('data-encodecaps');
+
+				if ($('#keyboard').hasClass('charcode')) {
+
+					$('#codebox input').val(dataKey);
+
+				} else if (!$('#keyboard').hasClass('capslock') && $('#keyboard').hasClass('unicode')) {
+
+					$('#codebox input').val(dataUni);
+
+				}  else if ($('#keyboard').hasClass('encoded') && !$('#keyboard').hasClass('capslock')) {
+
+					$('#codebox input').val(dataEncoded);
+
+				} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
+
+					$('#codebox input').val(dataUniCaps);
+
+				} else if ($('#keyboard').hasClass('encoded') && $('#keyboard').hasClass('capslock')) {
+
+					$('#codebox input').val(dataEncodedCaps);
+
+				}
+
+				$(this).addClass('active');
+
+			});
+
+		};
+
 		$.Depress = function() {
 
 			$('key').on('mouseup', function(e){
@@ -137,6 +180,21 @@ jQuery(document).ready(function($) {
 				var depress = e.which;
 
 				$(this).removeClass('active');
+
+			});
+
+		};
+
+		$.KeyDepress = function() {
+
+			$(document).on('keyup', function(e){
+
+				var key = $("[data-key=" + e.keyCode + "]");
+				key.removeClass("active")
+
+				$('#codebox').removeClass('active');
+
+				var depress = e.which;
 
 			});
 
@@ -157,6 +215,9 @@ jQuery(document).ready(function($) {
 
 		$.Press();
 		$.Depress();
+
+		$.KeyPress();
+		$.KeyDepress();
 		// $.ClipBoard();
 
 	};
