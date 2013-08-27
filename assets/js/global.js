@@ -141,7 +141,49 @@ jQuery(document).ready(function($) {
 			});
 
 		};
+		
+		
+		
+		$.KeyPress = function() {
+			$(window).on('keydown', function(e) {
 
+				$('#codebox').addClass('active');
+				$('key:not(this)').removeClass('active');
+
+				var keyboardPressed = $('key[data-key="'+ e.keyCode +'"]');
+					keyPressCharcode = e.keyCode,
+					keyPressUnicode = $(keyboardPressed).data('uni'),
+					keyPressEncoded = $(keyboardPressed).data('encode');
+
+				if ($('#keyboard').hasClass('charcode')) {
+
+					$('#codebox input').val(keyPressCharcode);
+
+				} else if ($('#keyboard').hasClass('unicode')) {
+
+					$('#codebox input').val(keyPressUnicode);
+
+				}  else if ($('#keyboard').hasClass('encoded')) {
+
+					$('#codebox input').val(keyPressEncoded);
+
+				}
+
+			});
+
+			$(window).on('keyup', function(e) {
+
+				$('#codebox').removeClass('active');
+
+				$('#codebox input').val();
+
+			});
+
+		};
+		
+		
+		
+		
 		// $.ClipBoard = function() {
 
 		// 	var dataKey = $(this).attr('data-key');
@@ -157,6 +199,7 @@ jQuery(document).ready(function($) {
 
 		$.Press();
 		$.Depress();
+		$.KeyPress();
 		// $.ClipBoard();
 
 	};
