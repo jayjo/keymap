@@ -1,9 +1,6 @@
-displayKey = function(key) {
-	$("key.active").removeClass("active")
-
-	key.addClass("active");
-	$('#codebox').addClass('active');
-
+displayKey = function(key, event) {
+	$("key.active").removeClass("active");
+	
 	var dataKey = key.attr('data-key'),
 		dataLMTH = key.attr('data-lmth'),
 		dataUni = key.attr('data-uni'),
@@ -11,29 +8,42 @@ displayKey = function(key) {
 		dataEncoded = key.attr('data-encode'),
 		dataEncodedCaps = key.attr('data-encodecaps');
 
-	if ($('#keyboard').hasClass('charcode')) {
+	var isShiftKey  = event.shiftKey ? true : false,
+		isCapslock  = $('#keyboard').hasClass('capslock'),
+		isCharcode  = $('#keyboard').hasClass('charcode'),
+		isUnicode   = $('#keyboard').hasClass('unicode'),
+		isURLEncode = $('#keyboard').hasClass('encoded');
 
-		$('#codebox input').val(dataKey);
+	var isCapitals = isCapslock || isShiftKey ? true : false;
+	var dataToDisplay = false;
 
-	} else if (!$('#keyboard').hasClass('capslock') && $('#keyboard').hasClass('unicode')) {
+	if (isCharcode) {
+		dataToDisplay = dataKey;
 
-		$('#codebox input').val(dataUni);
+	} else if (!isCapitals && isUnicode) {
+		dataToDisplay = dataUni;
 
-	}  else if ($('#keyboard').hasClass('encoded') && !$('#keyboard').hasClass('capslock')) {
+	}  else if (isURLEncode && !isCapitals) {
+		dataToDisplay = dataEncoded;
 
-		$('#codebox input').val(dataEncoded);
+	} else if (isUnicode && isCapitals) {
+		dataToDisplay = dataUniCaps;
 
-	} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
-
-		$('#codebox input').val(dataUniCaps);
-
-	} else if ($('#keyboard').hasClass('encoded') && $('#keyboard').hasClass('capslock')) {
-
-		$('#codebox input').val(dataEncodedCaps);
-
+	} else if (isURLEncode && isCapitals) {
+		dataToDisplay = dataEncodedCaps;
 	}
 
-	$(this).addClass('active');
+	if(dataToDisplay) {
+		key.addClass("active");
+		$('#codebox input').val(dataToDisplay);
+		$('#codebox').addClass('active');
+	}
+
+	// At the moment keys that are 'hidden' do not have an
+	// active state So this doesnt really do much useful.
+	if(isShiftKey) {
+		$("key.shft").addClass("active");
+	}
 };
 
 jQuery(document).ready(function($) {
@@ -126,8 +136,8 @@ jQuery(document).ready(function($) {
 
 		$.Press = function() {
 
-			$('key').on('mousedown', function(){
-				displayKey($(this))
+			$('key').on('mousedown', function(ev){
+				displayKey($(this), ev);
 			});
 
 		};
@@ -136,7 +146,7 @@ jQuery(document).ready(function($) {
 
 			$(document).on('keydown', function(ev) {
 				var key = $("[data-key=" + ev.keyCode + "]");
-				displayKey(key)
+				displayKey(key, ev);
 			});
 
 		};
