@@ -1,3 +1,51 @@
+displayKey = function(key, event) {
+	$("key.active").removeClass("active");
+	
+	var dataKey = key.attr('data-key'),
+		dataLMTH = key.attr('data-lmth'),
+		dataUni = key.attr('data-uni'),
+		dataUniCaps = key.attr('data-unicaps'),
+		dataEncoded = key.attr('data-encode'),
+		dataEncodedCaps = key.attr('data-encodecaps');
+
+	var isShiftKey  = event.shiftKey ? true : false,
+		isCapslock  = $('#keyboard').hasClass('capslock'),
+		isCharcode  = $('#keyboard').hasClass('charcode'),
+		isUnicode   = $('#keyboard').hasClass('unicode'),
+		isURLEncode = $('#keyboard').hasClass('encoded');
+
+	var isCapitals = isCapslock || isShiftKey ? true : false;
+	var dataToDisplay = false;
+
+	if (isCharcode) {
+		dataToDisplay = dataKey;
+
+	} else if (!isCapitals && isUnicode) {
+		dataToDisplay = dataUni;
+
+	}  else if (isURLEncode && !isCapitals) {
+		dataToDisplay = dataEncoded;
+
+	} else if (isUnicode && isCapitals) {
+		dataToDisplay = dataUniCaps;
+
+	} else if (isURLEncode && isCapitals) {
+		dataToDisplay = dataEncodedCaps;
+	}
+
+	if(dataToDisplay) {
+		key.addClass("active");
+		$('#codebox input').val(dataToDisplay);
+		$('#codebox').addClass('active');
+	}
+
+	// At the moment keys that are 'hidden' do not have an
+	// active state So this doesnt really do much useful.
+	if(isShiftKey) {
+		$("key.shft").addClass("active");
+	}
+};
+
 jQuery(document).ready(function($) {
 
 	$('.code-inner.dark').hide();
@@ -49,6 +97,20 @@ jQuery(document).ready(function($) {
 
 		});
 
+		$(document).on("keydown", function(ev) {
+			if(ev.shiftKey) {
+				letterKeys.addClass('uppercase');
+				$('#keyboard').addClass('capslock');
+			}
+		});
+
+		$(document).on("keyup", function(ev) {
+			if(!$('.cap').hasClass('capsOn') && !ev.shiftKey) {
+				letterKeys.removeClass('uppercase');
+				$('#keyboard').removeClass('capslock');
+			}
+		});
+
 	};
 
 	$.bodyLoad();
@@ -88,42 +150,17 @@ jQuery(document).ready(function($) {
 
 		$.Press = function() {
 
-			$('key').on('mousedown', function(){
+			$('key').on('mousedown', function(ev){
+				displayKey($(this), ev);
+			});
 
-				$('#codebox').addClass('active');
-				$('key:not(this)').removeClass('active');
+		};
 
-				var dataKey = $(this).attr('data-key'),
-					dataLMTH = $(this).attr('data-lmth'),
-					dataUni = $(this).attr('data-uni'),
-					dataUniCaps = $(this).attr('data-unicaps'),
-					dataEncoded = $(this).attr('data-encode'),
-					dataEncodedCaps = $(this).attr('data-encodecaps');
+		$.KeyPress = function() {
 
-				if ($('#keyboard').hasClass('charcode')) {
-
-					$('#codebox input').val(dataKey);
-
-				} else if (!$('#keyboard').hasClass('capslock') && $('#keyboard').hasClass('unicode')) {
-
-					$('#codebox input').val(dataUni);
-
-				}  else if ($('#keyboard').hasClass('encoded') && !$('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataEncoded);
-
-				} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataUniCaps);
-
-				} else if ($('#keyboard').hasClass('encoded') && $('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataEncodedCaps);
-
-				}
-
-				$(this).addClass('active');
-
+			$(document).on('keydown', function(ev) {
+				var key = $("[data-key=" + ev.keyCode + "]");
+				displayKey(key, ev);
 			});
 
 		};
@@ -137,6 +174,21 @@ jQuery(document).ready(function($) {
 				var depress = e.which;
 
 				$(this).removeClass('active');
+
+			});
+
+		};
+
+		$.KeyDepress = function() {
+
+			$(document).on('keyup', function(e){
+
+				var key = $("[data-key=" + e.keyCode + "]");
+				key.removeClass("active");
+
+				$('#codebox').removeClass('active');
+
+				var depress = e.which;
 
 			});
 
@@ -157,6 +209,9 @@ jQuery(document).ready(function($) {
 
 		$.Press();
 		$.Depress();
+
+		$.KeyPress();
+		$.KeyDepress();
 		// $.ClipBoard();
 
 	};
