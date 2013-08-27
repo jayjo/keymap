@@ -97,6 +97,20 @@ jQuery(document).ready(function($) {
 
 		});
 
+		$(document).on("keydown", function(ev) {
+			if(ev.shiftKey) {
+				letterKeys.addClass('uppercase');
+				$('#keyboard').addClass('capslock');
+			}
+		});
+
+		$(document).on("keyup", function(ev) {
+			if(!$('.cap').hasClass('capsOn') && !ev.shiftKey) {
+				letterKeys.removeClass('uppercase');
+				$('#keyboard').removeClass('capslock');
+			}
+		});
+
 	};
 
 	$.bodyLoad();
@@ -170,7 +184,7 @@ jQuery(document).ready(function($) {
 			$(document).on('keyup', function(e){
 
 				var key = $("[data-key=" + e.keyCode + "]");
-				key.removeClass("active")
+				key.removeClass("active");
 
 				$('#codebox').removeClass('active');
 
