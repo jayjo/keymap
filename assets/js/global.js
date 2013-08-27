@@ -1,3 +1,41 @@
+displayKey = function(key) {
+	$("key.active").removeClass("active")
+
+	key.addClass("active");
+	$('#codebox').addClass('active');
+
+	var dataKey = key.attr('data-key'),
+		dataLMTH = key.attr('data-lmth'),
+		dataUni = key.attr('data-uni'),
+		dataUniCaps = key.attr('data-unicaps'),
+		dataEncoded = key.attr('data-encode'),
+		dataEncodedCaps = key.attr('data-encodecaps');
+
+	if ($('#keyboard').hasClass('charcode')) {
+
+		$('#codebox input').val(dataKey);
+
+	} else if (!$('#keyboard').hasClass('capslock') && $('#keyboard').hasClass('unicode')) {
+
+		$('#codebox input').val(dataUni);
+
+	}  else if ($('#keyboard').hasClass('encoded') && !$('#keyboard').hasClass('capslock')) {
+
+		$('#codebox input').val(dataEncoded);
+
+	} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
+
+		$('#codebox input').val(dataUniCaps);
+
+	} else if ($('#keyboard').hasClass('encoded') && $('#keyboard').hasClass('capslock')) {
+
+		$('#codebox input').val(dataEncodedCaps);
+
+	}
+
+	$(this).addClass('active');
+};
+
 jQuery(document).ready(function($) {
 
 	$('.code-inner.dark').hide();
@@ -89,41 +127,7 @@ jQuery(document).ready(function($) {
 		$.Press = function() {
 
 			$('key').on('mousedown', function(){
-
-				$('#codebox').addClass('active');
-				$('key:not(this)').removeClass('active');
-
-				var dataKey = $(this).attr('data-key'),
-					dataLMTH = $(this).attr('data-lmth'),
-					dataUni = $(this).attr('data-uni'),
-					dataUniCaps = $(this).attr('data-unicaps'),
-					dataEncoded = $(this).attr('data-encode'),
-					dataEncodedCaps = $(this).attr('data-encodecaps');
-
-				if ($('#keyboard').hasClass('charcode')) {
-
-					$('#codebox input').val(dataKey);
-
-				} else if (!$('#keyboard').hasClass('capslock') && $('#keyboard').hasClass('unicode')) {
-
-					$('#codebox input').val(dataUni);
-
-				}  else if ($('#keyboard').hasClass('encoded') && !$('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataEncoded);
-
-				} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataUniCaps);
-
-				} else if ($('#keyboard').hasClass('encoded') && $('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataEncodedCaps);
-
-				}
-
-				$(this).addClass('active');
-
+				displayKey($(this))
 			});
 
 		};
@@ -132,41 +136,7 @@ jQuery(document).ready(function($) {
 
 			$(document).on('keydown', function(ev) {
 				var key = $("[data-key=" + ev.keyCode + "]");
-
-				key.addClass("active");
-				$('#codebox').addClass('active');
-
-				var dataKey = key.attr('data-key'),
-					dataLMTH = key.attr('data-lmth'),
-					dataUni = key.attr('data-uni'),
-					dataUniCaps = key.attr('data-unicaps'),
-					dataEncoded = key.attr('data-encode'),
-					dataEncodedCaps = key.attr('data-encodecaps');
-
-				if ($('#keyboard').hasClass('charcode')) {
-
-					$('#codebox input').val(dataKey);
-
-				} else if (!$('#keyboard').hasClass('capslock') && $('#keyboard').hasClass('unicode')) {
-
-					$('#codebox input').val(dataUni);
-
-				}  else if ($('#keyboard').hasClass('encoded') && !$('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataEncoded);
-
-				} else if ($('#keyboard').hasClass('unicode') && $('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataUniCaps);
-
-				} else if ($('#keyboard').hasClass('encoded') && $('#keyboard').hasClass('capslock')) {
-
-					$('#codebox input').val(dataEncodedCaps);
-
-				}
-
-				$(this).addClass('active');
-
+				displayKey(key)
 			});
 
 		};
