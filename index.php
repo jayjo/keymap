@@ -44,11 +44,11 @@ include 'header.php';
 					<key class="double 0" data-key="48" data-encode="%30" data-encodecaps="%29" data-uni="U+0030" data-unicaps="U+0029">)<span>0</span></key>
 					<key class="double hyp" data-key="189" data-encode="%2D" data-encodecaps="%5F" data-uni="U+002D" data-unicaps="U+005F">_<span>-</span></key>
 					<key class="double equ" data-key="187" data-encode="%3D" data-encodecaps="%2B" data-uni="U+003D" data-unicaps="U+002B">+<span>=</span></key>
-					<key class="single delete right" data-key="9" data-encode="%08" data-encodecaps="%08" data-uni="U+007F">Delete</key>
+					<key class="single delete right" data-key="8" data-encode="%08" data-encodecaps="%08" data-uni="U+007F">Delete</key>
 					<div class="clearfix"></div>
 				</row>
 				<row class="three">
-					<key class="tab left" data-key="8" data-encode="%09" data-encodecaps="%09" data-uni="U+0009">Tab</key>
+					<key class="tab left" data-key="9" data-encode="%09" data-encodecaps="%09" data-uni="U+0009">Tab</key>
 					<key class="single q" data-key="81" data-encode="%71" data-encodecaps="%51" data-uni="U+0071" data-unicaps="U+0051">q</key>
 					<key class="single w" data-key="87" data-encode="%77" data-encodecaps="%57" data-uni="U+0077" data-unicaps="U+0057">w</key>
 					<key class="single e" data-key="69" data-encode="%65" data-encodecaps="%45" data-uni="U+0065" data-unicaps="U+0045">e</key>
@@ -100,7 +100,7 @@ include 'header.php';
 					<key class="single ctrl left" data-key="17">control</key>
 					<key class="single opt left" data-key="18">option</key>
 					<key class="single cmd left" data-key="91">command</key>
-					<key class="single space left" data-key="32"></key>
+					<key class="single space left" data-key="32" data-encode="%20" data-encodecaps="%20"></key>
 					<key class="single cmd right" data-key="91">command</key>
 					<key class="single opt right" data-key="18">option</key>
 					<key class="single ctrl right" data-key="17">control</key>

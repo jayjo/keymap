@@ -1,6 +1,8 @@
-displayKey = function(key, event) {
+jQuery(document).ready(function($) {
+
+	displayKey = function(key, event) {
 	$("key.active").removeClass("active");
-	
+
 	var dataKey = key.attr('data-key'),
 		dataLMTH = key.attr('data-lmth'),
 		dataUni = key.attr('data-uni'),
@@ -46,8 +48,6 @@ displayKey = function(key, event) {
 	}
 };
 
-jQuery(document).ready(function($) {
-
 	$('.code-inner.dark').hide();
 
 	var letterKeys = $('.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m,.n,.o,.p,.q,.r,.s,.t,.u,.v,.w,.x,.y,.z,.1,.2,.3,.4,.5,.6,.7,.8,.9,.0,.til,.hyp,.equ,.lbrack,.rbrack,.bs,.col,.apos,.comm,.great,.quest');
@@ -82,6 +82,7 @@ jQuery(document).ready(function($) {
 			}
 
 		});
+
 
 		$(document).ready(function(){
 
@@ -161,6 +162,7 @@ jQuery(document).ready(function($) {
 			$(document).on('keydown', function(ev) {
 				var key = $("[data-key=" + ev.keyCode + "]");
 				displayKey(key, ev);
+				ev.preventDefault();
 			});
 
 		};
