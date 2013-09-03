@@ -870,11 +870,11 @@ input[type=text] {
     pointer-events: none;
 }
 
-#keyboard.encoded row.six key.space {
+/*#keyboard.encoded row.six key.space {
     top: 16px;
     @include keyshadowactive;
     pointer-events: none;
-}
+}*/
 
 #keyboard.unicode row.six key.space,
  {

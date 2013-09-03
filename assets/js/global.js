@@ -162,6 +162,7 @@ jQuery(document).ready(function($) {
 			$(document).on('keydown', function(ev) {
 				var key = $("[data-key=" + ev.keyCode + "]");
 				displayKey(key, ev);
+				ev.preventDefault();
 			});
 
 		};

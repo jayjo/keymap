@@ -894,17 +894,11 @@ input[type=text] {
   pointer-events: none;
 }
 
-#keyboard.encoded row.six key.space {
-  top: 16px;
-  color: rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  pointer-events: none;
-}
-
+/*#keyboard.encoded row.six key.space {
+    top: 16px;
+    @include keyshadowactive;
+    pointer-events: none;
+}*/
 #keyboard.unicode row.six key.space {
   top: 16px;
 }
