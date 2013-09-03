@@ -144,6 +144,15 @@ body {
   font-weight: 100;
 }
 
+#keyboard *, #codebox * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .clearfix {
   clear: both;
 }
@@ -391,15 +400,6 @@ menu a.active {
   transition: all 0.2s;
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
-}
-
-#keyboard *, #codebox * {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: -moz-none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
 #keyboard.showing {
@@ -894,17 +894,11 @@ input[type=text] {
   pointer-events: none;
 }
 
-#keyboard.encoded row.six key.space {
-  top: 16px;
-  color: rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  pointer-events: none;
-}
-
+/*#keyboard.encoded row.six key.space {
+    top: 16px;
+    @include keyshadowactive;
+    pointer-events: none;
+}*/
 #keyboard.unicode row.six key.space {
   top: 16px;
 }
