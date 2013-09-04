@@ -7,6 +7,6 @@ Keycodes will is an ongoing project. I plan to add in other keyboards and langua
 
 Feel free to fork Keycodes and contribute or leave any comments on how I can improve Keycodes.
 
-Follow me @jayjo on Twitter for updates.
+Follow me [@jayjo](http://twitter.com/jayjo) on Twitter for updates.
 
-Thanks or stopping by.
+Thanks for stopping by.
