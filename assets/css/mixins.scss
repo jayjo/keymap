@@ -4,7 +4,7 @@
 	-webkit-box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
     -moz-box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
     box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
-    color: rgba(0,0,0,.3);
+    color: rgba(0,0,0,.4);
 	/*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
 	@include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
 }
@@ -22,6 +22,24 @@
 	color: rgba(255,255,255,.25);
 	background: rgba(0,0,0,.15);
 	border: 2px solid rgba(0,0,0,.25);
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+@mixin lightkeyshadowhover {
+	background: rgba(255,255,255,1);
+	-webkit-box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
+    -moz-box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
+    box-shadow: 0 3px 0 0  rgba(0,0,0,.10);
+	/*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
+	@include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+}
+
+@mixin lightkeyshadowactive {
+	color: rgba(0,0,0,.20);
+	background: rgba(255,255,255,.3);
+	border: 2px solid rgba(0,0,0,.17);
 	-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;

@@ -155,7 +155,6 @@ html {
     background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
     background: -o-linear-gradient(25deg, #3B5998, #4099FF);
     background: linear-gradient(25deg, #3B5998, #4099FF);*/
-    background: rgba($dblue, 1);
     height: 100%;
     width: 100%;
     height: 100%;
@@ -202,6 +201,30 @@ header, footer {
 
 header {
     padding: 30px 0 0;
+
+    .theme-switcher {
+        background: rgba($dpurplish, 1);
+        color: $green;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+        margin: 0;
+        font-weight: 500;
+        border-radius: 0 0 0 3px;
+        padding: 3px 9px 5px;
+        text-transform: lowercase;
+
+            a {
+            color: $green;
+            text-decoration: none;
+            padding: 0 5px;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+    }
 }
 
 header h1, header h2 {
@@ -898,37 +921,64 @@ input[type=text] {
 }
 
 /* ==========================================================================
-   LARGE MONITOR classes
+   MEDIA QUERIES
    ========================================================================== */
 
-/*@media screen and (min-width: 2560px) {
+@media screen and (min-width: 1025px) and (max-width: 1189px) {
 
 #keyboard {
-    width: 2319px;
-    height: 386px;
-    position: absolute;
-    top: 34%;
-    left: 555px;
+    transform: scale(.8);
+    -webkit-transform: scale(.8);
+    -ms-transform: scale(.8);
 }
 
-row {
-    margin-bottom: 30px;
 }
 
-key {
-    font-size: 39px;
+@media screen and (min-width: 1190px) and (max-width: 1220px) {
+
+#keyboard {
+    transform: scale(.94);
+    -webkit-transform: scale(.94);
+    -ms-transform: scale(.94);
 }
 
-row.two key, row.three key, row.four key, row.five key {
-    width: 152px;
 }
 
-row.three key.single, row.four key.single, row.five key.single {
-    height: 99px;
-    padding: 57px 0 0 0;
+@media screen and (min-width: 1444px) and (max-width: 2010px) {
+
+#keyboard {
+    transform: scale(1.18);
+    -webkit-transform: scale(1.18);
+    -ms-transform: scale(1.18);
 }
 
-}*/
+}
+
+@media screen and (min-width: 1444px) and (max-width: 2010px) {
+
+#keyboard {
+    transform: scale(1.18);
+    -webkit-transform: scale(1.18);
+    -ms-transform: scale(1.18);
+}
+
+}
+
+@media screen and (min-width: 2010px) and (max-width: 2560px) {
+
+#keyboard {
+    transform: scale(1.75);
+    -webkit-transform: scale(1.75);
+    -ms-transform: scale(1.75);
+}
+
+}
+
+/* ==========================================================================
+   Light Theme
+   ========================================================================== */
+
+@import "lighttheme.scss";
 
 /* ==========================================================================
    Helper classes

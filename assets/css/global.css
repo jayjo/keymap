@@ -123,7 +123,6 @@ html {
   background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
   background: -o-linear-gradient(25deg, #3B5998, #4099FF);
   background: linear-gradient(25deg, #3B5998, #4099FF);*/
-  background: #033141;
   height: 100%;
   width: 100%;
   height: 100%;
@@ -165,6 +164,27 @@ header, footer {
 
 header {
   padding: 30px 0 0;
+}
+header .theme-switcher {
+  background: #27313e;
+  color: #16a085;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  margin: 0;
+  font-weight: 500;
+  border-radius: 0 0 0 3px;
+  padding: 3px 9px 5px;
+  text-transform: lowercase;
+}
+header .theme-switcher a {
+  color: #16a085;
+  text-decoration: none;
+  padding: 0 5px;
+}
+header .theme-switcher a:hover {
+  color: #fccd43;
 }
 
 header h1, header h2 {
@@ -919,36 +939,202 @@ input[type=text] {
 }
 
 /* ==========================================================================
-   LARGE MONITOR classes
+   MEDIA QUERIES
    ========================================================================== */
-/*@media screen and (min-width: 2560px) {
-
-#keyboard {
-    width: 2319px;
-    height: 386px;
-    position: absolute;
-    top: 34%;
-    left: 555px;
+@media screen and (min-width: 1025px) and (max-width: 1189px) {
+  #keyboard {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+  }
+}
+@media screen and (min-width: 1190px) and (max-width: 1220px) {
+  #keyboard {
+    transform: scale(0.94);
+    -webkit-transform: scale(0.94);
+    -ms-transform: scale(0.94);
+  }
+}
+@media screen and (min-width: 1444px) and (max-width: 2010px) {
+  #keyboard {
+    transform: scale(1.18);
+    -webkit-transform: scale(1.18);
+    -ms-transform: scale(1.18);
+  }
+}
+@media screen and (min-width: 1444px) and (max-width: 2010px) {
+  #keyboard {
+    transform: scale(1.18);
+    -webkit-transform: scale(1.18);
+    -ms-transform: scale(1.18);
+  }
+}
+@media screen and (min-width: 2010px) and (max-width: 2560px) {
+  #keyboard {
+    transform: scale(1.75);
+    -webkit-transform: scale(1.75);
+    -ms-transform: scale(1.75);
+  }
+}
+/* ==========================================================================
+   Light Theme
+   ========================================================================== */
+body.light {
+  background: #e6e6e6;
+}
+body.light header .theme-switcher {
+  background: #e6e6e6;
+  color: #033141;
+}
+body.light header .theme-switcher a {
+  color: #033141;
+}
+body.light header .theme-switcher a:hover {
+  color: #16a085;
+}
+body.light .wrapper {
+  background: #cdcdcd;
+}
+body.light .settings {
+  background: #cdcdcd;
+}
+body.light .settings.close {
+  background: #cdcdcd;
+}
+body.light aside {
+  width: 145px;
+  padding: 20px 0;
+  background: #e6e6e6;
+}
+body.light menu a {
+  background: #e6e6e6;
+  border-bottom: 1px solid #cdcdcd;
+  border-radius: 0;
+  color: rgba(0, 0, 0, 0.32);
+  margin: 0;
+}
+body.light menu a:last-child {
+  border-bottom: none;
+}
+body.light menu a:hover {
+  background: #f3f3f3;
+}
+body.light menu a.active {
+  background: #cdcdcd;
+  color: #033141;
+  border-bottom: none;
+}
+body.light key {
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.4);
+  /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
+body.light key:hover {
+  background: white;
+  -webkit-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  /*@include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));	*/
+}
+body.light key:active, body.light key.active, body.light key.caps.activated {
+  top: 3px;
+  color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.17);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+body.light key.double {
+  color: rgba(0, 0, 0, 0.1);
+}
+body.light key.double span {
+  color: rgba(0, 0, 0, 0.4);
+}
+body.light key.double.uppercase {
+  color: rgba(0, 0, 0, 0.4);
+}
+body.light key.double.uppercase span {
+  color: rgba(0, 0, 0, 0.1);
+}
+body.light row.four key.single:active,
+body.light row.five key.single:active,
+body.light row.four key.single.active,
+body.light row.five key.single.active {
+  top: -8px !important;
+}
+body.light .copyright p {
+  background: #e6e6e6;
+  color: #033141;
+}
+body.light .copyright a {
+  color: #033141;
+}
+body.light .copyright a:hover {
+  color: #16a085;
+}
+body.light #keyboard.unicode row.one key,
+body.light #keyboard.unicode row.six key,
+body.light #keyboard.unicode key.shft,
+body.light #keyboard.unicode .caps,
+body.light #keyboard.unicode.capslock .tab,
+body.light #keyboard.unicode.capslock .return,
+body.light #keyboard.unicode.capslock .delete,
+body.light #keyboard.encoded key.f1,
+body.light #keyboard.encoded key.f2,
+body.light #keyboard.encoded key.f3,
+body.light #keyboard.encoded key.f4,
+body.light #keyboard.encoded key.f5,
+body.light #keyboard.encoded key.f6,
+body.light #keyboard.encoded key.f7,
+body.light #keyboard.encoded key.f8,
+body.light #keyboard.encoded key.f9,
+body.light #keyboard.encoded key.f10,
+body.light #keyboard.encoded key.f11,
+body.light #keyboard.encoded key.f12,
+body.light #keyboard.encoded key.f13,
+body.light #keyboard.encoded .caps,
+body.light #keyboard.encoded .shft,
+body.light #keyboard.encoded .ctrl,
+body.light #keyboard.encoded .opt,
+body.light #keyboard.encoded .cmd {
+  color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.17);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+body.light #keyboard.unicode row.six key.space {
+  top: 16px;
+}
+body.light #codebox {
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
+}
+body.light #codebox .code-inner.dark {
+  background: none;
+}
+body.light #codebox .code-inner.dark p {
+  color: #033141;
+}
+body.light #codebox .code-inner.dark p span {
+  color: #16a085;
+}
+body.light #codebox .code-inner {
+  background: none;
+}
+body.light input[type=text] {
+  color: #16a085;
 }
 
-row {
-    margin-bottom: 30px;
-}
-
-key {
-    font-size: 39px;
-}
-
-row.two key, row.three key, row.four key, row.five key {
-    width: 152px;
-}
-
-row.three key.single, row.four key.single, row.five key.single {
-    height: 99px;
-    padding: 57px 0 0 0;
-}
-
-}*/
 /* ==========================================================================
    Helper classes
    ========================================================================== */

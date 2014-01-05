@@ -31,6 +31,7 @@
 <body class="<?php echo $body_class; ?>">
 	<header>
 		<a class="settings"><span>Settings</span></a>
+		<p class="theme-switcher"><a href="#" class="light">Light</a><a href="#" class="dark">Dark</a></p>
 	</header>
 	<aside>
 		<menu>
