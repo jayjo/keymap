@@ -1,8 +1,8 @@
     		<footer>
-                <div class="copyright">
-                    <p><a href="http://twitter.com/jayjo" target="_blank">@jayjo</a> | <a href="https://github.com/jayjo/keymap/fork">github</a></p>
-                </div>
-            </footer>
+            <div class="copyright">
+                <p><a href="http://twitter.com/jayjo" target="_blank">@jayjo</a> | <a href="https://github.com/jayjo/keymap/fork">github</a></p>
+            </div>
+        </footer>
 
         </section>
 

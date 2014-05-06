@@ -294,4 +294,12 @@ jQuery(document).ready(function($) {
 
 	$.cookieMonster();
 
+	$('.light').on('click', function(){
+		$('body').addClass('light');
+	});
+
+	$('.dark').on('click', function(){
+		$('body').removeClass('light');
+	});
+
 });
