@@ -1,52 +1,58 @@
 jQuery(document).ready(function($) {
 
+	var $document = $(document);
+
 	displayKey = function(key, event) {
-	$("key.active").removeClass("active");
+		$("key.active").removeClass("active");
 
-	var dataKey = key.attr('data-key'),
-		dataLMTH = key.attr('data-lmth'),
-		dataUni = key.attr('data-uni'),
-		dataUniCaps = key.attr('data-unicaps'),
-		dataEncoded = key.attr('data-encode'),
-		dataEncodedCaps = key.attr('data-encodecaps');
+		var dataKey = key.attr('data-key'),
+				dataLMTH = key.attr('data-lmth'),
+				dataUni = key.attr('data-uni'),
+				dataUniCaps = key.attr('data-unicaps'),
+				dataEncoded = key.attr('data-encode'),
+				dataEncodedCaps = key.attr('data-encodecaps');
 
-	var isShiftKey  = event.shiftKey ? true : false,
-		isCapslock  = $('#keyboard').hasClass('capslock'),
-		isCharcode  = $('#keyboard').hasClass('charcode'),
-		isUnicode   = $('#keyboard').hasClass('unicode'),
-		isURLEncode = $('#keyboard').hasClass('encoded');
+		var isShiftKey  = event.shiftKey ? true : false,
+				isCapslock  = $('#keyboard').hasClass('capslock'),
+				isCharcode  = $('#keyboard').hasClass('charcode'),
+				isUnicode   = $('#keyboard').hasClass('unicode'),
+				isURLEncode = $('#keyboard').hasClass('encoded');
 
-	var isCapitals = isCapslock || isShiftKey ? true : false;
-	var dataToDisplay = false;
+		var isCapitals = isCapslock || isShiftKey ? true : false;
+		var dataToDisplay = false;
 
-	if (isCharcode) {
-		dataToDisplay = dataKey;
+		if (isCharcode) {
+			dataToDisplay = dataKey;
 
-	} else if (!isCapitals && isUnicode) {
-		dataToDisplay = dataUni;
+		} else if (!isCapitals && isUnicode) {
+			dataToDisplay = dataUni;
 
-	}  else if (isURLEncode && !isCapitals) {
-		dataToDisplay = dataEncoded;
+		}  else if (isURLEncode && !isCapitals) {
+			dataToDisplay = dataEncoded;
 
-	} else if (isUnicode && isCapitals) {
-		dataToDisplay = dataUniCaps;
+		} else if (isUnicode && isCapitals) {
+			dataToDisplay = dataUniCaps;
 
-	} else if (isURLEncode && isCapitals) {
-		dataToDisplay = dataEncodedCaps;
-	}
+		} else if (isURLEncode && isCapitals) {
+			dataToDisplay = dataEncodedCaps;
+		}
 
-	if(dataToDisplay) {
-		key.addClass("active");
-		$('#codebox input').val(dataToDisplay);
-		$('#codebox').addClass('active');
-	}
+		if(dataToDisplay) {
+			key.addClass("active");
+			key.click();
 
-	// At the moment keys that are 'hidden' do not have an
-	// active state So this doesnt really do much useful.
-	if(isShiftKey) {
-		$("key.shft").addClass("active");
-	}
-};
+			var codeBox = $('#codebox input');
+
+			codeBox.val(dataToDisplay);
+			$('#codebox').addClass('active');
+		}
+
+		// At the moment keys that are 'hidden' do not have an
+		// active state So this doesnt really do much useful.
+		if(isShiftKey) {
+			$("key.shft").addClass("active");
+		}
+	};
 
 	$('.code-inner.dark').hide();
 
@@ -70,7 +76,7 @@ jQuery(document).ready(function($) {
 
 	$.bodyLoad = function(){
 
-		$(document).ready(function(){
+		$document.ready(function(){
 
 			if ($('aside').hasClass('inactive')) {
 				$('.wrapper').removeClass('active');
@@ -84,7 +90,7 @@ jQuery(document).ready(function($) {
 		});
 
 
-		$(document).ready(function(){
+		$document.ready(function(){
 
 			if ($('.cap').hasClass('capsOn')) {
 
@@ -98,14 +104,14 @@ jQuery(document).ready(function($) {
 
 		});
 
-		$(document).on("keydown", function(ev) {
+		$document.on("keydown", function(ev) {
 			if(ev.shiftKey) {
 				letterKeys.addClass('uppercase');
 				$('#keyboard').addClass('capslock');
 			}
 		});
 
-		$(document).on("keyup", function(ev) {
+		$document.on("keyup", function(ev) {
 			if(!$('.cap').hasClass('capsOn') && !ev.shiftKey) {
 				letterKeys.removeClass('uppercase');
 				$('#keyboard').removeClass('capslock');
@@ -130,6 +136,9 @@ jQuery(document).ready(function($) {
 				$('#keyboard').addClass('capslock');
 			}
 
+			// MIXPANEL
+			mixpanel.track("Clicked Something", {"Element": keyClass});
+
 		});
 
 		$('.cap').on('click', function(){
@@ -138,6 +147,9 @@ jQuery(document).ready(function($) {
 			$(this).toggleClass('capsOn');
 			$('.caps').toggleClass('activated');
 			$('#keyboard').toggleClass('capslock');
+
+			// MIXPANEL
+			mixpanel.track("Clicked Something", {"Element": "Settings"});
 
 		});
 
@@ -159,7 +171,7 @@ jQuery(document).ready(function($) {
 
 		$.KeyPress = function() {
 
-			$(document).on('keydown', function(ev) {
+			$document.on('keydown', function(ev) {
 				var key = $("[data-key=" + ev.keyCode + "]");
 				displayKey(key, ev);
 				ev.preventDefault();
@@ -177,13 +189,16 @@ jQuery(document).ready(function($) {
 
 				$(this).removeClass('active');
 
+				// MIXPANEL
+				mixpanel.track("Clicked Something", {"Element": "Key Clicked"});
+
 			});
 
 		};
 
 		$.KeyDepress = function() {
 
-			$(document).on('keyup', function(e){
+			$document.on('keyup', function(e){
 
 				var key = $("[data-key=" + e.keyCode + "]");
 				key.removeClass("active");
@@ -192,29 +207,18 @@ jQuery(document).ready(function($) {
 
 				var depress = e.which;
 
+				// MIXPANEL
+				mixpanel.track("Clicked Something", {"Element": "Key Pressed"});
+
 			});
 
 		};
-
-		// $.ClipBoard = function() {
-
-		// 	var dataKey = $(this).attr('data-key');
-
-		// 	$('key').on('click', function(){
-		// 		$(this).zclip({
-		// 			path: 'assets/js/ZeroClipboard.swf',
-		// 			copy: dataKey
-		// 		});
-		// 	});
-
-		// };
 
 		$.Press();
 		$.Depress();
 
 		$.KeyPress();
 		$.KeyDepress();
-		// $.ClipBoard();
 
 	};
 
@@ -235,6 +239,9 @@ jQuery(document).ready(function($) {
 			$(this).toggleClass('close');
 			$('.wrapper').toggleClass('active');
 			$('aside').toggleClass('inactive');
+
+			// MIXPANEL
+			mixpanel.track("Clicked Something", {"Element": "Settings"});
 		});
 	};
 
@@ -258,9 +265,9 @@ jQuery(document).ready(function($) {
 	$.cookieMonster = function(){
 
 		var typeCookie = 'type',
-			menuCookie = 'menu',
-			capsCookie = 'cap',
-			cookieOptions = 'expires: 365, {path: '/'}';
+			  menuCookie = 'menu',
+			  capsCookie = 'cap',
+			  cookieOptions = 'expires: 365, {path: '/'}';
 
 			$('#' + $.cookie(typeCookie)).addClass('active');
 			$('#keyboard').addClass($.cookie(typeCookie));
@@ -296,10 +303,25 @@ jQuery(document).ready(function($) {
 
 	$('.light').on('click', function(){
 		$('body').addClass('light');
+		// MIXPANEL
+		mixpanel.track("Clicked Something", {"Element": "Theme - Light"});
 	});
 
 	$('.dark').on('click', function(){
 		$('body').removeClass('light');
+		// MIXPANEL
+		mixpanel.track("Clicked Something", {"Element": "Theme - Dark"});
 	});
+
+	// Copy values to the clipboard
+	$.clipClip = function(){
+
+		$('key').attr('data-clipboard-action', 'copy').attr('data-clipboard-target', '#codebox input');
+		var Clip = new Clipboard('key');
+
+	};
+	$.clipClip();
+
+	// MIXPANEL
 
 });

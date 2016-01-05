@@ -1081,6 +1081,23 @@ input[type=text] {
     *zoom: 1;
 }
 
+.success {
+    position: fixed;
+    bottom: -1px;
+    background: $green;
+    color: #fff;
+    display: block;
+    text-align: center;
+    width: 120px;
+    padding: 12px 0;
+    left: 50%;
+    transform: translate3D(-50%, 0, 0);
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    Theses examples override the primary ('mobile first') styles.
