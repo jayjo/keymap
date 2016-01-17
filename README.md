@@ -5,7 +5,7 @@ Keycodes is a small application used to grab keyboard and character codes quickl
 
 Give [Keycodes](http://keycodes.atjayjo.com) a shot!
 
-Keycodes is an ongoing project. I plan to add in other keyboards and languages, in addition to a number pad and a few other features.
+Keycodes is an ongoing project. Have a look at the roadmap for additional info.
 
 Feel free to fork Keycodes and contribute or leave any comments on how I can improve Keycodes.
 
