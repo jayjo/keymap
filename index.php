@@ -115,7 +115,7 @@ include 'header.php';
 				<div class="code-inner dark"><p>I have grown tired of searching online through tables of character codes, so I built Keycodes to help me out. Feel free to use it, that's why it's here. Check back periodically or follow me on Twitter (<span>@jayjo</span>) for updates and other cool stuff.</p></div>
 				<div class="code-inner">
 					<input type="text" value="" name="codebox" disabled/>
-					<div class="success">Dook master!</div>
+					<div class="success">Dook master Mike!</div>
 				</div>
 			</display>
 		</div>
