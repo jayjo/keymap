@@ -40,7 +40,7 @@ mixpanel.init("27f4a82587c48af0326334facf44cb80");</script><!-- end Mixpanel -->
 <body class="<?php echo $body_class; ?>">
 	<header>
 		<a class="settings"><span>Settings</span></a>
-		<p class="theme-switcher"><a href="#" class="light">Light</a> | <a href="#" class="dark">Dark</a></p>
+		<p class="theme-switcher"><a href="#" class="light">White</a> | <a href="#" class="dark">Dark</a></p>
 	</header>
 	<aside>
 		<menu>
