@@ -15,7 +15,7 @@
         <script src="assets/js/clipboard.js"></script>
         <script src="assets/js/global.min.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <a href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_blue.png" alt="Mobile Analytics" /></a>
     </body>
 </html>
 
