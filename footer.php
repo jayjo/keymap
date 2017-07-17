@@ -1,4 +1,5 @@
-    		<footer>
+		<p class="best">Looking for design inspiration? Check out <a href="http://bestpages.co">BestPages</a></p>
+        <footer>
             <div class="copyright">
                 <p><a href="http://twitter.com/jayjo" target="_blank">@jayjo</a> | <a href="https://github.com/jayjo/keymap">github</a></p>
             </div>
@@ -15,7 +16,6 @@
         <script src="assets/js/clipboard.js"></script>
         <script src="assets/js/global.min.js"></script>
 
-        <a href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_blue.png" alt="Mobile Analytics" /></a>
     </body>
 </html>
 

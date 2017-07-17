@@ -247,6 +247,16 @@ footer {
     width: 100%;
 }
 
+footer p.best {
+    color: $gray;
+    a {
+        color: $green;
+        &:hover {
+            color: $yellow;
+        }
+    }
+}
+
 .copyright p {
     margin: 0;
     text-align: center;
