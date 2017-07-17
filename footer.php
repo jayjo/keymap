@@ -1,5 +1,5 @@
-		<p class="best">Looking for design inspiration? Check out <a href="http://bestpages.co">BestPages</a></p>
         <footer>
+            <p class="best">Looking for design inspiration? Check out <a href="http://bestpages.co">BestPages</a></p>
             <div class="copyright">
                 <p><a href="http://twitter.com/jayjo" target="_blank">@jayjo</a> | <a href="https://github.com/jayjo/keymap">github</a></p>
             </div>
