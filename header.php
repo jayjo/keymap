@@ -8,7 +8,7 @@
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	  <title><?php echo $page_title; ?></title>
 		<meta name="description" content="Your guide to keyboard codes, unicodes, keycodes, javascript character codes, charcodes - by JayJo" />
-		<meta name="keywords" content="javascript, keycodes, character codes, characters, unicode" />
+		<meta name="keywords" content="javascript, keycodes, character codes, characters, unicode, js, jquery, programming, development" />
 		<link href="/assets/images/favicon.ico" rel="shortcut icon">
 		<link href="apple-touch-icon.png" rel="apple-touch-icon">
     <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable:no;"> -->
@@ -40,7 +40,7 @@ mixpanel.init("27f4a82587c48af0326334facf44cb80");</script><!-- end Mixpanel -->
 <body class="<?php echo $body_class; ?>">
 	<header>
 		<a class="settings"><span>Settings</span></a>
-		<p class="theme-switcher"><a href="#" class="light">White</a> | <a href="#" class="dark">Blue</a></p>
+		<p class="theme-switcher"><a href="#" class="light">Light</a> | <a href="#" class="dark">Dark</a></p>
 	</header>
 	<aside>
 		<menu>
@@ -54,5 +54,3 @@ mixpanel.init("27f4a82587c48af0326334facf44cb80");</script><!-- end Mixpanel -->
 		</div>
 	</aside>
 	<section class="wrap">
-		<!-- <h1 id="logo">Keycodes</h1>
-		<h2>The fun and painless way to grab keyboard codes, unicodes, and ASCII codes.</h2> -->

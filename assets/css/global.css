@@ -208,6 +208,16 @@ footer {
   width: 100%;
 }
 
+footer p.best {
+  color: #767676;
+}
+footer p.best a {
+  color: #16a085;
+}
+footer p.best a:hover {
+  color: #fccd43;
+}
+
 .copyright p {
   margin: 0;
   text-align: center;
