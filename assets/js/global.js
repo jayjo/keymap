@@ -149,7 +149,7 @@ jQuery(document).ready(function($) {
 			$('#keyboard').toggleClass('capslock');
 
 			// MIXPANEL
-			mixpanel.track("Clicked Something", {"Element": "Settings"});
+			mixpanel.track("Clicked Something", {"Element": "Caps Lock"});
 
 		});
 
@@ -190,7 +190,7 @@ jQuery(document).ready(function($) {
 				$(this).removeClass('active');
 
 				// MIXPANEL
-				mixpanel.track("Clicked Something", {
+				mixpanel.track("Key Clicked", {
 					"Key": $(this).text()
 				});
 
@@ -210,7 +210,7 @@ jQuery(document).ready(function($) {
 				var depress = e.which;
 
 				// MIXPANEL
-				mixpanel.track("Pressed Something", {
+				mixpanel.track("Key Pressed", {
 					"Key": $(this).text()
 				});
 
