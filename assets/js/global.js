@@ -190,7 +190,10 @@ jQuery(document).ready(function($) {
 				$(this).removeClass('active');
 
 				// MIXPANEL
-				mixpanel.track("Clicked Something", {"Element": "Key Clicked"});
+				mixpanel.track("Clicked Something", {
+					"Element": "Key Clicked",
+					"Key": key.text()
+				});
 
 			});
 
@@ -208,7 +211,10 @@ jQuery(document).ready(function($) {
 				var depress = e.which;
 
 				// MIXPANEL
-				mixpanel.track("Clicked Something", {"Element": "Key Pressed"});
+				mixpanel.track("Clicked Something", {
+					"Element": "Key Pressed",
+					"Key": key.text()
+				});
 
 			});
 
