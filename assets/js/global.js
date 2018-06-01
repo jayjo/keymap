@@ -191,7 +191,6 @@ jQuery(document).ready(function($) {
 
 				// MIXPANEL
 				mixpanel.track("Clicked Something", {
-					"Element": "Key Clicked",
 					"Key": $(this).text()
 				});
 
@@ -212,7 +211,6 @@ jQuery(document).ready(function($) {
 
 				// MIXPANEL
 				mixpanel.track("Pressed Something", {
-					"Element": "Key Pressed",
 					"Key": $(this).text()
 				});
 
