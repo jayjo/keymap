@@ -211,7 +211,7 @@ jQuery(document).ready(function($) {
 
 				// MIXPANEL
 				mixpanel.track("Key Pressed", {
-					"Key": $(this).text()
+					"Key": key.text()
 				});
 
 			});
