@@ -191,8 +191,7 @@ jQuery(document).ready(function($) {
 
 				// MIXPANEL
 				mixpanel.track("Clicked Something", {
-					"Element": "Key Clicked",
-					"Key": key.text()
+					"Key": $(this).text()
 				});
 
 			});
@@ -211,9 +210,8 @@ jQuery(document).ready(function($) {
 				var depress = e.which;
 
 				// MIXPANEL
-				mixpanel.track("Clicked Something", {
-					"Element": "Key Pressed",
-					"Key": key.text()
+				mixpanel.track("Pressed Something", {
+					"Key": $(this).text()
 				});
 
 			});
@@ -326,6 +324,7 @@ jQuery(document).ready(function($) {
 		var Clip = new Clipboard('key');
 
 	};
+
 	$.clipClip();
 
 	// MIXPANEL
