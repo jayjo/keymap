@@ -1,0 +1,106 @@
+@import 'mixins.styl';
+
+aside
+  padding 20px
+  width 105px
+  position fixed
+  min-height 100%
+  left 0
+  top 0
+  z-index 1
+  opacity 0
+  background rgba($dpurplish, 1)
+  /*box-sizing border-box;
+  -moz-box-sizing border-box;*/
+  twosecs()
+  
+aside.inactive
+  left -145px
+  twosecs()
+  
+.settings
+  display block
+  width 50px
+  height 50px
+  position relative
+  left 20px
+  top -10px
+  z-index 4
+  background rgba($dpurplish, 1)
+  border-radius 0 0 3px 0
+  cursor pointer
+  
+.settings.close
+  border-radius 3px
+  background $purplish
+  
+.settings.close:hover
+  background $dpurplish
+  
+.settings span
+  display block
+  text-indent -9999em
+  height 0
+  
+.settingsbefore
+  color $green
+  font 39px $icons
+  position relative
+  top 3px
+  content $settings
+  
+.settings.closebefore
+  color rgba(197, 30, 50, 1)
+  content $settings-close
+  
+aside.inactive menu
+  position relative
+  margin 70px 0 0 0
+  left -380px
+  twosecs()
+  
+aside menu
+  position relative
+  margin 70px 0 0 0
+  left 0
+  twosecs()
+  
+menu a
+  /*width 86px;*/
+  width 100%
+  margin 0 0 8px 0
+  border-radius 3px
+  background rgba($green, 0.2)
+  padding 7px 0 7px
+  color #FFF
+  text-decoration none
+  text-transform uppercase
+  font-weight 900
+  font-size 12px
+  letter-spacing -1px
+  text-align center
+  display inline-block
+  cursor pointer
+  /*@include btn;*/
+  
+  &:hover
+	  background rgba($green, 1)
+	  btn()
+	  btnhover()	
+
+	&:active
+	  btnactive()
+	  cursor auto
+	  color rgba(255, 255, 255, 0.16)
+	  background rgba(0, 0, 0, 0.08)
+
+	.active
+	  color rgba(255, 255, 255, 1)
+	  background rgba($green, 1)
+	  cursor auto
+	  
+.twitter-share 
+	position fixed
+	bottom 25px
+	left 29px
+	z-index 1

@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+
+	head
+		title Keycodes - Javascript Keyboard Codes, Character Codes, Unicode, HTML Entities
+		include inc/meta.pug
+	include inc/mix.pug
+	include inc/scripts.pug
+
+	body(class="home")
+		include inc/header.pug
+		
+		div(class="wrapper")
+			div(id="keyboard")
+
+				include inc/row1.pug
+				include inc/row2.pug
+				include inc/row3.pug
+				include inc/row4.pug
+				include inc/row5.pug
+				include inc/row6.pug
+
+			div(id="keypad")
+
+			include inc/codebox.pug
+
+				h1(id="logo", class="gray")
+					a(href="/") KeyCodes
+
+	include inc/footer.pug			

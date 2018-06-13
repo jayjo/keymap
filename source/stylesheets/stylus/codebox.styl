@@ -1,0 +1,112 @@
+@import "mixins.styl"
+
+#codebox
+  font-family $brandon
+  font-weight 300
+  line-height 0
+  width 560px
+  height 390px
+  vertical-align baseline
+  position fixed
+  outline none
+  top 41%
+  left 50%
+  margin-left -280px
+  margin-top -204px
+  border none
+  border-radius 7px
+  background rgba($gray, 0)
+  text-align center
+  pointer-events none
+  z-index 5
+  opacity 0
+  -webkit-transform scale(1.25)
+  transform scale(1.25)
+  -ms-transform scale(1.25)
+  twosecs()
+  
+  &.active
+    width 560px
+    height 390px
+    line-height 0
+    background rgba($dblue, 0.05)
+    top 44%
+    left 50%
+    margin-left -280px
+    margin-top -204px
+    -webkit-box-shadow 0 0 0px 2px rgba($green, 1)
+    box-shadow 0 0 0px 2px rgba($green, 1)
+    z-index 5
+    opacity 1
+    -webkit-transform scale(1.25)
+    transform scale(1.25)
+    -ms-transform scale(1.25)
+    onesec()
+    
+#codebox .code-inner
+  background rgba(0, 0, 0, 0.45)
+  font-size 1200%
+  margin 0
+  border-radius 5px
+  position relative
+  display block
+  padding 55px 0
+  
+input[type=text]
+  font-family $brandon
+  font-weight 300
+  opacity 0
+  letter-spacing -12px
+  width 100%
+  height auto
+  text-align center
+  background none
+  outline none
+  border none
+  line-height 0
+  padding 0
+  position relative
+  color rgba(255, 255, 255, 1)
+  top 0
+  pointer-events none
+  
+#codebox.active input[type=text]
+  opacity 1
+  pointer-events none
+  
+#codebox.unicode .code-inner
+  font-size 740%
+  
+#codebox.unicode .code-inner
+  padding 109px 0
+  
+#codebox .code-inner.dark
+  background rgba(0, 0, 0, 0.75)
+  
+#codebox .code-inner.dark
+  font-size 28px
+  
+#codebox.unicode .code-inner.dark
+  padding 55px 0
+  
+#codebox .code-inner.dark p
+  color #fff
+  line-height 38px
+  padding 26px 48px
+  margin 0
+  
+#codebox .code-inner p span
+  color $yellow
+  
+/* ==========================================================================
+   LMTH classes
+   ========================================================================== */
+
+#codebox.lmth
+  font-size 720%
+
+#codebox.lmth .code-inner
+  padding 50px 0 63px 0
+
+#codebox.lmth input[type=text]
+  letter-spacing -5px

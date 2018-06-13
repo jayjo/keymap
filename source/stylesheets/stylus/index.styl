@@ -1,0 +1,39 @@
+@import "mixins.styl"
+
+.wrapper
+  background rgba($purplish,1)
+  position fixed
+  top 20px
+  right 20px
+  left 20px
+  bottom 20px
+  border-radius 3px
+  opacity 0
+  twosecs()
+
+.wrapper.active
+  left 145px
+  border-radius 0 3px 3px 0
+  twosecs()
+  
+h1#logo
+  background url(../images/logo.svg) no-repeat
+  text-indent -9999em
+  position relative
+  display block
+  text-align center
+  width 184px
+  margin 26px auto 0
+  cursor pointer
+  
+h1#logo.blue
+  z-index 5
+  background url(../images/blue-logo.svg) no-repeat
+  
+h1#logo.green
+  z-index 5
+  background url(../images/green-logo.svg) no-repeat
+  
+h1#logo.gray
+  z-index 5
+  background url(../images/gray-logo.svg) no-repeat

@@ -1,0 +1,23 @@
+# .travis.yml
+language: node_js
+git:
+  depth: 1
+addons:
+  apt:
+    packages:
+      - xvfb
+node_js:
+  - '6.3'
+notifications:
+  email: false
+script: npm run travis
+deploy:
+  - provider: npm
+    email: jim@vigour.io
+    api_key: ${NPM_TOKEN}
+    on:
+      branch: master
+before_install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - npm install -g vigour-test

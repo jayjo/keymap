@@ -1,0 +1,108 @@
+@import 'mixins.styl';
+
+body.light
+  background rgba(230, 230, 230, 1)
+  header
+    .theme-switcher
+      background rgba(230, 230, 230, 1)
+      color $dblue
+      a
+        color $dblue
+        &hover
+          color $green
+  .wrapper
+    background rgba(205, 205, 205, 1)
+  .settings
+    background rgba(205, 205, 205, 1)
+    &.close
+      background rgba(205, 205, 205, 1)
+  aside
+    width 145px
+    padding 20px 0
+    background rgba(230, 230, 230, 1)
+  menu a
+    background rgb(230, 230, 230)
+    border-bottom 1px solid rgb(205, 205, 205)
+    border-radius 0
+    color rgba(0, 0, 0, 0.32)
+    margin 0
+    &:last-child
+      border-bottom none
+    &:hover
+      background rgb(243, 243, 243)
+    &.active
+      background rgb(205, 205, 205)
+      color $dblue
+      border-bottom none
+  key
+    keyshadow()
+    border 2px solid rgba(255, 255, 255, 0.35)
+    &:hover
+      lightkeyshadowhover()
+    &:active,
+    &.active,
+    &.caps.activated
+      top 3px
+      lightkeyshadowactive()
+    &.double
+      color rgba(0, 0, 0, 0.1)
+      span
+        color rgba(0, 0, 0, 0.4)
+      &.uppercase
+        color rgba(0, 0, 0, 0.4)
+        span
+          color rgba(0, 0, 0, 0.1)
+  row.four key.single:active,
+  row.five key.single:active,
+  row.four key.single.active,
+  row.five key.single.active
+    top -8px !important
+  .copyright p
+    background rgba(230, 230, 230, 1)
+    color $dblue
+  .copyright a
+    color $dblue
+    &:hover
+      color $green
+  #keyboard.unicode row.one key,
+  #keyboard.unicode row.six key,
+  #keyboard.unicode key.shft,
+  #keyboard.unicode .caps,
+  #keyboard.unicode.capslock .tab,
+  #keyboard.unicode.capslock .return,
+  #keyboard.unicode.capslock .delete,
+  #keyboard.encoded key.f1,
+  #keyboard.encoded key.f2,
+  #keyboard.encoded key.f3,
+  #keyboard.encoded key.f4,
+  #keyboard.encoded key.f5,
+  #keyboard.encoded key.f6,
+  #keyboard.encoded key.f7,
+  #keyboard.encoded key.f8,
+  #keyboard.encoded key.f9,
+  #keyboard.encoded key.f10,
+  #keyboard.encoded key.f11,
+  #keyboard.encoded key.f12,
+  #keyboard.encoded key.f13,
+  #keyboard.encoded .caps,
+  #keyboard.encoded .shft,
+  #keyboard.encoded .ctrl,
+  #keyboard.encoded .opt,
+  #keyboard.encoded .cmd
+    lightkeyshadowactive()
+    pointer-events none
+  #keyboard.unicode row.six key.space
+    top 16px
+  #codebox
+    background rgba(255, 255, 255, 0.75)
+    -webkit-box-shadow 0 0 9px rgba(0, 0, 0, 0.2)
+    .code-inner.dark
+      background none
+      p
+        color $dblue
+        span
+          color $green
+    .code-inner
+      background none
+  input[type=text]
+    color $green
