@@ -52,8 +52,13 @@
   display block
   padding 55px 0
   
+  &.dark
+    background rgba(0, 0, 0, 0.75)
+    font-size 28px
+  
 input[type=text]
   font-family $brandon
+  font-size inherit
   font-weight 300
   opacity 0
   letter-spacing -12px
@@ -78,11 +83,7 @@ input[type=text]
   font-size 740%
   
 #codebox.unicode .code-inner
-  padding 109px 0
-  
-#codebox .code-inner.dark
-  background rgba(0, 0, 0, 0.75)
-  font-size 28px  
+  padding 109px 0  
   
 #codebox.unicode .code-inner.dark
   padding 55px 0
@@ -95,6 +96,22 @@ input[type=text]
   
 #codebox .code-inner p span
   color $yellow
+  
+.success
+  position fixed
+  bottom -1px
+  background $green
+  color #fff
+  display block
+  text-align center
+  width 120px
+  padding 12px 0
+  left 50%
+  transform translate3D(-50%, 0, 0)
+  border-radius 2px
+  font-weight bold
+  font-size 9px
+  text-transform uppercase
   
 /* ==========================================================================
    LMTH classes

@@ -56,7 +56,8 @@ gulp.task('build-css', function(){
     .pipe(sourcemaps.init()) // Processes the original sources
       .pipe(stylus({
         compress: true,
-        linenos: true
+        linenos: true,
+        "include css": true
       }))
     .pipe(sourcemaps.write()) // Add the sourcemaps to the modified source
     .pipe(concat('style.css')) // Builds all stylus files into one
