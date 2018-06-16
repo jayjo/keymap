@@ -282,8 +282,6 @@ jQuery(document).ready(function($) {
 			$('#' + $.cookie(typeCookie)).removeClass('active');
 			$.cookie(typeCookie, $(this).attr('id'), cookieOptions);
 			$('#' + $.cookie(typeCookie)).addClass('active');
-
-			console.log('cookies')
 		});
 
 		$('.settings').on('click', function(e){

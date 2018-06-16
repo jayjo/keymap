@@ -23,6 +23,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-data": "^1.2.1",
     "gulp-jshint": "^2.0.4",
+    "gulp-notify": "^3.2.0",
     "gulp-pug": "^3.2.0",
     "gulp-sourcemaps": "^1.9.1",
     "gulp-stylus": "^2.6.0",
