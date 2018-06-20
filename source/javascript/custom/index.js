@@ -2,6 +2,12 @@ jQuery(document).ready(function($) {
 
 	var $document = $(document);
 
+	// Cookie Variables
+	var menuCookie			= 'menu',
+			cookieOptions 	= "expires: 365, path: ''",
+			themeCookie			= 'theme',
+			typeCookie			= 'code type';
+
 	displayKey = function(key, event) {
 		$("key.active").removeClass("active");
 
@@ -128,6 +134,8 @@ jQuery(document).ready(function($) {
 
 			var keyClass = $(this).attr('id');
 
+			Cookies.set(typeCookie, $(this).attr('id'), cookieOptions);
+
 			$('#keyboard').removeClass().addClass(keyClass).addClass('showing');
 			$('#codebox').removeClass().addClass(keyClass);
 			$(this).addClass('active').siblings().removeClass();
@@ -244,6 +252,8 @@ jQuery(document).ready(function($) {
 			$('.wrapper').toggleClass('active');
 			$('aside').toggleClass('inactive');
 
+			Cookies.set(menuCookie, $('aside').attr('class'), cookieOptions);
+
 			// MIXPANEL
 			mixpanel.track("Clicked Something", {"Element": "Settings"});
 		});
@@ -266,56 +276,25 @@ jQuery(document).ready(function($) {
 
 	$.logoClicker();
 
-	$.cookieMonster = function(){
-
-		var typeCookie = 'type',
-			  menuCookie = 'menu',
-			  capsCookie = 'cap',
-			  cookieOptions = 'expires: 365, {path: '/'}';
-
-			$('#' + $.cookie(typeCookie)).addClass('active');
-			$('#keyboard').addClass($.cookie(typeCookie));
-			$('#codebox').addClass($.cookie(typeCookie));
-
-		$('menu a').on('click', function(e){
-			e.preventDefault();
-			$('#' + $.cookie(typeCookie)).removeClass('active');
-			$.cookie(typeCookie, $(this).attr('id'), cookieOptions);
-			$('#' + $.cookie(typeCookie)).addClass('active');
-		});
-
-		$('.settings').on('click', function(e){
-
-			e.preventDefault();
-			$.cookie(menuCookie, $('aside').attr('class'), cookieOptions);
-
-		});
-
-		$('.cap').on('click', function(e){
-
-			e.preventDefault();
-			$.cookie(capsCookie, $(this).attr('class'), cookieOptions);
-
-		});
-
-		$('aside').addClass($.cookie(menuCookie));
-		$('.cap').addClass($.cookie(capsCookie));
-
-	};
-
-	$.cookieMonster();
-
 	$('.light').on('click', function(){
-		$('body').addClass('light');
+		$('body').removeClass('dark').addClass('light');
+		Cookies.set(themeCookie, 'light', {cookieOptions});
 		// MIXPANEL
 		mixpanel.track("Clicked Something", {"Element": "Theme - Light"});
 	});
 
 	$('.dark').on('click', function(){
-		$('body').removeClass('light');
+		$('body').removeClass('light').addClass('dark');
+		Cookies.set(themeCookie, 'dark', {cookieOptions});
 		// MIXPANEL
 		mixpanel.track("Clicked Something", {"Element": "Theme - Dark"});
 	});
+
+	// Set Cookies
+	$('body').addClass(Cookies.get(themeCookie));
+	$('aside').addClass(Cookies.get(menuCookie));
+	$('#keyboard, #codebox').addClass(Cookies.get(typeCookie));
+	$('a#' + Cookies.get(typeCookie)).addClass('active');
 
 	// Copy values to the clipboard
 	$.clipClip = function(){
@@ -326,7 +305,5 @@ jQuery(document).ready(function($) {
 	};
 
 	$.clipClip();
-
-	// MIXPANEL
 
 });

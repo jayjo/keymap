@@ -37,21 +37,6 @@ gulp.task('jshint', function(){
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-// build the Vendor JS files
-gulp.task('build-vendor-js', function(){
-  return gulp.src('source/javascript/vendors/*.js')
-    .pipe(sourcemaps.init()) // Processes the original sources
-      .pipe(concat('vendors.js')) // Builds all js files into one
-      //only uglify if gulp is ran with '--type production'
-      .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
-    .pipe(sourcemaps.write()) // Add the sourcemaps to the modified source
-    .pipe(gulp.dest('public/assets/js'))
-    .pipe(notify({message: 'TASK: "Vendor JS" Completed! 💯', onLast: true }))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
-});
-
 // Build the Custom JS file
 gulp.task('build-custom-js', function(){
   return gulp.src('source/javascript/custom/index.js')
@@ -62,6 +47,21 @@ gulp.task('build-custom-js', function(){
     .pipe(sourcemaps.write()) // Add the sourcemaps to the modified source
     .pipe(gulp.dest('public/assets/js'))
     .pipe(notify({message: 'TASK: "Custom JS" Completed! 💯', onLast: true }))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
+// Build the Vendor JS file
+gulp.task('build-vendor-js', function(){
+  return gulp.src('source/javascript/vendor/*.js')
+    .pipe(sourcemaps.init()) // Processes the original sources
+      .pipe(concat('vendor.js')) // Builds all js files into one
+      //only uglify if gulp is ran with '--type production'
+      .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
+    .pipe(sourcemaps.write()) // Add the sourcemaps to the modified source
+    .pipe(gulp.dest('public/assets/js'))
+    .pipe(notify({message: 'TASK: "Vendor JS" Completed! 💯', onLast: true }))
     .pipe(browserSync.reload({
       stream: true
     }));
