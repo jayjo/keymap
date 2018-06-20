@@ -1,0 +1,42 @@
+{
+  "name": "keymap",
+  "version": "1.1.0",
+  "description": "Keymap is a one page application for grabbing programmatic keyboard keycode mappings quickly and easily.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayjo/keymap.git"
+  },
+  "author": "Jeffrey Jorgensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jayjo/keymap/issues"
+  },
+  "homepage": "https://github.com/jayjo/keymap#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-data": "^1.2.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-notify": "^3.2.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-stylus": "^2.6.0",
+    "gulp-swig": "^0.8.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.11",
+    "jquery-lazy": "^1.7.5",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "lazy-load-images": "^1.0.1",
+    "masonry-layout": "^4.2.0",
+    "path": "^0.12.7",
+    "swig": "^1.4.2",
+    "vinyl-fs": "^2.4.4"
+  }
+}

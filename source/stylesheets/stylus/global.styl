@@ -1,0 +1,78 @@
+// @group Mixins and Other Stylesheets
+@import "mixins.styl"
+@import "reset.css"
+
+html
+	font-smoothing anti-aliased
+	// background: #4099FF;
+	// background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
+	// background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
+	// background: -o-linear-gradient(25deg, #3B5998, #4099FF);
+	// background: linear-gradient(25deg, #3B5998, #4099FF);*/
+	height 100%
+	width 100%
+	height 100%
+	-webkit-font-smoothing anti-aliased
+
+// *
+// 	box-sizing border-box
+
+body
+	// background: #4099FF;
+	// background: -webkit-linear-gradient(25deg, #3B5998, #4099FF);
+	// background: -moz-linear-gradient(25deg, #3B5998, #4099FF);
+	// background: -o-linear-gradient(25deg, #3B5998, #4099FF);
+	// background: linear-gradient(25deg, #3B5998, #4099FF);*/
+	background $dpurplish
+	height 100%
+	width 100%
+	margin:  auto
+	padding 0
+	font-family $omnes
+	font-weight 100
+
+// Remove text-shadow in selection highlight: h5bp.com/i
+// These selection declarations have to be separate.
+// Customize the background color to match your design.
+
+.clearfix
+	clear both
+
+::-moz-selection
+	background #000
+	color #FFF
+	text-shadow none
+
+::selection
+	color #FFF
+	background #000
+	text-shadow none
+
+// ==========================================================================
+// Chrome Frame prompt
+// ==========================================================================
+	 
+.chromeframe 
+	margin 0.2em 0
+	background #ccc
+	color #000
+	padding 0.2em 0
+	
+// ==========================================================================
+// Remove the dotted link in Firefox
+// ==========================================================================
+
+a:active,
+a.active 
+	outline 0
+	-moz-outline-style none
+
+:focus,
+a.active 
+	-moz-outline-style none
+	outline 0
+
+a,
+a.active 
+	-moz-outline-style none
+	outline 0
