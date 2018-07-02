@@ -299,8 +299,11 @@ jQuery(document).ready(function($) {
 	// Copy values to the clipboard
 	$.clipClip = function(){
 
-		$('key').attr('data-clipboard-action', 'copy').attr('data-clipboard-target', '#codebox input');
-		var Clip = new Clipboard('key');
+		var keyText = new ClipboardJS('.clipboard-text', {
+		    text: function(trigger) {
+		        return trigger.getAttribute('class');
+		    }
+		});
 
 	};
 
