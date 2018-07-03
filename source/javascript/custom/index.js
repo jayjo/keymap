@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
 			$("key.shft").addClass("active");
 		}
 
-		// Clipboard Business
+		// Clipboard business
 		var copyKey = new ClipboardJS('key', {
 			text: function(trigger){
 				return dataToDisplay;
