@@ -91,7 +91,7 @@
               "filename": "includes.pug",
               "path": "auxiliary/smile.html",
               "fullPath": "auxiliary/smile.html",
-              "str": "<p>:)</p>"
+              "str": "<p>:)</p>\n"
             },
             "line": 7,
             "filename": "includes.pug",
@@ -105,7 +105,7 @@
               "filename": "includes.pug",
               "path": "auxiliary/escapes.html",
               "fullPath": "auxiliary/escapes.html",
-              "str": "<script>\n  console.log(\"foo\\nbar\")\n</script>"
+              "str": "<script>\n  console.log(\"foo\\nbar\")\n</script>\n"
             },
             "line": 8,
             "filename": "includes.pug",

@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 3.0.0 - 2016-09-11
+### Added
+- Updated to acorn ~4.0.0
+  - ES2016 has been made the default `ecmaVersion`.
+  - Async functions are now implemented for `{ecmaVersion: 8}`.
+  - See [acorn's CHANGELOG][acorn-4.0.0] for a full list of changes.
+
 ## 2.1.0 - 2016-07-27
 ### Added
 - Updated to acorn ~3.3.0
@@ -33,6 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Initial release
 
+[acorn-4.0.0]: https://github.com/ternjs/acorn/blob/master/CHANGELOG.md#400-2016-08-07
 [acorn-3.3.0]: https://github.com/ternjs/acorn/blob/master/CHANGELOG.md#330-2016-07-25
 [acorn-3.1.0]: https://github.com/ternjs/acorn/blob/master/CHANGELOG.md#310-2016-04-18
 [acorn-3.0.0]: https://github.com/ternjs/acorn/blob/master/CHANGELOG.md#300-2016-02-10

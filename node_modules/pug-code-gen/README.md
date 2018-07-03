@@ -25,7 +25,7 @@ Generate a JavaScript function string for the given AST.
 `options` may contain the following properties that have the same meaning as the options with the same names in `pug`:
 
  - pretty (boolean): default is `false`
- - compileDebug (boolean): default is `false`
+ - compileDebug (boolean): default is `true`
  - doctype (string): default is `undefined`
  - inlineRuntimeFunctions (boolean): default is `false`
  - globals (array of strings): default is `[]`

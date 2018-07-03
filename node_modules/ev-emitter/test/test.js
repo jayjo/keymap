@@ -51,6 +51,31 @@ it( 'should remove listener with .off()', function() {
   emitter.off( 'pop', onPop );
   emitter.emitEvent('pop');
   assert.equal( ticks, 1, '.off() removed listener' );
+
+  // reset
+  var ary = [];
+  ticks = 0;
+  emitter.allOff();
+
+  function onPopA() {
+    ticks++;
+    ary.push('a');
+    if ( ticks == 2 ) {
+      emitter.off( 'pop', onPopA );
+    }
+  }
+  function onPopB() {
+    ary.push('b');
+  }
+
+  emitter.on( 'pop', onPopA );
+  emitter.on( 'pop', onPopB );
+  emitter.emitEvent('pop'); // a,b
+  emitter.emitEvent('pop'); // a,b - remove onPopA
+  emitter.emitEvent('pop'); // b
+
+  assert.equal( ary.join(','), 'a,b,a,b,b', '.off in listener does not interfer' );
+
 });
 
 it( 'should handle once()', function() {
@@ -70,6 +95,23 @@ it( 'should handle once()', function() {
   emitter.emitEvent('pop');
 
   assert.equal( ary.join(','), 'a,b,c,a,c', 'once listener triggered once' );
+
+  // reset
+  emitter.allOff();
+  ary = [];
+
+  // add two identical but not === listeners, only do one once
+  emitter.on( 'pop', function() {
+    ary.push('a');
+  });
+  emitter.once( 'pop', function() {
+    ary.push('a');
+  });
+  emitter.emitEvent('pop');
+  emitter.emitEvent('pop');
+
+  assert.equal( ary.join(','), 'a,a,a', 'identical listeners do not interfere with once' );
+
 });
 
 it( 'does not infinite loop in once()', function() {
@@ -112,7 +154,7 @@ it( 'handles emitEvent with no listeners', function() {
 });
 
 
-it( 'removes all listeners after removeAllListeners', function() {
+it( 'removes all listeners after allOff', function() {
   var emitter = new EvEmitter();
   var ary = [];
   emitter.on( 'pop', function() {
@@ -126,9 +168,8 @@ it( 'removes all listeners after removeAllListeners', function() {
   });
 
   emitter.emitEvent('pop');
-  emitter.removeAllListeners();
-  // emitter.allOff();
+  emitter.allOff();
   emitter.emitEvent('pop');
 
-  assert.equal( ary.join(','), 'a,b,c', 'removeAllListeners removed listeners' );
+  assert.equal( ary.join(','), 'a,b,c', 'allOff removed listeners' );
 });
