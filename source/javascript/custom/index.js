@@ -58,6 +58,18 @@ jQuery(document).ready(function($) {
 		if(isShiftKey) {
 			$("key.shft").addClass("active");
 		}
+
+		// Clipboard Business
+		var copyKey = new ClipboardJS('key', {
+			text: function(trigger){
+				return dataToDisplay;
+			}
+		});
+
+		copyKey.on('success', function(e) {
+	    copyKey.destroy();
+		});
+
 	};
 
 	$('.code-inner.dark').hide();
@@ -295,18 +307,5 @@ jQuery(document).ready(function($) {
 	$('aside').addClass(Cookies.get(menuCookie));
 	$('#keyboard, #codebox').addClass(Cookies.get(typeCookie));
 	$('a#' + Cookies.get(typeCookie)).addClass('active');
-
-	// Copy values to the clipboard
-	$.clipClip = function(){
-
-		var keyText = new ClipboardJS('.clipboard-text', {
-		    text: function(trigger) {
-		        return trigger.getAttribute('class');
-		    }
-		});
-
-	};
-
-	$.clipClip();
 
 });
