@@ -37,7 +37,7 @@ assert.ok(isRegex(new RegExp('a', 'g')));
 Simply clone the repo, `npm install`, and run `npm test`
 
 [1]: https://npmjs.org/package/is-regex
-[2]: http://vb.teelaun.ch/ljharb/is-regex.svg
+[2]: http://versionbadg.es/ljharb/is-regex.svg
 [3]: https://travis-ci.org/ljharb/is-regex.svg
 [4]: https://travis-ci.org/ljharb/is-regex
 [5]: https://david-dm.org/ljharb/is-regex.svg

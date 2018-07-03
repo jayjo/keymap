@@ -56,12 +56,16 @@ console.log(JSON.stringify(ast, null, '  '))
         {
           "name": "data-foo",
           "val": "\"bar\"",
+          "line": 1,
+          "column": 5,
+          "filename": "my-file.pug",
           "mustEscape": true
         }
       ],
       "attributeBlocks": [],
       "isInline": false,
       "line": 1,
+      "column": 1,
       "filename": "my-file.pug"
     }
   ],
@@ -83,4 +87,3 @@ Constructor for a Parser class. This is not meant to be used directly unless you
 ## License
 
   MIT
-  kkk

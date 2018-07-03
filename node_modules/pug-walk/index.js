@@ -15,7 +15,9 @@ function walkAST(ast, before, after, options) {
     }
     ast = replacement;
   };
-  replace.arrayAllowed = parents[0] && /^(Named)?Block$/.test(parents[0].type);
+  replace.arrayAllowed = parents[0] && (
+    /^(Named)?Block$/.test(parents[0].type) ||
+    parents[0].type === 'RawInclude' && ast.type === 'IncludeFilter');
 
   if (before) {
     var result = before(ast, replace);
@@ -67,13 +69,17 @@ function walkAST(ast, before, after, options) {
       walkAST(ast.file, before, after, options);
       break;
     case 'Extends':
+      walkAST(ast.file, before, after, options);
+      break;
     case 'RawInclude':
+      ast.filters = walkAndMergeNodes(ast.filters);
       walkAST(ast.file, before, after, options);
       break;
     case 'Attrs':
     case 'BlockComment':
     case 'Comment':
     case 'Doctype':
+    case 'IncludeFilter':
     case 'MixinBlock':
     case 'YieldBlock':
     case 'Text':

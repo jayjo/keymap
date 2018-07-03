@@ -20,7 +20,7 @@ var link = require('pug-linker');
 
 Flatten the Pug AST of inclusion and inheritance.
 
-This function merely links the AST together; it doesn't read the file system to resolve and parse included and extended files. Thus, the main AST must already have the ASTs of the included and extended files embedded in the `FileReference` nodes. `pug-loader` is designed to do that.
+This function merely links the AST together; it doesn't read the file system to resolve and parse included and extended files. Thus, the main AST must already have the ASTs of the included and extended files embedded in the `FileReference` nodes. `pug-load` is designed to do that.
 
 ## License
 

@@ -58,14 +58,12 @@ emitter.emitEvent( eventName, args )
 + `eventName` - _String_ - name of the event
 + `args` - _Array_ - arguments passed to listeners
 
-## allOff
+### allOff
 
-Removes all event listeners. Also aliased to `removeAllListeners`.
+Removes all event listeners.
 
 ``` js
 emitter.allOff()
-// or
-emitter.removeAllListeners()
 ```
 
 ## Code example

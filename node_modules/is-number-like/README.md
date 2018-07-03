@@ -21,7 +21,7 @@ Checks whether provided parameter looks like a number
 
 
 ```javascript
-const isNumberLike = require('vigour-util/is/numberlike')
+const isNumberLike = require('is-number-like')
 isNumberLike('2') // true
 isNumberLike('a') // false
 ```
