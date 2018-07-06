@@ -1,0 +1,148 @@
+@import 'mixins.styl';
+
+$dark-background        = $theme-dark-blue
+$light-background       = $theme-light-blue
+$primary                = $theme-dark-blue
+$secondary              = $theme-light-blue
+$tertiary               = rgb(255,255,255)
+$black                  = rgb(0,0,0)               
+
+body
+  &.dark-blue,
+    header .theme-switcher,
+    .wrapper,
+    .settings,
+    .settings.close,
+    .settings.close:hover,
+    aside
+      background $light-background
+
+body.dark-blue
+  
+  header
+    .theme-switcher,
+    .theme-switcher:before
+      color $tertiary
+    
+  menu.codetype a
+    background $secondary
+    color $primary
+    
+    &:last-child
+      border-bottom none
+      
+    &:hover
+      background rgba($primary, 1)
+      color $tertiary
+      
+    &.active
+      background $tertiary
+      color $secondary
+      border-bottom none
+      
+  key
+    background $primary
+    border-color transparent
+    color $secondary
+    
+    &:hover
+      background rgba($primary, .9)
+      
+    &.double
+      background $primary
+      color rgba($secondary, .3)
+      
+      &:hover
+        background rgba($primary, .9)
+      
+      span
+        color $secondary
+        
+      &.uppercase
+        color rgba($secondary, 1)
+        
+        span
+          color rgba($secondary, .3)
+          
+  row.four key.apos:active,
+  row.four key.apos.active
+    top 7px
+    
+  .copyright p
+    background $secondary
+    color $primary
+    
+  .copyright a
+    color $tertiary
+    font-size 13px
+    text-transform uppercase
+    text-decoration none
+    
+    &:hover
+      text-decoration underline
+      
+  .cap
+    border 2px solid $tertiary
+    
+  .cap:hover,
+  .cap.capsOn
+    background $tertiary
+      
+  #keyboard.unicode row.one key,
+  #keyboard.unicode row.six key,
+  #keyboard.unicode key.shft,
+  #keyboard.unicode .caps,
+  #keyboard.unicode.capslock .tab,
+  #keyboard.unicode.capslock .return,
+  #keyboard.unicode.capslock .delete,
+  #keyboard.encoded key.f1,
+  #keyboard.encoded key.f2,
+  #keyboard.encoded key.f3,
+  #keyboard.encoded key.f4,
+  #keyboard.encoded key.f5,
+  #keyboard.encoded key.f6,
+  #keyboard.encoded key.f7,
+  #keyboard.encoded key.f8,
+  #keyboard.encoded key.f9,
+  #keyboard.encoded key.f10,
+  #keyboard.encoded key.f11,
+  #keyboard.encoded key.f12,
+  #keyboard.encoded key.f13,
+  #keyboard.encoded .caps,
+  #keyboard.encoded .shft,
+  #keyboard.encoded .ctrl,
+  #keyboard.encoded .opt,
+  #keyboard.encoded .cmd
+    background rgba($primary, .25)
+    
+  #keyboard.unicode row.six key.space
+    top 16px
+    
+  #codebox
+    background rgba(255, 255, 255, 0.75)
+    box-shadow 0 0 9px rgba(0, 0, 0, 0.2)
+    
+    .code-inner.dark
+      background none
+      
+      p
+        color $primary
+        
+        span
+          color $tertiary
+          
+    .code-inner
+      background none
+      
+  input[type=text]
+    color $tertiary
+    
+  footer p.best
+    color rgba($tertiary, .5)
+    
+    a
+      color $tertiary
+      text-decoration none
+      
+      &:hover
+        text-decoration underline

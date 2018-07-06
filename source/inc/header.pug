@@ -1,13 +1,16 @@
 header
-  a(class="settings")
+  a.settings
     span Settings
-  p(class="theme-switcher")
+  p.theme-switcher
+  menu.theme
+    a(href="#", class="dark") Default
     a(href="#", class="light") Light
-    span |
-    a(href="#", class="dark") Dark
+    a(href="#", class="dark-blue") Dark Blue
+    a(href="#", class="yellow") Yellow
+    a(href="#", class="red") Red
 
 aside
-  menu
+  menu.codetype
     a(href="#charcode", id="charcode") Keycode
     a(href="#unicode", id="unicode") Unicode
     a(href="#encoded", id="encoded") URL Encoded

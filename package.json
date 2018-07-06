@@ -34,7 +34,7 @@
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "lazy-load-images": "^1.0.1",
-    "masonry-layout": "^4.2.0",
+    "masonry-layout": "^4.2.2",
     "path": "^0.12.7",
     "swig": "^1.4.2",
     "vinyl-fs": "^2.4.4"

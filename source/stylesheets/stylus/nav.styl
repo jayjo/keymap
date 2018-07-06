@@ -30,6 +30,13 @@ aside.inactive
 	border-radius 0 0 3px 0
 	cursor pointer
 	
+	&:before
+		content $settings
+		color $green
+		font 39px $icons
+		position relative
+		top 3px
+	
 .settings.close
 	border-radius 3px
 	background $purplish
@@ -40,32 +47,25 @@ aside.inactive
 .settings span
 	display block
 	text-indent -9999em
-	height 0
-	
-.settings:before
-	color $green
-	font 39px $icons
-	position relative
-	top 3px
-	content $settings
+	height 0	
 	
 .settings.close:before
 	color rgba(197, 30, 50, 1)
 	content $settings-close
 	
-aside.inactive menu
+aside.inactive menu.codetype
 	position relative
 	margin 70px 0 0 0
 	left -380px
 	twosecs()
 	
-aside menu
+aside menu.codetype
 	position relative
 	margin 70px 0 0 0
 	left 0
 	twosecs()
 	
-menu a
+menu.codetype a
 	width 100%
 	margin 0 0 8px 0
 	border-radius 3px
@@ -76,7 +76,6 @@ menu a
 	text-transform uppercase
 	font-weight 900
 	font-size 12px
-	letter-spacing -1px
 	text-align center
 	display inline-block
 	cursor pointer

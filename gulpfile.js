@@ -39,7 +39,10 @@ gulp.task('jshint', function(){
 
 // Build the Custom JS file
 gulp.task('build-custom-js', function(){
-  return gulp.src('source/javascript/custom/index.js')
+  return gulp.src([
+    'source/javascript/custom/index.js', 
+    'source/javascript/custom/keypad.js'
+  ])
     .pipe(sourcemaps.init()) // Processes the original sources
       .pipe(concat('global.js')) // Builds all js files into one
       //only uglify if gulp is ran with '--type production'

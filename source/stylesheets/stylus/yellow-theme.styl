@@ -1,0 +1,199 @@
+@import 'mixins.styl';
+
+$dark-background        = $theme-dark-yellow
+$light-background       = $theme-light-yellow
+$primary                = $theme-dark-yellow
+$secondary              = $theme-light-yellow
+$tertiary               = rgb(0,0,0)
+$white                  = rgb(255,255,255)               
+
+body.yellow
+  background $light-background
+  
+  header
+    .theme-switcher
+      background $light-background
+      color $tertiary
+      font-weight 900
+      
+      a
+        color $tertiary
+        font-weight 900
+        
+        &:hover
+          text-decoration underline
+  .wrapper
+    background $light-background
+    
+  .settings
+    background $light-background
+    
+    &:before
+      color $tertiary
+    
+    &.close
+      background $light-background
+      
+  aside
+    width 105px
+    padding 20px
+    background $light-background
+    
+  menu.codetype a
+    background $secondary
+    border-radius 3px
+    border none
+    color $primary
+    font-weight 900
+    margin 0 0 8px 0
+    width 100%
+    
+    &:last-child
+      border-bottom none
+      
+    &:hover
+      background rgba($primary, .5)
+      color $tertiary
+      
+    &.active
+      background $tertiary
+      color $secondary
+      border-bottom none
+      
+  key
+    background $primary
+    border-color transparent
+    color $secondary
+    
+    &:hover
+      background rgba($primary, .9)
+      
+    &:active,
+    &.active,
+    &.caps.activated
+      top 1x
+      
+    &.double
+      background $primary
+      color rgba($secondary, .3)
+      
+      &:hover
+        background rgba($primary, .9)
+      
+      span
+        color $secondary
+        
+      &.uppercase
+        color rgba($secondary, 1)
+        
+        span
+          color rgba($secondary, .3)
+          
+  row.four key.single:active,
+  row.five key.single:active,
+  row.four key.single.active,
+  row.five key.single.active
+    top -10px !important
+    
+  .copyright p
+    background $secondary
+    color $primary
+    font-weight 900
+    
+  .copyright a
+    color $tertiary
+    font-size 13px
+    text-transform uppercase
+    text-decoration none
+    
+    &:hover
+      text-decoration underline
+      
+  .cap
+    position absolute
+    top 16px
+    left 11px
+    text-indent -9999em
+    width 6px
+    height 6px
+    border-radius 50%
+    border 2px solid $tertiary
+    cursor pointer
+    onesec()
+    
+  .cap:hover,
+  .cap.capsOn
+    background $tertiary
+    onesec()
+    
+  .cap.capsOn
+    top 18px
+    
+  .caps.activated
+    top 2px
+    pointer-events none
+    keyshadowactive()
+    
+    span
+      pointer-events auto
+      
+  #keyboard.unicode row.one key,
+  #keyboard.unicode row.six key,
+  #keyboard.unicode key.shft,
+  #keyboard.unicode .caps,
+  #keyboard.unicode.capslock .tab,
+  #keyboard.unicode.capslock .return,
+  #keyboard.unicode.capslock .delete,
+  #keyboard.encoded key.f1,
+  #keyboard.encoded key.f2,
+  #keyboard.encoded key.f3,
+  #keyboard.encoded key.f4,
+  #keyboard.encoded key.f5,
+  #keyboard.encoded key.f6,
+  #keyboard.encoded key.f7,
+  #keyboard.encoded key.f8,
+  #keyboard.encoded key.f9,
+  #keyboard.encoded key.f10,
+  #keyboard.encoded key.f11,
+  #keyboard.encoded key.f12,
+  #keyboard.encoded key.f13,
+  #keyboard.encoded .caps,
+  #keyboard.encoded .shft,
+  #keyboard.encoded .ctrl,
+  #keyboard.encoded .opt,
+  #keyboard.encoded .cmd
+    background rgba($primary, .25)
+    pointer-events none
+    
+  #keyboard.unicode row.six key.space
+    top 16px
+    
+  #codebox
+    background rgba(255, 255, 255, 0.75)
+    box-shadow 0 0 9px rgba(0, 0, 0, 0.2)
+    
+    .code-inner.dark
+      background none
+      
+      p
+        color $primary
+        
+        span
+          color $tertiary
+          
+    .code-inner
+      background none
+      
+  input[type=text]
+    color $tertiary
+    
+  footer p.best
+    color rgba($tertiary, .5)
+    font-weight 900
+    
+    a
+      color $tertiary
+      text-decoration none
+      
+      &:hover
+        text-decoration underline

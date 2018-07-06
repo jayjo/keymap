@@ -37,9 +37,16 @@ you can use the generic selector below, but it's slower:
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
-.icon-settings:before {
-	content: "\e000";
+
+.icon-arrow-key:before {
+  content: "\e900";
 }
-.icon-settings-close:before {
-	content: "\e001";
+.icon-dropdown-caret:before {
+  content: "\e901";
+}
+.icon-uniE000:before {
+  content: "\e000";
+}
+.icon-uniE001:before {
+  content: "\e001";
 }

@@ -142,7 +142,7 @@ jQuery(document).ready(function($) {
 
 	$.keyBoard = function(){
 
-		$('menu a').on('click', function(e){
+		$('.codetype a').on('click', function(e){
 
 			var keyClass = $(this).attr('id');
 
@@ -288,22 +288,54 @@ jQuery(document).ready(function($) {
 
 	$.logoClicker();
 
-	$('.light').on('click', function(){
-		$('body').removeClass('dark').addClass('light');
-		Cookies.set(themeCookie, 'light', {cookieOptions});
-		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Light"});
-	});
-
 	$('.dark').on('click', function(){
-		$('body').removeClass('light').addClass('dark');
+		var themeText = $(this).text();
+		$('.theme-switcher').text(themeText);
+		$('body').removeClass().addClass('dark');
 		Cookies.set(themeCookie, 'dark', {cookieOptions});
 		// MIXPANEL
 		mixpanel.track("Clicked Something", {"Element": "Theme - Dark"});
 	});
 
+	$('.light').on('click', function(){
+		var themeText = $(this).text();
+		$('.theme-switcher').text(themeText);
+		$('body').removeClass().addClass('light');
+		Cookies.set(themeCookie, 'light', {cookieOptions});
+		// MIXPANEL
+		mixpanel.track("Clicked Something", {"Element": "Theme - Light"});
+	});
+
+	$('.dark-blue').on('click', function(){
+		var themeText = $(this).text();
+		$('.theme-switcher').text(themeText);
+		$('body').removeClass().addClass('dark-blue');
+		Cookies.set(themeCookie, 'dark-blue', {cookieOptions});
+		// MIXPANEL
+		mixpanel.track("Clicked Something", {"Element": "Theme - Dark Blue"});
+	});
+
+	$('.yellow').on('click', function(){
+		var themeText = $(this).text();
+		$('.theme-switcher').text(themeText);
+		$('body').removeClass().addClass('yellow');
+		Cookies.set(themeCookie, 'yellow', {cookieOptions});
+		// MIXPANEL
+		mixpanel.track("Clicked Something", {"Element": "Theme - Yellow"});
+	});
+
+	$('.red').on('click', function(){
+		var themeText = $(this).text();
+		$('.theme-switcher').text(themeText);
+		$('body').removeClass().addClass('red');
+		Cookies.set(themeCookie, 'red', {cookieOptions});
+		// MIXPANEL
+		mixpanel.track("Clicked Something", {"Element": "Theme - Yellow"});
+	});
+
 	// Set Cookies
 	$('body').addClass(Cookies.get(themeCookie));
+	$('.theme-switcher').text(Cookies.get(themeCookie));
 	$('aside').addClass(Cookies.get(menuCookie));
 	$('#keyboard, #codebox').addClass(Cookies.get(typeCookie));
 	$('a#' + Cookies.get(typeCookie)).addClass('active');
