@@ -1,199 +1,139 @@
 @import 'mixins.styl';
 
-$dark-background        = $theme-dark-red
-$light-background       = $theme-light-red
-$primary                = $theme-dark-red
-$secondary              = $theme-light-red
-$tertiary               = rgb(255,255,255)
-$black                  = rgb(0,0,0)               
+$dark-background        = $theme-light-red
+$light-background       = $theme-dark-red
+$primary                = $theme-light-red
+$secondary              = $theme-dark-red
+$tertiary               = rgb(255,255,255)               
+$quaternary             = rgb(0,0,0)
 
-body.red
-  background $light-background
+body
   
-  header
-    .theme-switcher
-      background $light-background
-      color $tertiary
-      font-weight 900
-      
-      a
-        color $tertiary
-        font-weight 900
-        
-        &:hover
-          text-decoration underline
-  .wrapper
-    background $light-background
-    
-  .settings
-    background $light-background
-    
-    &:before
-      color $tertiary
-    
-    &.close
-      background $light-background
-      
-  aside
-    width 105px
-    padding 20px
-    background $light-background
-    
-  menu.codetype a
+  &.red
     background $secondary
-    border-radius 3px
-    border none
-    color $primary
-    font-weight 900
-    margin 0 0 8px 0
-    width 100%
     
-    &:last-child
-      border-bottom none
-      
-    &:hover
-      background rgba($primary, 1)
-      color $tertiary
-      
-    &.active
-      background $tertiary
-      color $secondary
-      border-bottom none
-      
-  key
-    background $primary
-    border-color transparent
-    color $secondary
+    header .theme-switcher,
+    .settings,
+    .settings.close,
+    .settings.close:hover,
+    .wrapper,
+    menu.codetype a,
+    .copyright p,
+    .success,
+    menu.theme a.active
+      background $secondary
     
-    &:hover
-      background rgba($primary, .9)
-      
-    &:active,
-    &.active,
-    &.caps.activated
-      top 1x
-      
-    &.double
-      background $primary
-      color rgba($secondary, .3)
-      
-      &:hover
-        background rgba($primary, .9)
-      
-      span
-        color $secondary
-        
-      &.uppercase
-        color rgba($secondary, 1)
-        
-        span
-          color rgba($secondary, .3)
-          
-  row.four key.single:active,
-  row.five key.single:active,
-  row.four key.single.active,
-  row.five key.single.active
-    top -10px !important
-    
-  .copyright p
-    background $secondary
-    color $primary
-    font-weight 900
-    
-  .copyright a
-    color $tertiary
-    font-size 13px
-    text-transform uppercase
-    text-decoration none
-    
-    &:hover
-      text-decoration underline
-      
-  .cap
-    position absolute
-    top 16px
-    left 11px
-    text-indent -9999em
-    width 6px
-    height 6px
-    border-radius 50%
-    border 2px solid $tertiary
-    cursor pointer
-    onesec()
-    
-  .cap:hover,
-  .cap.capsOn
-    background $tertiary
-    onesec()
-    
-  .cap.capsOn
-    top 18px
-    
-  .caps.activated
-    top 2px
-    pointer-events none
-    keyshadowactive()
-    
-    span
-      pointer-events auto
-      
-  #keyboard.unicode row.one key,
-  #keyboard.unicode row.six key,
-  #keyboard.unicode key.shft,
-  #keyboard.unicode .caps,
-  #keyboard.unicode.capslock .tab,
-  #keyboard.unicode.capslock .return,
-  #keyboard.unicode.capslock .delete,
-  #keyboard.encoded key.f1,
-  #keyboard.encoded key.f2,
-  #keyboard.encoded key.f3,
-  #keyboard.encoded key.f4,
-  #keyboard.encoded key.f5,
-  #keyboard.encoded key.f6,
-  #keyboard.encoded key.f7,
-  #keyboard.encoded key.f8,
-  #keyboard.encoded key.f9,
-  #keyboard.encoded key.f10,
-  #keyboard.encoded key.f11,
-  #keyboard.encoded key.f12,
-  #keyboard.encoded key.f13,
-  #keyboard.encoded .caps,
-  #keyboard.encoded .shft,
-  #keyboard.encoded .ctrl,
-  #keyboard.encoded .opt,
-  #keyboard.encoded .cmd
-    background rgba($primary, .25)
-    pointer-events none
-    
-  #keyboard.unicode row.six key.space
-    top 16px
-    
-  #codebox
-    background rgba(255, 255, 255, 0.75)
-    box-shadow 0 0 9px rgba(0, 0, 0, 0.2)
-    
-    .code-inner.dark
-      background none
-      
-      p
+    header
+      .theme-switcher,
+      .theme-switcher:before,
+      menu.theme a.active
         color $primary
-        
-        span
-          color $tertiary
-          
-    .code-inner
-      background none
+    
+    menu.codetype a,
+    .copyright p,
+    .copyright a,
+    footer p.best,
+    footer p.best a,
+    .success
+      color $primary    
       
-  input[type=text]
-    color $tertiary
-    
-  footer p.best
-    color rgba($tertiary, .5)
-    font-weight 900
-    
-    a
-      color $tertiary
+    menu.codetype a:hover,
+    key,
+    key.double,
+    #codebox.active,
+    menu.theme a:hover
+      background $primary
+      
+    menu.codetype a:hover,
+    menu.codetype a:active,
+    menu.codetype a.active,
+    key,
+    key.double span,
+    #codebox.active input[type=text],
+    #codebox .code-inner.dark p,
+    #codebox .code-inner.dark span,
+    menu.theme a:hover,
+    menu.theme a
+      color $secondary
+      
+    key
+      border-color transparent
+      
+      &:hover,
+      &.double:hover
+        background rgba($primary, .9)
+        
+      &.double,
+      &.double.uppercase span
+        color rgba($secondary, .3)
+          
+        &.uppercase
+          color rgba($secondary, 1)
+          
+    .copyright a
+      font-size 13px
+      font-weight 900
+      text-transform uppercase
       text-decoration none
       
       &:hover
         text-decoration underline
+      
+    .cap
+      border 2px solid $tertiary
+      
+    .cap:hover,
+    .cap.capsOn
+      background $tertiary
+        
+    #keyboard.unicode row.one key,
+    #keyboard.unicode row.six key,
+    #keyboard.unicode key.shft,
+    #keyboard.unicode .caps,
+    #keyboard.unicode.capslock .tab,
+    #keyboard.unicode.capslock .return,
+    #keyboard.unicode.capslock .delete,
+    #keyboard.encoded key.f1,
+    #keyboard.encoded key.f2,
+    #keyboard.encoded key.f3,
+    #keyboard.encoded key.f4,
+    #keyboard.encoded key.f5,
+    #keyboard.encoded key.f6,
+    #keyboard.encoded key.f7,
+    #keyboard.encoded key.f8,
+    #keyboard.encoded key.f9,
+    #keyboard.encoded key.f10,
+    #keyboard.encoded key.f11,
+    #keyboard.encoded key.f12,
+    #keyboard.encoded key.f13,
+    #keyboard.encoded .caps,
+    #keyboard.encoded .shft,
+    #keyboard.encoded .ctrl,
+    #keyboard.encoded .opt,
+    #keyboard.encoded .cmd
+      background rgba($primary, .25)
+    
+    #codebox.active
+      border-color transparent
+      box-shadow 0 25px 69px -20px rgba(0,0,0,0.35)
+      
+      .code-inner.dark
+        background none
+            
+      .code-inner
+        background none
+      
+    footer p.best a
+      text-decoration underline
+      
+      &:hover
+        text-decoration none
+      
+    menu.codetype a:active,
+    menu.codetype a.active,
+    menu.theme
+      background $tertiary
+      
+    .settings:before,
+    footer p.best a
+      color $tertiary

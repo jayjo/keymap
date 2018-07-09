@@ -24,12 +24,13 @@ body.light
     &.close
       background $dark-background
   aside
-    width 145px
+    left 20px
     padding 20px 0
-    background $light-background
+    top 2px
+    width 300px
   menu a
     background $secondary
-    border-bottom 1px solid $primary
+    border-bottom none
     border-radius 0
     color $primary
     margin 0
@@ -39,7 +40,7 @@ body.light
       background $secondary
       color $cta
     &.active
-      background $primary
+      background $secondary
       color $tertiary
       border-bottom none
   key
@@ -60,7 +61,7 @@ body.light
       &.uppercase
         color rgba($primary, 1)
         span
-          color rgba($primary, .5)
+          color rgba(242,242,242, 1)
   row.four key.single:active,
   row.five key.single:active,
   row.four key.single.active,
@@ -118,3 +119,6 @@ body.light
       background none
   input[type=text]
     color $cta
+  footer p.best
+    color rgba(0,0,0,.25)
+    font-weight 900

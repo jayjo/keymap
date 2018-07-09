@@ -1,15 +1,15 @@
 @import 'mixins.styl';
 
-$dark-background        = $theme-light-yellow
-$light-background       = $theme-dark-yellow
-$primary                = $theme-light-yellow
-$secondary              = $theme-dark-yellow
-$tertiary               = rgb(0,0,0)               
-$quaternary             = rgb(255,255,255)
+$dark-background        = $theme-light-green
+$light-background       = $theme-dark-green
+$primary                = $theme-light-green
+$secondary              = $theme-dark-green
+$tertiary               = rgb(255,255,255)
+$quaternary             = rgb(0,0,0)               
 
 body
   
-  &.yellow
+  &.green
     background $secondary
     
     header .theme-switcher,
@@ -33,6 +33,7 @@ body
     .copyright p,
     .copyright a,
     footer p.best,
+    footer p.best a,
     .success
       color $primary    
       
@@ -51,8 +52,8 @@ body
     #codebox.active input[type=text],
     #codebox .code-inner.dark p,
     #codebox .code-inner.dark span,
-    menu.theme a,
-    menu.theme a:hover
+    menu.theme a:hover,
+    menu.theme a
       color $secondary
       
     key

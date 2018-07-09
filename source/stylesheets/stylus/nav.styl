@@ -2,20 +2,19 @@
 
 aside
 	padding 20px
-	width 105px
+	width 300px
 	position fixed
-	min-height 100%
 	left 0
 	top 0
 	z-index 1
-	opacity 0
-	background rgba($dpurplish, 1)
+	opacity 1
+	// background rgba($dpurplish, 1)
 	/*box-sizing border-box;
 	-moz-box-sizing border-box;*/
 	twosecs()
 	
 aside.inactive
-	left -145px
+	left 0
 	twosecs()
 	
 .settings
@@ -27,7 +26,7 @@ aside.inactive
 	top -10px
 	z-index 4
 	background rgba($dpurplish, 1)
-	border-radius 0 0 3px 0
+	border-radius 0 0 2px 0
 	cursor pointer
 	
 	&:before
@@ -55,29 +54,29 @@ aside.inactive
 	
 aside.inactive menu.codetype
 	position relative
-	margin 70px 0 0 0
-	left -380px
+	margin 0
+	left 0
 	twosecs()
 	
 aside menu.codetype
 	position relative
-	margin 70px 0 0 0
+	margin 0
 	left 0
 	twosecs()
 	
 menu.codetype a
 	width 100%
-	margin 0 0 8px 0
+	margin 0 5px 8px 0
 	border-radius 3px
 	background rgba($green, 0.2)
-	padding 7px 0 7px
+	padding 7px 15px 7px
 	color #FFF
 	text-decoration none
 	text-transform uppercase
 	font-weight 900
 	font-size 12px
 	text-align center
-	display inline-block
+	display inline
 	cursor pointer
 	
 	&.active
@@ -101,3 +100,7 @@ menu.codetype a
 	bottom 25px
 	left 29px
 	z-index 1
+	
+.dark aside
+	left 20px
+	top 20px

@@ -4,6 +4,7 @@
   background rgba($dpurplish, 1)
   border-radius 0 0 0 3px
   color $green
+  cursor pointer
   font-size 13px
   font-weight 900
   margin 0
@@ -23,6 +24,11 @@
     margin 0 0 0 10px
     position relative
     top 3px
+    transition color 150ms
+    
+  &:hover:after
+    color white
+    transition color 150ms
   
   a
     color $green
@@ -38,12 +44,20 @@ menu.theme
   box-shadow 0 11px 55px -15px rgba(0,0,0,0.75)
   display inline-block
   height auto
+  opacity 0
   padding 10px
   position absolute
   right 10px
   top 30px
+  visibility hidden
   width 100px
   z-index 2
+  transition opacity 150ms, visibility 150ms 0ms
+  
+  &.open
+    opacity 1
+    visibility visible
+    transition opacity 150ms, visibility 0ms
   
   a
     border-radius 2px
@@ -60,3 +74,7 @@ menu.theme
       background $green
       color #FFF
       transition all 150ms
+    
+    &.active
+      background $green
+      color #FFF

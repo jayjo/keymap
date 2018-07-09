@@ -262,7 +262,7 @@ jQuery(document).ready(function($) {
 		$('.settings').on('click', function(){
 			$(this).toggleClass('close');
 			$('.wrapper').toggleClass('active');
-			$('aside').toggleClass('inactive');
+			$('aside').toggleClass('active');
 
 			Cookies.set(menuCookie, $('aside').attr('class'), cookieOptions);
 
@@ -288,49 +288,20 @@ jQuery(document).ready(function($) {
 
 	$.logoClicker();
 
-	$('.dark').on('click', function(){
-		var themeText = $(this).text();
+	$('menu.theme a').on('click', function(){
+		var themeText = $(this).text(),
+				theme 		= $(this).attr('class');
 		$('.theme-switcher').text(themeText);
-		$('body').removeClass().addClass('dark');
-		Cookies.set(themeCookie, 'dark', {cookieOptions});
+		$(this).addClass('active').siblings().removeClass('active');
+		$('body').removeClass().addClass(theme);
+		Cookies.set(themeCookie, theme, {cookieOptions});
+		$('menu.theme').removeClass('open');
 		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Dark"});
+		mixpanel.track("Clicked Something", {"Element": "Theme - " + theme});
 	});
 
-	$('.light').on('click', function(){
-		var themeText = $(this).text();
-		$('.theme-switcher').text(themeText);
-		$('body').removeClass().addClass('light');
-		Cookies.set(themeCookie, 'light', {cookieOptions});
-		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Light"});
-	});
-
-	$('.dark-blue').on('click', function(){
-		var themeText = $(this).text();
-		$('.theme-switcher').text(themeText);
-		$('body').removeClass().addClass('dark-blue');
-		Cookies.set(themeCookie, 'dark-blue', {cookieOptions});
-		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Dark Blue"});
-	});
-
-	$('.yellow').on('click', function(){
-		var themeText = $(this).text();
-		$('.theme-switcher').text(themeText);
-		$('body').removeClass().addClass('yellow');
-		Cookies.set(themeCookie, 'yellow', {cookieOptions});
-		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Yellow"});
-	});
-
-	$('.red').on('click', function(){
-		var themeText = $(this).text();
-		$('.theme-switcher').text(themeText);
-		$('body').removeClass().addClass('red');
-		Cookies.set(themeCookie, 'red', {cookieOptions});
-		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Yellow"});
+	$('.theme-switcher').on('click', function(){
+		$('menu.theme').toggleClass('open');
 	});
 
 	// Set Cookies
