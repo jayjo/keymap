@@ -307,7 +307,6 @@ jQuery(document).ready(function($) {
 	// Set Cookies
 	$('body').addClass(Cookies.get(themeCookie));
 	$('.theme-switcher').text(Cookies.get(themeCookie));
-	$('aside').addClass(Cookies.get(menuCookie));
 	$('#keyboard, #codebox').addClass(Cookies.get(typeCookie));
 	$('a#' + Cookies.get(typeCookie)).addClass('active');
 
