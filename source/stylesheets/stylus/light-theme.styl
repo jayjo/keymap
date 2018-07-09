@@ -1,42 +1,51 @@
 @import 'mixins.styl';
 
+$dark-background        = $theme-dark-grey
+$light-background       = $theme-light-grey
+$primary                = $theme-dark-grey
+$secondary              = $theme-light-grey
+$tertiary               = rgba(0,0,0,.5)
+$cta                    = $cta-color
+
 body.light
-  background rgba(230, 230, 230, 1)
+  background $light-background
   header
     .theme-switcher
-      background rgba(230, 230, 230, 1)
+      background $light-background
       color $dblue
       a
         color $dblue
         &hover
           color $green
   .wrapper
-    background rgba(205, 205, 205, 1)
+    background $dark-background
   .settings
-    background rgba(205, 205, 205, 1)
+    background $dark-background
     &.close
-      background rgba(205, 205, 205, 1)
+      background $dark-background
   aside
-    width 145px
+    left 20px
     padding 20px 0
-    background rgba(230, 230, 230, 1)
+    top 2px
+    width 300px
   menu a
-    background rgb(230, 230, 230)
-    border-bottom 1px solid rgb(205, 205, 205)
+    background $secondary
+    border-bottom none
     border-radius 0
-    color rgba(0, 0, 0, 0.32)
+    color $primary
     margin 0
     &:last-child
       border-bottom none
     &:hover
-      background rgb(243, 243, 243)
+      background $secondary
+      color $cta
     &.active
-      background rgb(205, 205, 205)
-      color $dblue
+      background $secondary
+      color $tertiary
       border-bottom none
   key
     keyshadow()
-    border 2px solid rgba(255, 255, 255, 0.35)
+    border 2px solid rgba($secondary, 0.35)
     &:hover
       lightkeyshadowhover()
     &:active,
@@ -45,25 +54,29 @@ body.light
       top 3px
       lightkeyshadowactive()
     &.double
-      color rgba(0, 0, 0, 0.1)
+      keyshadow()
       span
-        color rgba(0, 0, 0, 0.4)
+        keyshadow()
+        opacity
       &.uppercase
-        color rgba(0, 0, 0, 0.4)
+        color rgba($primary, 1)
         span
-          color rgba(0, 0, 0, 0.1)
+          color rgba(242,242,242, 1)
   row.four key.single:active,
   row.five key.single:active,
   row.four key.single.active,
   row.five key.single.active
     top -8px !important
   .copyright p
-    background rgba(230, 230, 230, 1)
-    color $dblue
+    background $secondary
+    color $primary
   .copyright a
-    color $dblue
+    color $cta
+    font-size 13px
+    text-transform uppercase
+    text-decoration none
     &:hover
-      color $green
+      text-decoration underline
   #keyboard.unicode row.one key,
   #keyboard.unicode row.six key,
   #keyboard.unicode key.shft,
@@ -99,10 +112,13 @@ body.light
     .code-inner.dark
       background none
       p
-        color $dblue
+        color $primary
         span
-          color $green
+          color $cta
     .code-inner
       background none
   input[type=text]
-    color $green
+    color $cta
+  footer p.best
+    color rgba(0,0,0,.25)
+    font-weight 900

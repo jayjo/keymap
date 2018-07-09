@@ -142,7 +142,7 @@ jQuery(document).ready(function($) {
 
 	$.keyBoard = function(){
 
-		$('menu a').on('click', function(e){
+		$('.codetype a').on('click', function(e){
 
 			var keyClass = $(this).attr('id');
 
@@ -262,7 +262,7 @@ jQuery(document).ready(function($) {
 		$('.settings').on('click', function(){
 			$(this).toggleClass('close');
 			$('.wrapper').toggleClass('active');
-			$('aside').toggleClass('inactive');
+			$('aside').toggleClass('active');
 
 			Cookies.set(menuCookie, $('aside').attr('class'), cookieOptions);
 
@@ -288,22 +288,25 @@ jQuery(document).ready(function($) {
 
 	$.logoClicker();
 
-	$('.light').on('click', function(){
-		$('body').removeClass('dark').addClass('light');
-		Cookies.set(themeCookie, 'light', {cookieOptions});
+	$('menu.theme a').on('click', function(){
+		var themeText = $(this).text(),
+				theme 		= $(this).attr('class');
+		$('.theme-switcher').text(themeText);
+		$(this).addClass('active').siblings().removeClass('active');
+		$('body').removeClass().addClass(theme);
+		Cookies.set(themeCookie, theme, {cookieOptions});
+		$('menu.theme').removeClass('open');
 		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Light"});
+		mixpanel.track("Clicked Something", {"Element": "Theme - " + theme});
 	});
 
-	$('.dark').on('click', function(){
-		$('body').removeClass('light').addClass('dark');
-		Cookies.set(themeCookie, 'dark', {cookieOptions});
-		// MIXPANEL
-		mixpanel.track("Clicked Something", {"Element": "Theme - Dark"});
+	$('.theme-switcher').on('click', function(){
+		$('menu.theme').toggleClass('open');
 	});
 
 	// Set Cookies
 	$('body').addClass(Cookies.get(themeCookie));
+	$('.theme-switcher').text(Cookies.get(themeCookie));
 	$('aside').addClass(Cookies.get(menuCookie));
 	$('#keyboard, #codebox').addClass(Cookies.get(typeCookie));
 	$('a#' + Cookies.get(typeCookie)).addClass('active');

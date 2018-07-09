@@ -30,8 +30,8 @@ row
   position relative
   
 key
+  border 2px solid rgba($green, .35)
   border-radius 3px
-  border 2px solid rgba($green, 0.35)
   background transparent
   font-family Helvetica
   font-weight normal
@@ -45,8 +45,9 @@ key
   cursor pointer
   display inline-block
   color $yellow
-  /*@include key;*/
-  /*@include keyshadow;*/
+  
+  &:hover
+    border 2px solid rgba($green, 1)
     
 key.double
   color rgba(255, 255, 255, 0.25)
@@ -82,13 +83,8 @@ key.double:active span
   
 key.deactivated
   top 4px
-  keyshadowactive()
+  opacity .3
   pointer-events: none
-  
-key:hover
-  border 2px solid rgba($green, 1)
-  color rgba(255, 255, 255, 1)
-  /*@include keyshadowhover;*/
     
 key.single,
 key.tab
@@ -96,7 +92,7 @@ key.tab
   
 key:active,
 key.active
-  top 3px
+  top 1px
   keyshadowactive()
   
 key.uppercase
@@ -146,7 +142,7 @@ row.six .space
   width 445px
   
 row.six .space.active
-  top 18px
+  top 15px
   
 row.three .lbrack,
 row.three .rbrack,
@@ -167,7 +163,7 @@ row.five key.single
   
 row.three key.single:active,
 row.three key.single.active
-  top -7px
+  top -10px
   
 row.one key.single.esc
   font-size 16px
@@ -222,11 +218,10 @@ row.four key.apos
   top 6px
   
 row.four key.single:active,
-row.five key.single:active
-  top -8px
-  
-row.four key.apos:active
-  top 9px
+row.five key.single:active,
+row.four key.single.active,
+row.five key.single.active
+  top -10px
   
 .cap
   position absolute
@@ -286,7 +281,7 @@ row.four key.apos:active
 #keyboard.encoded .opt,
 #keyboard.encoded .cmd
   top 2px
-  keyshadowactive()
+  opacity .3
   pointer-events none
 /*#keyboard.encoded row.six key.space {
     top 16px;
@@ -304,29 +299,19 @@ row.four key.apos:active
 @media screen and (min-width 1025px) and (max-width 1189px)
   #keyboard
     transform scale(0.8)
-    -webkit-transform scale(0.8)
-    -ms-transform scale(0.8)
 
 @media screen and (min-width 1190px) and (max-width 1220px)
   #keyboard
     transform scale(0.94)
-    -webkit-transform scale(0.94)
-    -ms-transform scale(0.94)
 
 @media screen and (min-width 1444px) and (max-width 2010px)
   #keyboard
     transform scale(1.18)
-    -webkit-transform scale(1.18)
-    -ms-transform scale(1.18)
 
 @media screen and (min-width 1444px) and (max-width 2010px)
   #keyboard
     transform scale(1.18)
-    -webkit-transform scale(1.18)
-    -ms-transform scale(1.18)
 
 @media screen and (min-width 2010px) and (max-width 2560px)
   #keyboard
     transform scale(1.75)
-    -webkit-transform scale(1.75)
-    -ms-transform scale(1.75)

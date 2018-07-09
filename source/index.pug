@@ -7,11 +7,11 @@ html(lang="en")
 	include inc/mix.pug
 	include inc/scripts.pug
 
-	body(class="home")
+	body.home
 		include inc/header.pug
 		
-		div(class="wrapper")
-			div(id="keyboard")
+		div.wrapper
+			div#keyboard
 
 				include inc/row1.pug
 				include inc/row2.pug
@@ -22,7 +22,7 @@ html(lang="en")
 				h1(id="logo", class="gray")
 					a(href="/") KeyCodes
 
-			div(id="keypad")
+			div#keypad
 
 			include inc/codebox.pug
 

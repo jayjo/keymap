@@ -1,61 +1,25 @@
 keyshadow()
-  background rgba(255, 255, 255, 0.75)
-  -webkit-box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
-  -moz-box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
-  box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
-  color rgba(0, 0, 0, 0.4)
+  background rgba(242, 242, 242, 1)
+  color rgba(0, 0, 0, 0.5)
   // @include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
   // clude background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));
     
 keyshadowhover()
-  background rgba(255, 255, 255, 0.75)
-  -webkit-box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
-  -moz-box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
-  box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
+  background rgba(255, 255, 255, 1)
   // @include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
   // clude background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));
     
 keyshadowactive()
-  color rgba(255, 255, 255, 0.25)
-  background rgba(0, 0, 0, 0.15)
-  border 2px solid rgba(0, 0, 0, 0.25)
-  -webkit-box-shadow none
-  -moz-box-shadow none
-  box-shadow none
+  
   
 lightkeyshadowhover()
   background rgba(255, 255, 255, 1)
-  -webkit-box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
-  -moz-box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
-  box-shadow 0 3px 0 0 rgba(0, 0, 0, 0.1)
   // @include filter-gradient(#1fffff, #00ffff, vertical); // IE6-9
   // clude background-image(linear-gradient(top,  rgba(255,255,255,0.12) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 100%));
     
 lightkeyshadowactive()
-  color rgba(0, 0, 0, 0.2)
   background rgba(255, 255, 255, 0.3)
   border 2px solid rgba(0, 0, 0, 0.17)
-  -webkit-box-shadow none
-  -moz-box-shadow none
-  box-shadow none
-  
-btn()
-  filter-gradient(black, #260000, vertical)
-  $experimental-support-for-svg = true
-  background-image(linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%))
-  -webkit-box-shadow inset 0px 2px 0px 0px rgba(255, 255, 255, 0.08)
-  box-shadow inset 0px 2px 0px 0px rgba(255, 255, 255, 0.08)
-  
-btnhover()
-  filter-gradient(black, #260000, vertical)
-  $experimental-support-for-svg = true
-  background-image(linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%))
-  -webkit-box-shadow inset 0px 2px 0px 0px rgba(255, 255, 255, 0.1)
-  box-shadow inset 0px 2px 0px 0px rgba(255, 255, 255, 0.1)
-  
-btnactive()
-  -webkit-box-shadow inset 0px 0px 1px 0px rgba(0, 0, 0, 0.45)
-  box-shadow inset 0px 0px 1px 0px rgba(0, 0, 0, 0.45)
   
 key()
   filter-gradient(black, #0d0000, vertical)
@@ -64,32 +28,61 @@ key()
   
 twosecs()
   transition all 0.2s
-  -moz-transition all 0.2s
-  -webkit-transition all 0.2s
   
 onesec()
   transition all 0.05s
-  -moz-transition all 0.05s
-  -webkit-transition all 0.05s
   
 /************** Icon Fonts ***************/
 
-$settings = "\e000"
-$settings-close = "\e001"
+$settings             = "\e000"
+$settings-close       = "\e001"
+$dropdown-arrow       = "\e901"
+$arrow-key            = "\e900"
 
 /************** Font Fonts ***************/
 
-$omnes = omnes-pro
-$icons = "icomoon"
-$brandon = brandon-grotesque
+$omnes                = omnes-pro
+$icons                = "icomoon"
+$brandon              = brandon-grotesque
 
 /************** Colors ***************/
 
-$green = rgb(22, 160, 133)
-$white = rgb(255, 255, 255)
-$dblue = rgb(3, 49, 65)
-$dbluetwo = rgb(49, 63, 81)
-$purplish = rgb(21, 29, 38)
-$dpurplish = rgb(39, 49, 62)
-$gray = rgb(118, 118, 118)
-$yellow = rgb(252, 205, 67)
+$green                = rgb(22, 160, 133)
+$white                = rgb(255, 255, 255)
+$dblue                = rgb(3, 49, 65)
+$dbluetwo             = rgb(49, 63, 81)
+$purplish             = rgb(21, 29, 38)
+$dpurplish            = rgb(39, 49, 62)
+$gray                 = rgb(118, 118, 118)
+$yellow               = rgb(252, 205, 67)
+
+/************** Theme Colors *************/
+
+/************** White Theme *************/
+$theme-dark-grey      = rgb(205, 205, 205)
+$theme-light-grey     = rgb(230, 230, 230)
+$cta-color            = rgb(22, 160, 133)
+
+/************** Yellow Theme *************/
+$theme-dark-yellow    = rgb(255,198,8)
+$theme-light-yellow   = rgb(254,249,208)
+
+/************** Blue Theme *************/
+$theme-dark-blue      = rgb(4, 59, 200)
+$theme-light-blue     = rgb(158, 216, 255)
+
+/************** Red Theme *************/
+$theme-dark-red       = rgb(190, 48, 65)
+$theme-light-red      = rgb(249, 178, 199)
+
+/************** green Theme *************/
+$theme-dark-green       = rgb(60, 155, 32)
+$theme-light-green      = rgb(182, 226, 134)
+
+/************** purple Theme *************/
+$theme-dark-purple       = rgb(80, 30, 132)
+$theme-light-purple      = rgb(212, 143, 255)
+
+/************** orange Theme *************/
+$theme-dark-orange       = rgb(237, 131, 30)
+$theme-light-orange      = rgb(255, 212, 171)
