@@ -20,8 +20,12 @@ body
     menu.codetype a,
     .copyright p,
     .success,
-    menu.theme a.active
+    menu.theme a.active,
+    .keypad key
       background $secondary
+      
+      &:hover
+        background rgba($secondary, .9)
     
     header
       .theme-switcher,
@@ -33,14 +37,17 @@ body
     .copyright p,
     .copyright a,
     footer p.best,
-    .success
+    footer p.best a,
+    .success,
+    .keypad key
       color $primary    
       
     menu.codetype a:hover,
     key,
     key.double,
     #codebox.active,
-    menu.theme a:hover
+    menu.theme a:hover,
+    .keypad
       background $primary
       
     menu.codetype a:hover,
@@ -51,8 +58,10 @@ body
     #codebox.active input[type=text],
     #codebox .code-inner.dark p,
     #codebox .code-inner.dark span,
+    menu.theme a:hover,
     menu.theme a,
-    menu.theme a:hover
+    button .expand,
+    button .minimize
       color $secondary
       
     key

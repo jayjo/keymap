@@ -310,4 +310,8 @@ jQuery(document).ready(function($) {
 	$('#keyboard, #codebox').addClass(Cookies.get(typeCookie));
 	$('a#' + Cookies.get(typeCookie)).addClass('active');
 
+	$(document).keyup(function(e) {
+	    console.log(e.keyCode);
+	});
+
 });
