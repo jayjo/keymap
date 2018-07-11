@@ -5,17 +5,19 @@ $light-background       = $theme-light-grey
 $primary                = $theme-dark-grey
 $secondary              = $theme-light-grey
 $tertiary               = rgba(0,0,0,.5)
-$cta                    = $cta-color
+$quaternary             = $cta-color
 
 body.light
   background $light-background
+  .keypad
+    background $dark-background
   header
     .theme-switcher
       background $light-background
       color $dblue
       a
         color $dblue
-        &hover
+        &:hover
           color $green
   .wrapper
     background $dark-background
@@ -32,16 +34,16 @@ body.light
     background $secondary
     border-bottom none
     border-radius 0
-    color $primary
+    color $tertiary
     margin 0
     &:last-child
       border-bottom none
     &:hover
-      background $secondary
-      color $cta
+      background $quaternary
+      color $secondary
     &.active
       background $secondary
-      color $tertiary
+      color $quaternary
       border-bottom none
   key
     keyshadow()
@@ -62,6 +64,21 @@ body.light
         color rgba($primary, 1)
         span
           color rgba(242,242,242, 1)
+  .keypad key.enter
+    &:active,
+    &.active,
+    &.caps.activated
+      top -66px
+  .keypad key.period
+    &:active,
+    &.active,
+    &.caps.activated
+      top -78px
+  .keypad key.zero
+    &:active,
+    &.active,
+    &.caps.activated
+      top -78px
   row.four key.single:active,
   row.five key.single:active,
   row.four key.single.active,
@@ -69,10 +86,11 @@ body.light
     top -8px !important
   .copyright p
     background $secondary
-    color $primary
+    color $dblue
   .copyright a
-    color $cta
+    color $dblue
     font-size 13px
+    font-weight 900
     text-transform uppercase
     text-decoration none
     &:hover
@@ -114,11 +132,11 @@ body.light
       p
         color $primary
         span
-          color $cta
+          color $quaternary
     .code-inner
       background none
   input[type=text]
-    color $cta
+    color $quaternary
   footer p.best
     color rgba(0,0,0,.25)
     font-weight 900

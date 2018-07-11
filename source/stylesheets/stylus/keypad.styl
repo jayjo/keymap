@@ -1,0 +1,104 @@
+@import 'mixins.styl';
+
+.keypad
+  background-color $dpurplish  
+  border-radius 7px 7px 0 0
+  box-shadow 0
+  bottom 0
+  height 0
+  left 50%
+  margin 0 0 0 -148px
+  overflow hidden
+  padding 39px 5px 0 6px
+  pointer-events none
+  position fixed
+  width 285px
+  z-index 9999
+  transition height 150ms, padding 150ms
+  
+  &.undocked
+    border-radius 7px
+    box-shadow 0 25px 69px -20px rgba(0,0,0,0.60)
+    height 345px
+    padding 39px 5px 1px 6px
+    pointer-events auto
+    transition height 150ms, padding 150ms
+  
+  button
+    background white
+    border none
+    border-radius 3px
+    display block
+    height 25px
+    outline none
+    pointer-events auto
+    position absolute
+    right 7px
+    top 7px
+    width 25px
+    
+    .expand,
+    .minimize
+      background transparent
+      border-radius 3px
+      display block
+      height 100%
+      left 0
+      outline none
+      pointer-events auto
+      position absolute
+      top 0
+      width 100%
+      
+    .expand
+      font-size 18px
+      font-weight 900
+    
+    .minimize
+      font-size 20px
+      font-weight 900
+      
+    .expand.inactive,
+    .minimize.inactive
+      display none
+
+row.keypad key
+  height 43px
+  margin-bottom 7px
+  padding 15px 0 0 0
+  width 61px
+  
+  &.clear,
+  &.enter
+    font-size 15px
+    height 49px
+    line-height 41px
+    padding 9px 0 0 0
+    
+  &.asterisk
+    font-size 22px
+  
+  &.zero, 
+  &.period
+    position relative
+    top -81px
+
+  &.zero
+    width 133px
+    
+  &.enter
+    height 37px
+    padding-top 90px
+    position relative
+    top -69px
+    
+.default
+  button
+    background $dpurplish
+    border 2px solid rgba($green, .35)
+    color $yellow
+    transition border 150ms
+    
+    &:hover
+      border-color $green
+      transition border 150ms
