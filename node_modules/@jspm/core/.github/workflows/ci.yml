@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  test-firefox:
+    name: Firefox Browser Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        firefox: ['89.0']
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Setup Firefox ${{ matrix.firefox }}
+        uses: browser-actions/setup-firefox@latest
+        with:
+          firefox-version: ${{ matrix.firefox }}
+      - run: npm ci
+      - name: Setup Chomp
+        uses: guybedford/chomp-action@v1
+      - run: chomp test
+        env:
+          CI_BROWSER: /opt/hostedtoolcache/firefox/${{ matrix.firefox }}/x64/firefox
+          CI_BROWSER_FLAGS: -headless
+
+  test-chrome:
+    name: Chrome Browser Tests
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        chrome: [
+          '913920', # August 2021
+        ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Setup Chrome ${{ matrix.chrome }}
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: ${{ matrix.chrome }}
+      - name: Set Chrome Path
+        run: $env:CI_BROWSER=$(where chrome)
+      - run: echo $env:CI_BROWSER
+      - run: npm ci
+      - name: Setup Chomp
+        uses: guybedford/chomp-action@v1
+      - run: chomp test
+        env:
+          CI_BROWSER_FLAGS: --headless --screenshot

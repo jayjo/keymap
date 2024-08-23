@@ -1,0 +1,27 @@
+version = 0.1
+
+default-task = 'build'
+
+[[task]]
+name = 'build'
+deps = ['nodelibs/node', 'nodelibs/browser']
+
+[[task]]
+target = 'nodelibs/browser'
+deps = ['src-browser/**/*']
+run = 'rollup -c'
+
+[[task]]
+target = 'nodelibs/node'
+invalidation = 'always'
+run = 'node generate-node-libs.mjs'
+
+[[task]]
+name = 'test'
+deps = ['build']
+run = 'node test/server.js'
+
+[[task]]
+name = 'test:watch'
+env = { WATCH_MODE = '1' }
+run = 'node test/server.js'

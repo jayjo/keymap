@@ -1,0 +1,22 @@
+<!doctype html>
+<script type="module">
+  const tests = await await fetch('/tests/list').then(r => r.json());
+  let curTest;
+  try {
+    for (curTest of tests) {
+      if (curTest.startsWith('chrome-') && navigator.userAgent.indexOf('Chrome/') === -1)
+        continue;
+      await import(`./${curTest}`);
+    }
+    console.log('OK');
+    fetch('/done');
+  }
+  catch (err) {
+    console.error(err);
+    fetch('/error?' + curTest, {
+      method: 'post',
+      body: JSON.stringify({ message: err && err.message || String(err), stack: err && err.stack || String(err) }),
+    });
+  }
+  done = true;
+</script>

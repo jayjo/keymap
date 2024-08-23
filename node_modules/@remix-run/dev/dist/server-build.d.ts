@@ -1,0 +1,10 @@
+import type { ServerBuild } from "@remix-run/server-runtime";
+export declare const mode: ServerBuild["mode"];
+export declare const assets: ServerBuild["assets"];
+export declare const basename: ServerBuild["basename"];
+export declare const entry: ServerBuild["entry"];
+export declare const routes: ServerBuild["routes"];
+export declare const future: ServerBuild["future"];
+export declare const publicPath: ServerBuild["publicPath"];
+export declare const assetsBuildDirectory: ServerBuild["assetsBuildDirectory"];
+export declare const isSpaMode: ServerBuild["isSpaMode"];
